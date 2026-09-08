@@ -1,6 +1,6 @@
 {
   "name": "MEX Maintenance Software",
-  "description": "Australia's #1 CMMS software for tracking assets, managing work orders, and scheduling preventive maintenance.",
+  "description": "Australia's leading connected operations ecosystem featuring MEX CMMS, CHM Smart Car Hire Management, HireCar Marketplace, and Australia Fleet Tracking telematics.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

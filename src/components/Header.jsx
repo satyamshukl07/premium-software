@@ -26,6 +26,7 @@ import {
   BookOpen,
 } from 'lucide-react';
 import { navigationData } from '../data/contentData.js';
+import ProductMegaMenu from './ProductMegaMenu.jsx';
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null); // 'product' | 'solutions' | 'resources' | null
@@ -33,6 +34,20 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const navRef = useRef(null);
+  const productHoverTimeoutRef = useRef(null);
+
+  const handleProductMouseEnter = () => {
+    if (productHoverTimeoutRef.current) {
+      clearTimeout(productHoverTimeoutRef.current);
+    }
+    setActiveMenu('product');
+  };
+
+  const handleProductMouseLeave = () => {
+    productHoverTimeoutRef.current = setTimeout(() => {
+      setActiveMenu((curr) => (curr === 'product' ? null : curr));
+    }, 180);
+  };
 
   // Close menus when route changes
   useEffect(() => {
@@ -137,23 +152,29 @@ export default function Header() {
 
           {/* Desktop Menu Items */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {/* Product Trigger */}
-            <button
-              id="nav-btn-product"
-              onClick={() => toggleMenu('product')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors ${
-                activeMenu === 'product'
-                  ? 'text-slate-900 bg-slate-100'
-                  : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
-              }`}
+            {/* Product Trigger (Hover Activated on Desktop) */}
+            <div
+              className="relative"
+              onMouseEnter={handleProductMouseEnter}
+              onMouseLeave={handleProductMouseLeave}
             >
-              <span>Product</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
-                  activeMenu === 'product' ? 'rotate-180 text-red-600' : 'text-slate-400'
+              <button
+                id="nav-btn-product"
+                onClick={() => toggleMenu('product')}
+                className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
+                  activeMenu === 'product'
+                    ? 'text-slate-900 bg-slate-100'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
                 }`}
-              />
-            </button>
+              >
+                <span>Product</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    activeMenu === 'product' ? 'rotate-180 text-red-600' : 'text-slate-400'
+                  }`}
+                />
+              </button>
+            </div>
 
             {/* Solutions Trigger */}
             <button
@@ -208,6 +229,14 @@ export default function Header() {
           {/* Right Action CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
+              id="nav-btn-login"
+              to="/login"
+              className="text-slate-700 hover:text-slate-900 text-sm font-semibold px-4 py-2 rounded-full hover:bg-slate-100 transition-colors"
+            >
+              Login
+            </Link>
+
+            <Link
               id="nav-btn-free-trial"
               to="/free-trial"
               className="bg-[#0b1528] hover:bg-[#13233f] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow active:scale-98"
@@ -230,93 +259,17 @@ export default function Header() {
 
       {/* DROPDOWN MENUS (CLICK-ACTIVATED) */}
 
-      {/* 1. PRODUCT DROPDOWN */}
+      {/* 1. PRODUCT MEGA MENU (HOVER-ACTIVATED) */}
       {activeMenu === 'product' && (
         <div
-          id="dropdown-product"
-          className="absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-2xl transition-all animate-in fade-in slide-in-from-top-2 duration-200"
+          onMouseEnter={() => {
+            if (productHoverTimeoutRef.current) {
+              clearTimeout(productHoverTimeoutRef.current);
+            }
+          }}
+          onMouseLeave={handleProductMouseLeave}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-12 gap-8">
-              {/* Left Column: MEX CMMS Overview */}
-              <div className="col-span-4 border-r border-slate-100 pr-8">
-                <div className="mb-4">
-                  <span className="text-xs uppercase font-bold tracking-wider text-slate-400">
-                    Product
-                  </span>
-                  <h3 className="text-xl font-bold text-slate-900 mt-1">MEX CMMS</h3>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Complete suite of maintenance management tools for high-reliability operations.
-                  </p>
-                </div>
-
-                <div className="space-y-4 mt-6">
-                  {navigationData.products.overview.map((item) => (
-                    <Link
-                      key={item.slug}
-                      to={item.path}
-                      className="group block p-2.5 rounded-xl hover:bg-slate-50 transition-colors"
-                    >
-                      <div className="font-bold text-sm text-slate-900 group-hover:text-red-600 transition-colors flex items-center justify-between">
-                        <span>{item.name}</span>
-                        <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-red-600" />
-                      </div>
-                      <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </Link>
-                  ))}
-
-                  <div className="pt-2">
-                    <Link
-                      to="/product/mex-cmms"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700"
-                    >
-                      <span>Explore complete MEX CMMS</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Columns: Features Grid */}
-              <div className="col-span-8">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs uppercase font-bold tracking-wider text-slate-400">
-                    Features
-                  </span>
-                  <Link
-                    to="/product"
-                    className="text-xs font-semibold text-slate-600 hover:text-slate-900"
-                  >
-                    View all capabilities &rarr;
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  {navigationData.products.features.map((feat) => (
-                    <Link
-                      key={feat.slug}
-                      to={feat.path}
-                      className="group flex items-start gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100"
-                    >
-                      <div className="p-2 rounded-lg bg-red-50 group-hover:bg-red-100 transition-colors flex-shrink-0">
-                        {getFeatureIcon(feat.iconName)}
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-slate-900 group-hover:text-red-600 transition-colors">
-                          {feat.name}
-                        </h4>
-                        <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                          {feat.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProductMegaMenu onClose={() => setActiveMenu(null)} />
         </div>
       )}
 
@@ -491,28 +444,84 @@ export default function Header() {
       {mobileOpen && (
         <div id="mobile-navigation-drawer" className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 shadow-xl space-y-4">
           <div className="space-y-1">
-            <Link
-              to="/product"
-              className="block px-3 py-2 text-base font-semibold text-slate-900 hover:bg-slate-50 rounded-lg"
-            >
-              Product
-            </Link>
-            <div className="pl-4 space-y-1 text-sm text-slate-600">
-              <Link to="/product/mex-cmms" className="block py-1 hover:text-red-600">
-                MEX CMMS
+            <div className="flex items-center justify-between px-3 py-2 bg-slate-50 rounded-lg">
+              <Link
+                to="/products"
+                className="text-base font-bold text-slate-950 hover:text-red-600"
+              >
+                Products Ecosystem
               </Link>
-              <Link to="/product/mex-overview" className="block py-1 hover:text-red-600">
-                MEX Overview
-              </Link>
-              <Link to="/product/mex-apps" className="block py-1 hover:text-red-600">
-                MEX Apps
-              </Link>
-              <Link to="/product/services" className="block py-1 hover:text-red-600">
-                Services
-              </Link>
-              <Link to="/product/integrations" className="block py-1 hover:text-red-600">
-                Integrations
-              </Link>
+              <span className="text-[10px] font-bold bg-red-100 text-red-700 px-2 py-0.5 rounded-full">
+                4 Platforms
+              </span>
+            </div>
+
+            <div className="pl-3 space-y-3 pt-2 text-sm">
+              {/* Product 1: MEX CMMS */}
+              <div className="border-l-2 border-red-500 pl-3 space-y-1">
+                <Link to="/products/mex" className="block font-bold text-slate-900 hover:text-red-600">
+                  MEX CMMS
+                </Link>
+                <div className="text-xs text-slate-500 space-y-1 pl-1">
+                  <Link to="/product/mex-overview" className="block hover:text-red-600">
+                    Overview & Capabilities
+                  </Link>
+                  <Link to="/product/mex-apps" className="block hover:text-red-600">
+                    MEX Mobile Apps
+                  </Link>
+                  <Link to="/product/integrations" className="block hover:text-red-600">
+                    API & Telematics Integrations
+                  </Link>
+                </div>
+              </div>
+
+              {/* Product 2: CHM */}
+              <div className="border-l-2 border-blue-500 pl-3 space-y-1">
+                <Link to="/products/chm" className="block font-bold text-slate-900 hover:text-blue-600">
+                  CHM — Smart Car Hire Management
+                </Link>
+                <div className="text-xs text-slate-500 space-y-1 pl-1">
+                  <Link to="/products/chm" className="block hover:text-blue-600">
+                    SaaS Console & Toll Billing
+                  </Link>
+                </div>
+              </div>
+
+              {/* Product 3: HireCar Marketplace */}
+              <div className="border-l-2 border-orange-500 pl-3 space-y-1">
+                <Link to="/products/hirecar" className="block font-bold text-slate-900 hover:text-[#ea580c]">
+                  HireCar Marketplace
+                </Link>
+                <div className="text-xs text-slate-500 space-y-1 pl-1">
+                  <Link to="/products/hirecar/locations" className="block hover:text-[#ea580c]">
+                    Airport & City Locations
+                  </Link>
+                  <Link to="/products/hirecar/vehicles" className="block hover:text-[#ea580c]">
+                    Vehicle Fleet Catalog
+                  </Link>
+                  <Link to="/products/hirecar/vendors" className="block hover:text-[#ea580c]">
+                    List Your Fleet (Vendors)
+                  </Link>
+                </div>
+              </div>
+
+              {/* Product 4: Australia Fleet Tracking */}
+              <div className="border-l-2 border-emerald-500 pl-3 space-y-1">
+                <Link to="/products/fleet-tracking" className="block font-bold text-slate-900 hover:text-emerald-600">
+                  Australia Fleet Tracking
+                </Link>
+                <div className="text-xs text-slate-500 space-y-1 pl-1">
+                  <Link to="/products/fleet-tracking/tracking-features" className="block hover:text-emerald-600">
+                    5-Second Live GPS Tracking
+                  </Link>
+                  <Link to="/products/fleet-tracking/dash-cams" className="block hover:text-emerald-600">
+                    AI Dual-Facing Dash Cams
+                  </Link>
+                  <Link to="/products/fleet-tracking/business" className="block hover:text-emerald-600">
+                    Business Fleet Solutions
+                  </Link>
+                </div>
+              </div>
             </div>
 
             <Link
@@ -568,10 +577,10 @@ export default function Header() {
             </Link>
 
             <Link
-              to="/user-portal"
-              className="block px-3 py-2 text-base font-semibold text-slate-900 hover:bg-slate-50 rounded-lg"
+              to="/login"
+              className="block px-3 py-2 text-base font-semibold text-slate-900 hover:bg-slate-50 rounded-lg mt-2"
             >
-              User Portal
+              User Portal / Login
             </Link>
 
             <Link
