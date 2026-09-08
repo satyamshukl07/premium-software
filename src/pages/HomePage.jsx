@@ -70,13 +70,15 @@ export default function HomePage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
-                <Link
+                <a
                   id="hero-cta-trial"
-                  to="/free-trial"
+                  href="https://www.hirecarmarketplace.com.au/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-sm transition-all shadow-lg active:scale-98 flex items-center justify-center gap-2"
                 >
                   <span>Get a free trial</span>
-                </Link>
+                </a>
               </div>
 
               {/* Verified Trust Badges */}

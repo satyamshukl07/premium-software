@@ -216,13 +216,15 @@ export default function Header() {
               Login
             </Link>
 
-            <Link
+            <a
               id="nav-btn-free-trial"
-              to="/free-trial"
+              href="https://www.hirecarmarketplace.com.au/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#0b1528] hover:bg-[#13233f] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow active:scale-98"
             >
               Get a free trial
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -572,12 +574,14 @@ export default function Header() {
           </div>
 
           <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
-            <Link
-              to="/free-trial"
+            <a
+              href="https://www.hirecarmarketplace.com.au/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full text-center bg-[#0b1528] text-white py-2.5 rounded-full font-semibold text-sm"
             >
               Get a free trial
-            </Link>
+            </a>
             <a
               href="tel:0733924777"
               className="flex items-center justify-center gap-2 py-2 text-sm font-semibold text-red-600"

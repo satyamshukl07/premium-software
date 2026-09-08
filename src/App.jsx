@@ -52,7 +52,9 @@ function ScrollToTop() {
 function MainLayout() {
   const location = useLocation();
   const isChmApp =
-    location.pathname.startsWith('/products/chm') &&
+    location.pathname.startsWith('/products/chm/') &&
+    location.pathname !== '/products/chm' &&
+    location.pathname !== '/products/chm/' &&
     !location.pathname.startsWith('/products/chm/overview');
 
   if (isChmApp) {
@@ -101,6 +103,8 @@ function MainLayout() {
           <Route path="/products" element={<ProductPage />} />
           <Route path="/products/mex" element={<CmmsPage />} />
           <Route path="/product/mex-cmms" element={<CmmsPage />} />
+          <Route path="/products/chm" element={<ChmProductPage />} />
+          <Route path="/product/chm" element={<ChmProductPage />} />
           <Route path="/products/chm/overview" element={<ChmProductPage />} />
           <Route path="/products/hirecar" element={<HireCarProductPage />} />
           <Route path="/products/hirecar/:subpage" element={<HireCarProductPage />} />

@@ -48,6 +48,25 @@ export default function FreeTrialPage() {
 
   return (
     <div className="bg-white text-slate-800 font-sans">
+      {/* Product Switch / Quick Access Notice for HireCar Marketplace */}
+      <div className="bg-amber-500 text-slate-950 text-xs py-2.5 px-4 font-bold border-b border-amber-600">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+          <div className="flex items-center gap-2 justify-center">
+            <span className="bg-slate-950 text-white text-[10px] px-2 py-0.5 rounded font-mono uppercase">Direct Marketplace</span>
+            <span>Looking for HireCar Marketplace vehicle rentals & operator portal?</span>
+          </div>
+          <a
+            href="https://www.hirecarmarketplace.com.au/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950 text-white hover:bg-slate-900 transition-colors shadow-xs"
+          >
+            <span>Go to HireCar Marketplace</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </div>
+
       {/* Dark Hero */}
       <section className="bg-gradient-to-b from-[#0a1220] via-[#0d1726] to-[#0a1220] text-white py-16 sm:py-20 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">

@@ -17,13 +17,15 @@ export default function CallToActionBanner() {
         </p>
 
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
+          <a
             id="bottom-cta-free-trial"
-            to="/free-trial"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-slate-900 font-bold text-sm hover:bg-slate-100 transition-all shadow-lg active:scale-98"
+            href="https://www.hirecarmarketplace.com.au/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-slate-900 font-bold text-sm hover:bg-slate-100 transition-all shadow-lg active:scale-98 text-center"
           >
             Get a free trial
-          </Link>
+          </a>
           <Link
             id="bottom-cta-contact"
             to="/contact"
