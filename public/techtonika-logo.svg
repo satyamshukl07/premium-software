@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="100%" height="100%" fill="none">
+  <!-- Defs & Gradients -->
+  <defs>
+    <linearGradient id="arrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+  </defs>
+
+  <!-- ICON GROUP -->
+  <g transform="translate(10, 8)">
+    <!-- Base Ellipse / Ground Ring -->
+    <ellipse cx="52" cy="98" rx="26" ry="6" stroke="#15549A" stroke-width="4.5" fill="none" />
+
+    <!-- Location Pin Outer Shell -->
+    <path d="M52 12 C30 12 14 28 14 50 C14 74 46 95 52 97 C58 95 90 74 90 50 C90 28 74 12 52 12 Z" fill="#15549A" />
+
+    <!-- White Inner Circle Knockout -->
+    <circle cx="52" cy="46" r="26" fill="#FFFFFF" />
+
+    <!-- Car Silhouette Inside Pin -->
+    <g transform="translate(34, 28) scale(0.95)" fill="#526071">
+      <!-- Roof & Windshield -->
+      <path d="M11 11 L16 3 L22 3 L27 11 Z" fill="#526071" />
+      <!-- Windshield cutout -->
+      <path d="M12.5 10 L16.5 4.5 L21.5 4.5 L25.5 10 Z" fill="#FFFFFF" />
+      <!-- Car Body -->
+      <path d="M5 11 C4 11 2 12.5 2 14 L1 19 C1 20 2 21 3.5 21 L5 21 C5.5 19.5 7 18.5 9 18.5 C11 18.5 12.5 19.5 13 21 L25 21 C25.5 19.5 27 18.5 29 18.5 C31 18.5 32.5 19.5 33 21 L34.5 21 C36 21 37 20 37 19 L36 14 C36 12.5 34 11 33 11 Z" />
+      <!-- Headlights -->
+      <polygon points="5,14 10,14 9,16 4,16" fill="#CBD5E1" />
+      <polygon points="33,14 28,14 29,16 34,16" fill="#CBD5E1" />
+      <!-- Grille -->
+      <rect x="14" y="15" width="10" height="3" rx="1.5" fill="#CBD5E1" />
+    </g>
+
+    <!-- Golden Orange Swooping Curved Arrow -->
+    <!-- Arc swoosh -->
+    <path d="M 8 72 C 6 86 28 92 48 84 C 64 78 76 66 84 50" 
+          stroke="url(#arrowGrad)" 
+          stroke-width="11" 
+          stroke-linecap="round" 
+          fill="none" />
+    <!-- Arrowhead -->
+    <path d="M 74 38 L 98 44 L 88 66 Z" fill="url(#arrowGrad)" />
+  </g>
+
+  <!-- TYPOGRAPHY GROUP -->
+  <!-- Line 1: TECHTONIKA -->
+  <text x="135" y="44" 
+        font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-weight="900" 
+        font-size="37" 
+        letter-spacing="0.04em" 
+        fill="#102A45">TECHTONIKA</text>
+
+  <!-- Line 2: AUTOMOTIVE SOLUTIONS -->
+  <text x="135" y="75" 
+        font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-weight="800" 
+        font-size="22" 
+        letter-spacing="0.06em" 
+        fill="#102A45">AUTOMOTIVE SOLUTIONS</text>
+
+  <!-- Line 3: BY ADVANCED SYSTEMS -->
+  <text x="136" y="99" 
+        font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-weight="700" 
+        font-size="14.5" 
+        letter-spacing="0.14em" 
+        fill="#334E68">BY ADVANCED SYSTEMS</text>
+</svg>

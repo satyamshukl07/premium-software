@@ -29,6 +29,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import ChmToast from './ChmToast.jsx';
+import TechtonikaLogo from '../TechtonikaLogo.jsx';
 
 export default function ChmLayout({ children }) {
   const { darkMode, toggleDarkMode } = useChm();
@@ -197,17 +198,9 @@ export default function ChmLayout({ children }) {
           }`}
         >
           {/* Sidebar Brand Header */}
-          <div className="h-16 px-5 flex items-center justify-between border-b border-slate-800/80 bg-[#0f1520]">
-            <Link to="/products/chm/dashboard" className="flex items-center gap-3 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                <Car className="w-5 h-5 text-white" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-base font-black tracking-wider text-white">CHM</span>
-                <span className="text-[9.5px] uppercase tracking-wider font-semibold text-slate-400 leading-tight">
-                  Smart Car Hire Management
-                </span>
-              </div>
+          <div className="h-16 px-4 flex items-center justify-between border-b border-slate-800/80 bg-[#0f1520]">
+            <Link to="/products/chm/dashboard" className="flex items-center group py-1">
+              <TechtonikaLogo variant="dark" className="h-10 w-auto group-hover:opacity-95 transition-opacity" />
             </Link>
             <button
               onClick={() => setMobileSidebarOpen(false)}

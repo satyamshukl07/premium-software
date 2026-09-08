@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Lock, Mail, Key, ShieldCheck, ArrowRight, CheckCircle2, UserCheck, AlertCircle } from 'lucide-react';
+import TechtonikaLogo from '../components/TechtonikaLogo.jsx';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -33,18 +34,15 @@ export default function LoginPage() {
     <div className="bg-[#0b1320] min-h-[80vh] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 text-white">
       <div className="max-w-md w-full space-y-8 bg-[#111c2e] p-8 rounded-3xl border border-slate-700/80 shadow-2xl relative">
         {/* Brand Header */}
-        <div className="text-center space-y-2">
-          <div className="inline-flex items-center gap-1 font-extrabold text-2xl tracking-tighter text-white">
-            <span>M</span>
-            <span className="text-red-600">E</span>
-            <span>X</span>
-            <span className="text-xs bg-red-600/20 text-red-400 px-2 py-0.5 rounded-md font-mono ml-2 border border-red-500/30">
-              v16 Cloud
-            </span>
+        <div className="text-center space-y-3">
+          <div className="flex justify-center">
+            <Link to="/">
+              <TechtonikaLogo variant="dark" className="h-12 w-auto" />
+            </Link>
           </div>
           <h2 className="text-xl font-bold text-slate-100">Customer Portal & Cloud Access</h2>
           <p className="text-xs text-slate-400">
-            Sign in to access your MEX maintenance database, work orders, and mobile sync.
+            Sign in to access your automotive operations database, fleet bookings, and mobile sync.
           </p>
         </div>
 

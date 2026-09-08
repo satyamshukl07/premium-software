@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Youtube, Facebook, Twitter, Phone, MapPin } from 'lucide-react';
+import TechtonikaLogo from './TechtonikaLogo.jsx';
 
 export default function Footer() {
   return (
@@ -10,28 +11,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-slate-800/80">
           {/* Column 1: Brand, Address & Contact (Col span 4) */}
           <div className="lg:col-span-4 space-y-6">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="relative w-8 h-8 flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-1 rotate-45">
-                  <div className="w-2.5 h-2.5 bg-red-500 rounded-xs"></div>
-                  <div className="w-2.5 h-2.5 bg-white rounded-xs"></div>
-                  <div className="w-2.5 h-2.5 bg-white rounded-xs"></div>
-                  <div className="w-2.5 h-2.5 bg-red-500 rounded-xs"></div>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-extrabold tracking-tight text-white leading-none">
-                    MEX
-                  </span>
-                  <span className="text-[10px] uppercase font-semibold text-slate-400 tracking-wider">
-                    maintenance software
-                  </span>
-                </div>
-                <span className="text-[9px] uppercase tracking-wider text-slate-500 font-medium">
-                  BY TMA SYSTEMS
-                </span>
-              </div>
+            <Link to="/" className="inline-block group py-1">
+              <TechtonikaLogo variant="dark" className="h-12 w-auto group-hover:opacity-95 transition-opacity" />
             </Link>
 
             <div className="space-y-4 text-xs text-slate-400">

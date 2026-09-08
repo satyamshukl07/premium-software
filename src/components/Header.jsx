@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { navigationData } from '../data/contentData.js';
 import ProductMegaMenu from './ProductMegaMenu.jsx';
+import TechtonikaLogo from './TechtonikaLogo.jsx';
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null); // 'product' | 'solutions' | 'resources' | null
@@ -125,29 +126,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
-          <Link id="nav-brand-logo" to="/" className="flex items-center gap-2 group">
-            {/* MEX Diamond Grid Icon */}
-            <div className="relative w-8 h-8 flex items-center justify-center">
-              <div className="grid grid-cols-2 gap-1 rotate-45">
-                <div className="w-2.5 h-2.5 bg-red-600 rounded-xs"></div>
-                <div className="w-2.5 h-2.5 bg-slate-900 rounded-xs"></div>
-                <div className="w-2.5 h-2.5 bg-slate-900 rounded-xs"></div>
-                <div className="w-2.5 h-2.5 bg-red-600 rounded-xs"></div>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-extrabold tracking-tight text-slate-900 font-sans leading-none">
-                  MEX
-                </span>
-                <span className="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">
-                  maintenance software
-                </span>
-              </div>
-              <span className="text-[9px] uppercase tracking-wider text-slate-400 font-medium">
-                BY TMA SYSTEMS
-              </span>
-            </div>
+          <Link id="nav-brand-logo" to="/" className="flex items-center group py-1">
+            <TechtonikaLogo variant="light" className="h-11 sm:h-12 w-auto group-hover:opacity-95 transition-opacity" />
           </Link>
 
           {/* Desktop Menu Items */}
