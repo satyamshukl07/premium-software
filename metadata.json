@@ -1,0 +1,6 @@
+{
+  "name": "MEX Maintenance Software",
+  "description": "Australia's #1 CMMS software for tracking assets, managing work orders, and scheduling preventive maintenance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
