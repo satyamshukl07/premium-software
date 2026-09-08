@@ -334,7 +334,7 @@ export default function Footer() {
           <div className="flex items-center gap-4 text-slate-400">
             <a
               href="https://linkedin.com"
-              target="_blank"
+              target="www.linkedin.com/in/satyam-shukla07"
               rel="noopener noreferrer"
               className="p-1.5 rounded-full hover:text-white hover:bg-slate-800 transition-colors"
               aria-label="LinkedIn"
