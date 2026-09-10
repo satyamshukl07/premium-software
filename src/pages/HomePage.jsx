@@ -19,7 +19,7 @@ import {
   Clock,
   BookOpen,
 } from 'lucide-react';
-import HeroDashboardMockup from '../components/HeroDashboardMockup.jsx';
+import HeroShowcase from '../components/HeroShowcase.jsx';
 import AnnouncementBar from '../components/AnnouncementBar.jsx';
 import MarqueeCompanies from '../components/MarqueeCompanies.jsx';
 import MarqueeSectors from '../components/MarqueeSectors.jsx';
@@ -35,72 +35,9 @@ export default function HomePage() {
   return (
     <div className="bg-white text-slate-800">
       {/* ========================================================================= */}
-      {/* SECTION 1: HERO (00:00 - 00:01) */}
+      {/* SECTION 1: 4-PRODUCT / WEBSITE SHOWCASE HERO */}
       {/* ========================================================================= */}
-      <section className="bg-gradient-to-b from-[#0a1220] via-[#0d1726] to-[#0a1220] text-white pt-12 pb-20 overflow-hidden relative border-b border-slate-800">
-        {/* Subtle decorative radial gradients */}
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute top-1/2 -right-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left side content (Col 6) */}
-            <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-slate-300">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                <span>Trusted by 4,000+ facilities globally</span>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-sans">
-                Australia's #1 <br />
-                <span className="text-white">CMMS</span>
-              </h1>
-
-              <p className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                Track assets, manage work orders, schedule preventive maintenance, and generate reports—all in one intuitive system that helps teams cut downtime, extend asset life, and boost efficiency.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                <Link
-                  id="hero-cta-action"
-                  to="/product/mex-cmms"
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white text-slate-900 font-bold text-sm hover:bg-slate-100 transition-all shadow-lg active:scale-98 flex items-center justify-center gap-2"
-                >
-                  <span>See MEX in Action</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <a
-                  id="hero-cta-trial"
-                  href="https://www.hirecarmarketplace.com.au/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-sm transition-all shadow-lg active:scale-98 flex items-center justify-center gap-2"
-                >
-                  <span>Get a free trial</span>
-                </a>
-              </div>
-
-              {/* Verified Trust Badges */}
-              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  Fast deployment in &lt; 48 hours
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  Local Australian support & hosting
-                </span>
-              </div>
-            </div>
-
-            {/* Right side interactive product/dashboard UI (Col 6) */}
-            <div className="lg:col-span-6">
-              <HeroDashboardMockup />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroShowcase />
 
       {/* ========================================================================= */}
       {/* SECTION 2: ANNOUNCEMENT BAR (00:01 - 00:02) */}
