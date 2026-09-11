@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
-import { ChevronLeft, ChevronRight, ExternalLink, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight, ExternalLink, Lock, ArrowUpRight } from "lucide-react";
 
 export default function ProductCard({
   product,
@@ -87,12 +88,16 @@ export default function ProductCard({
         </div>
 
         {/* Product Visual Area */}
-        <div className="relative bg-slate-950 aspect-[16/10] sm:aspect-[16/9.5] w-full flex items-center justify-center overflow-hidden">
+        <Link
+          to={`/product/${product.slug || product.key}`}
+          className="relative bg-slate-950 aspect-[16/10] sm:aspect-[16/9.5] w-full flex items-center justify-center overflow-hidden block cursor-pointer group/card"
+          title={`View ${product.name} Details`}
+        >
           <img
             id={`product-image-${product.id}`}
             src={product.image}
             alt={product.alt}
-            className="w-full h-full object-cover sm:object-contain transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+            className="w-full h-full object-cover sm:object-contain transition-transform duration-500 ease-out group-hover/card:scale-[1.02]"
             onError={(e) => {
               if (product.fallbackImage && e.currentTarget.src !== product.fallbackImage) {
                 e.currentTarget.src = product.fallbackImage;
@@ -102,16 +107,17 @@ export default function ProductCard({
           />
 
           {/* Bottom Overlay Tag */}
-          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10 pointer-events-none">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-white border border-slate-700/80 shadow-lg backdrop-blur-md">
+          <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-white border border-slate-700/80 shadow-lg backdrop-blur-md transition-colors group-hover/card:border-blue-400">
               <span
                 className="w-2 h-2 rounded-full animate-pulse"
                 style={{ backgroundColor: product.accentColor }}
               />
               <span className="font-medium tracking-wide">{product.name}</span>
+              <span className="text-[10px] text-slate-400 group-hover/card:text-white transition-colors ml-1">&rarr; View Page</span>
             </span>
           </div>
-        </div>
+        </Link>
       </div>
 
         {/* Left Arrow Navigation Button */}

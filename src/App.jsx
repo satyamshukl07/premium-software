@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage.jsx';
 import ProductPage from './pages/ProductPage.jsx';
 import CmmsPage from './pages/CmmsPage.jsx';
 import FeatureDetailPage from './pages/FeatureDetailPage.jsx';
+import SolutionDetailPage from './pages/SolutionDetailPage.jsx';
 import SolutionsPage from './pages/SolutionsPage.jsx';
 import SectorDetailPage from './pages/SectorDetailPage.jsx';
 import ResourcesPage from './pages/ResourcesPage.jsx';
@@ -110,7 +111,10 @@ function MainLayout() {
           <Route path="/products/hirecar/:subpage" element={<HireCarProductPage />} />
           <Route path="/products/fleet-tracking" element={<FleetTrackingProductPage />} />
           <Route path="/products/fleet-tracking/:subpage" element={<FleetTrackingProductPage />} />
-          <Route path="/product/:slug" element={<FeatureDetailPage />} />
+          <Route path="/product/:slug" element={<SolutionDetailPage />} />
+          <Route path="/products/:category/:slug" element={<SolutionDetailPage />} />
+          <Route path="/solution/:slug" element={<SolutionDetailPage />} />
+          <Route path="/solutions/:category/:slug" element={<SolutionDetailPage />} />
 
           {/* Solutions & Industry Routes */}
           <Route path="/solutions" element={<SolutionsPage />} />

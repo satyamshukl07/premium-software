@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Check, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import CallToActionBanner from '../components/CallToActionBanner.jsx';
+import SolutionDetailPage from './SolutionDetailPage.jsx';
+import { getSolutionDetail } from '../data/solutionDetails.js';
 
 const sectorDataMap = {
   'by-capability': {
@@ -212,6 +214,12 @@ const sectorDataMap = {
 
 export default function SectorDetailPage() {
   const { sector } = useParams();
+
+  // If this slug matches one of our solution cards, render SolutionDetailPage
+  if (sector && !sectorDataMap[sector] && getSolutionDetail(sector)) {
+    return <SolutionDetailPage />;
+  }
+
   const current = sectorDataMap[sector || 'manufacturing'] || sectorDataMap['manufacturing'];
 
   const points = current.keyPoints || [

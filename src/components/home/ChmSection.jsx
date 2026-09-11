@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   ExternalLink,
   ArrowRight,
@@ -12,6 +13,7 @@ import {
   CheckCircle2,
   Lock,
   ArrowUpRight,
+  ChevronRight,
 } from "lucide-react";
 
 export default function ChmSection({ onTrial, onSpecialist }) {
@@ -22,31 +24,37 @@ export default function ChmSection({ onTrial, onSpecialist }) {
     {
       icon: Car,
       title: "Fleet Management",
+      slug: "fleet-management",
       description: "Keep your rental fleet organised and maintain visibility across vehicles.",
     },
     {
       icon: CalendarCheck,
       title: "Booking Management",
+      slug: "booking-management",
       description: "Manage bookings and rental activity from one central system.",
     },
     {
       icon: Users,
       title: "Customer Management",
+      slug: "customer-management",
       description: "Keep customer information organised and accessible.",
     },
     {
       icon: DollarSign,
       title: "Financial Management",
+      slug: "financial-management",
       description: "Manage the financial side of your rental operation more efficiently.",
     },
     {
       icon: Layers,
       title: "Rental Operations",
+      slug: "rental-operations",
       description: "Bring key rental workflows together in one platform.",
     },
     {
       icon: BarChart3,
       title: "Business Analytics",
+      slug: "business-analytics",
       description: "Get better visibility into your rental business through reporting and analytics.",
     },
   ];
@@ -54,26 +62,32 @@ export default function ChmSection({ onTrial, onSpecialist }) {
   const valueBenefits = [
     {
       title: "Manage Vehicles",
+      slug: "manage-vehicles",
       desc: "Live statuses, rego tracking, maintenance history, and vehicle availability calendars in one place.",
     },
     {
       title: "Manage Bookings",
+      slug: "manage-bookings",
       desc: "Instant dispatch, pickup/return workflows, condition reports, and recurring contract management.",
     },
     {
       title: "Manage Customers",
+      slug: "manage-customers",
       desc: "Organised driver verification, license verification records, and transaction logs accessible in seconds.",
     },
     {
       title: "Monitor Operations",
+      slug: "monitor-operations",
       desc: "Real-time alerts on returns, overdue check-ins, toll charges, and maintenance schedules.",
     },
     {
       title: "Improve Visibility",
+      slug: "improve-visibility",
       desc: "Clear visual overview of fleet utilization, revenue per vehicle class, and branch operations.",
     },
     {
       title: "Make Better Business Decisions",
+      slug: "make-better-business-decisions",
       desc: "Accurate financial data and utilization analytics to optimize fleet sizing and rates.",
     },
   ];
@@ -117,21 +131,26 @@ export default function ChmSection({ onTrial, onSpecialist }) {
               </div>
 
               {/* Product Dashboard Visual */}
-              <div className="relative aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden">
+              <Link
+                to="/product/chm"
+                className="relative aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden block cursor-pointer"
+                title="View CHM Solution Details"
+              >
                 <img
                   src="/images/chm-dashboard.svg"
                   alt="Car Hire Manager Operations Dashboard"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   onError={(e) => {
                     e.currentTarget.src = "/images/Screenshot 2026-09-10 134136.png";
                   }}
                   loading="lazy"
                 />
-                <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-slate-700/80 shadow-md">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 inline-block mr-1.5" />
-                  Car Hire Manager (CHM)
+                <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-slate-700/80 shadow-md flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 inline-block" />
+                  <span>Car Hire Manager (CHM)</span>
+                  <span className="text-[10px] text-cyan-300 ml-1">View Details &rarr;</span>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
 
@@ -223,18 +242,23 @@ export default function ChmSection({ onTrial, onSpecialist }) {
             {solutions.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div
+                <Link
                   key={idx}
-                  className="p-6 rounded-2xl bg-white hover:bg-sky-50/40 border border-slate-200/90 hover:border-sky-300 transition-all duration-200 shadow-sm hover:shadow-md group flex flex-col justify-between"
+                  to={`/solutions/${item.slug}`}
+                  className="p-6 rounded-2xl bg-white hover:bg-sky-50/50 border border-slate-200/90 hover:border-sky-300 transition-all duration-200 shadow-sm hover:shadow-lg hover:-translate-y-1 group flex flex-col justify-between cursor-pointer"
                 >
                   <div>
-                    <div className="w-11 h-11 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h4 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h4>
+                    <h4 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-700 transition-colors">{item.title}</h4>
                     <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
                   </div>
-                </div>
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-sky-600 group-hover:text-sky-700">
+                    <span>Learn more</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
               );
             })}
           </div>
@@ -259,16 +283,23 @@ export default function ChmSection({ onTrial, onSpecialist }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {valueBenefits.map((b, i) => (
-              <div
+              <Link
                 key={i}
-                className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-sky-200 transition-colors"
+                to={`/solutions/${b.slug}`}
+                className="p-5 rounded-2xl bg-slate-50 hover:bg-sky-50/40 border border-slate-200/80 hover:border-sky-300 transition-all duration-200 hover:-translate-y-0.5 group flex flex-col justify-between cursor-pointer"
               >
-                <div className="flex items-center gap-2 mb-2 font-bold text-slate-900 text-base">
-                  <CheckCircle2 className="w-4 h-4 text-sky-600" />
-                  <span>{b.title}</span>
+                <div>
+                  <div className="flex items-center gap-2 mb-2 font-bold text-slate-900 group-hover:text-sky-700 text-base transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
+                    <span>{b.title}</span>
+                  </div>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{b.desc}</p>
                 </div>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{b.desc}</p>
-              </div>
+                <div className="pt-3 mt-3 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-500 group-hover:text-sky-700">
+                  <span>Explore capability</span>
+                  <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>

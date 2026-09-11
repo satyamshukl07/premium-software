@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   ExternalLink,
   ArrowRight,
@@ -11,6 +12,7 @@ import {
   MapPin,
   CheckCircle2,
   Lock,
+  ChevronRight,
 } from "lucide-react";
 
 export default function HireCarSection({ onTrial, onSpecialist }) {
@@ -20,31 +22,37 @@ export default function HireCarSection({ onTrial, onSpecialist }) {
     {
       icon: Car,
       title: "Wide Vehicle Selection",
+      slug: "wide-vehicle-selection",
       description: "Explore cars, vans, utes and premium vehicles from rental operators across Australia.",
     },
     {
       icon: ShieldCheck,
       title: "Trusted Rental Operators",
+      slug: "trusted-rental-operators",
       description: "Discover vehicles offered by verified and trusted rental businesses.",
     },
     {
       icon: Search,
       title: "Easy Vehicle Discovery",
+      slug: "easy-vehicle-discovery",
       description: "Find the right vehicle faster with an intuitive marketplace experience.",
     },
     {
       icon: Users,
       title: "Direct Rental Connections",
+      slug: "direct-rental-connections",
       description: "Connect with rental operators and move from discovery to booking with less friction.",
     },
     {
       icon: Layers,
       title: "Transparent Comparison",
+      slug: "transparent-comparison",
       description: "Compare vehicle options and rental information before making a decision.",
     },
     {
       icon: MapPin,
       title: "Australia-Wide Reach",
+      slug: "australia-wide-reach",
       description: "Find rental options across multiple Australian locations.",
     },
   ];
@@ -52,22 +60,27 @@ export default function HireCarSection({ onTrial, onSpecialist }) {
   const whyItMattersPoints = [
     {
       title: "Better Vehicle Discovery",
+      slug: "better-vehicle-discovery",
       text: "Instantly browse verified inventories from independent and regional Australian fleet operators.",
     },
     {
       title: "Better Operator Visibility",
+      slug: "better-operator-visibility",
       text: "Gives quality rental businesses a level playing field to reach business and leisure travelers directly.",
     },
     {
       title: "Easier Comparison",
+      slug: "easier-comparison",
       text: "Clear transparent daily rates, transmission types, seating, and pickup terms with zero hidden fees.",
     },
     {
       title: "Simple User Experience",
+      slug: "simple-user-experience",
       text: "Designed with modern, responsive filters so travelers find the exact vehicle they require in seconds.",
     },
     {
       title: "Australian Rental Ecosystem",
+      slug: "australian-rental-ecosystem",
       text: "Built specifically for the Australian market, supporting local car hire operators and transport fleets.",
     },
   ];
@@ -179,21 +192,26 @@ export default function HireCarSection({ onTrial, onSpecialist }) {
               </div>
 
               {/* Product Image */}
-              <div className="relative aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden">
+              <Link
+                to="/product/hire-car-marketplace"
+                className="relative aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden block cursor-pointer"
+                title="View HireCar Marketplace Overview"
+              >
                 <img
                   src="/images/hirecar-marketplace.svg"
                   alt="HireCar Marketplace Portal Preview"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   onError={(e) => {
                     e.currentTarget.src = "/images/Screenshot 2026-09-10 134039.png";
                   }}
                   loading="lazy"
                 />
-                <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-slate-700/80 shadow-md">
-                  <span className="w-2 h-2 rounded-full bg-orange-500 inline-block mr-1.5" />
-                  HireCar Marketplace
+                <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-slate-700/80 shadow-md flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-orange-500 inline-block" />
+                  <span>HireCar Marketplace</span>
+                  <span className="text-[10px] text-orange-300 ml-1">View Details &rarr;</span>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -218,18 +236,23 @@ export default function HireCarSection({ onTrial, onSpecialist }) {
             {solutions.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div
+                <Link
                   key={idx}
-                  className="p-6 rounded-2xl bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 hover:border-orange-200 transition-all duration-200 shadow-sm hover:shadow-md group flex flex-col justify-between"
+                  to={`/solutions/${item.slug}`}
+                  className="p-6 rounded-2xl bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 hover:border-orange-300 transition-all duration-200 shadow-sm hover:shadow-lg hover:-translate-y-1 group flex flex-col justify-between cursor-pointer"
                 >
                   <div>
-                    <div className="w-11 h-11 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h4 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h4>
+                    <h4 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-orange-700 transition-colors">{item.title}</h4>
                     <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
                   </div>
-                </div>
+                  <div className="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-orange-600 group-hover:text-orange-700">
+                    <span>Learn more</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
               );
             })}
           </div>
@@ -257,13 +280,23 @@ export default function HireCarSection({ onTrial, onSpecialist }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyItMattersPoints.map((pt, i) => (
-              <div key={i} className="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/60">
-                <h5 className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
-                  {pt.title}
-                </h5>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{pt.text}</p>
-              </div>
+              <Link
+                key={i}
+                to={`/solutions/${pt.slug}`}
+                className="p-5 rounded-2xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-orange-500/50 transition-all duration-200 hover:-translate-y-0.5 group flex flex-col justify-between cursor-pointer"
+              >
+                <div>
+                  <h5 className="text-base font-bold text-white group-hover:text-orange-400 mb-2 flex items-center gap-2 transition-colors">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
+                    {pt.title}
+                  </h5>
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{pt.text}</p>
+                </div>
+                <div className="pt-3 mt-3 border-t border-slate-700/50 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-orange-400">
+                  <span>Explore capability</span>
+                  <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>

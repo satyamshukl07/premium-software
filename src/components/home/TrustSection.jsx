@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ExternalLink, Car, LayoutDashboard, Navigation, Wrench, ArrowRight } from "lucide-react";
 
 export default function TrustSection() {
   const cards = [
     {
       name: "HireCar Marketplace",
+      slug: "hirecar-marketplace",
+      detailRoute: "/product/hirecar-marketplace",
       oneLiner: "Australia's dedicated marketplace for vehicle rentals, connecting customers directly with trusted fleet operators.",
       icon: Car,
       accentColor: "#f97316",
@@ -14,6 +17,8 @@ export default function TrustSection() {
     },
     {
       name: "Car Hire Manager (CHM)",
+      slug: "chm",
+      detailRoute: "/product/chm",
       oneLiner: "Cloud-based car hire operating platform for dispatch, bookings, toll management, and fleet utilization.",
       icon: LayoutDashboard,
       accentColor: "#0284c7",
@@ -23,6 +28,8 @@ export default function TrustSection() {
     },
     {
       name: "Australia Fleet Tracking",
+      slug: "australia-fleet-tracking",
+      detailRoute: "/product/australia-fleet-tracking",
       oneLiner: "Live 4G GPS tracking, driver safety telematics, automated alerts, and asset monitoring across Australia.",
       icon: Navigation,
       accentColor: "#10b981",
@@ -32,6 +39,8 @@ export default function TrustSection() {
     },
     {
       name: "WRMS Pro",
+      slug: "wrms-pro",
+      detailRoute: "/product/wrms-pro",
       oneLiner: "Complete workshop repair management software for work orders, inspections, parts inventory, and scheduling.",
       icon: Wrench,
       accentColor: "#e11d48",
@@ -67,14 +76,15 @@ export default function TrustSection() {
           {cards.map((card, idx) => {
             const Icon = card.icon;
             return (
-              <div
+              <Link
                 key={idx}
-                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group hover:-translate-y-0.5"
+                to={card.detailRoute}
+                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-200 flex flex-col justify-between group hover:-translate-y-1 cursor-pointer"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-sm"
+                      className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform"
                       style={{ backgroundColor: card.accentColor }}
                     >
                       <Icon className="w-5 h-5" />
@@ -84,7 +94,7 @@ export default function TrustSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-950 mb-2 group-hover:text-slate-900 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-950 mb-2 group-hover:text-blue-600 transition-colors">
                     {card.name}
                   </h3>
 
@@ -93,16 +103,11 @@ export default function TrustSection() {
                   </p>
                 </div>
 
-                <a
-                  href={card.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 hover:text-blue-600 transition-colors pt-4 border-t border-slate-100"
-                >
-                  <span>Learn More</span>
-                  <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-              </div>
+                <div className="inline-flex items-center justify-between text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors pt-4 border-t border-slate-100">
+                  <span>Explore Platform</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
             );
           })}
         </div>

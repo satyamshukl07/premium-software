@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   ExternalLink,
   ArrowRight,
@@ -11,6 +12,7 @@ import {
   Shield,
   CheckCircle2,
   Lock,
+  ChevronRight,
 } from "lucide-react";
 
 export default function FleetTrackingSection({ onTrial, onSpecialist }) {
@@ -20,31 +22,37 @@ export default function FleetTrackingSection({ onTrial, onSpecialist }) {
     {
       icon: MapPin,
       title: "Live GPS Tracking",
+      slug: "live-gps-tracking",
       description: "See your vehicles and assets in real time with high-frequency positioning.",
     },
     {
       icon: Radio,
       title: "Driver Monitoring",
+      slug: "driver-monitoring",
       description: "Gain greater visibility into vehicle and driver activity on the road.",
     },
     {
       icon: BellRing,
       title: "Instant Alerts",
+      slug: "instant-alerts",
       description: "Receive important alerts when events require your immediate attention.",
     },
     {
       icon: FileSpreadsheet,
       title: "Fleet Reports",
+      slug: "fleet-reports",
       description: "Turn fleet activity into useful operational insights and compliance logs.",
     },
     {
       icon: Fuel,
       title: "Fuel & Cost Visibility",
+      slug: "fuel-cost-visibility",
       description: "Identify opportunities to improve efficiency and reduce unnecessary costs.",
     },
     {
       icon: Shield,
       title: "Asset Tracking",
+      slug: "asset-tracking",
       description: "Keep track of important vehicles and assets across your entire operation.",
     },
   ];
@@ -52,26 +60,32 @@ export default function FleetTrackingSection({ onTrial, onSpecialist }) {
   const benefits = [
     {
       title: "Real-Time Visibility",
+      slug: "real-time-visibility",
       desc: "Instant map awareness across all active trips, ignition states, and vehicle locations.",
     },
     {
       title: "Improved Driver Awareness",
+      slug: "improved-driver-awareness",
       desc: "Promote safer road habits, monitor harsh braking, speeding events, and idle times.",
     },
     {
       title: "Faster Response to Incidents",
+      slug: "faster-response-to-incidents",
       desc: "Locate the nearest driver to urgent jobs and receive geo-fence boundary triggers instantly.",
     },
     {
       title: "Better Fleet Utilisation",
+      slug: "better-fleet-utilisation",
       desc: "Identify underutilized units, schedule servicing by actual engine hours, and rebalance assets.",
     },
     {
       title: "Reduced Operational Waste",
+      slug: "reduced-operational-waste",
       desc: "Eliminate unauthorized trips, curb excessive engine idling, and lower fuel expenditures.",
     },
     {
       title: "More Control Over Assets",
+      slug: "more-control-over-assets",
       desc: "Protect valuable machinery, trailers, and vehicles with tamper-detection and theft alerts.",
     },
   ];
@@ -183,21 +197,26 @@ export default function FleetTrackingSection({ onTrial, onSpecialist }) {
               </div>
 
               {/* High-tech Product Visual */}
-              <div className="relative aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden">
+              <Link
+                to="/product/australia-fleet-tracking"
+                className="relative aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden block cursor-pointer"
+                title="View Australia Fleet Tracking Overview"
+              >
                 <img
                   src="/images/fleet-tracking.svg"
                   alt="Australia Fleet Tracking GPS Dashboard"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   onError={(e) => {
                     e.currentTarget.src = "/images/Screenshot 2026-09-10 134203.png";
                   }}
                   loading="lazy"
                 />
-                <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-slate-700/80 shadow-md">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1.5" />
-                  Australia Fleet Tracking / Techtonika Autolink
+                <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-slate-700/80 shadow-md flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
+                  <span>Australia Fleet Tracking</span>
+                  <span className="text-[10px] text-emerald-300 ml-1">View Details &rarr;</span>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -222,18 +241,23 @@ export default function FleetTrackingSection({ onTrial, onSpecialist }) {
             {solutions.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div
+                <Link
                   key={idx}
-                  className="p-6 rounded-2xl bg-slate-900/70 hover:bg-slate-850 border border-slate-800 hover:border-emerald-500/40 transition-all duration-200 shadow-lg group flex flex-col justify-between"
+                  to={`/solutions/${item.slug}`}
+                  className="p-6 rounded-2xl bg-slate-900/70 hover:bg-slate-850 border border-slate-800 hover:border-emerald-400/50 transition-all duration-200 shadow-lg hover:shadow-emerald-950/40 hover:-translate-y-1 group flex flex-col justify-between cursor-pointer"
                 >
                   <div>
-                    <div className="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                    <h4 className="text-lg font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">{item.title}</h4>
                     <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
                   </div>
-                </div>
+                  <div className="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-emerald-400 group-hover:text-emerald-300">
+                    <span>Learn more</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
               );
             })}
           </div>
@@ -250,7 +274,7 @@ export default function FleetTrackingSection({ onTrial, onSpecialist }) {
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
               Turn Fleet Data Into Better Decisions
             </h3>
-            <p className="text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
+            <p className="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
               Transform passive GPS dots on a map into actionable operational intelligence that cuts
               fuel costs, mitigates safety risks, and maintains equipment longevity.
             </p>
@@ -258,16 +282,23 @@ export default function FleetTrackingSection({ onTrial, onSpecialist }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
-              <div
+              <Link
                 key={i}
-                className="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-emerald-500/30 transition-colors"
+                to={`/solutions/${b.slug}`}
+                className="p-5 rounded-2xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 hover:border-emerald-500/40 transition-all duration-200 hover:-translate-y-0.5 group flex flex-col justify-between cursor-pointer"
               >
-                <div className="flex items-center gap-2 mb-2 font-bold text-white text-base">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>{b.title}</span>
+                <div>
+                  <div className="flex items-center gap-2 mb-2 font-bold text-white group-hover:text-emerald-300 text-base transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>{b.title}</span>
+                  </div>
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{b.desc}</p>
                 </div>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{b.desc}</p>
-              </div>
+                <div className="pt-3 mt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold text-slate-500 group-hover:text-emerald-400">
+                  <span>Explore capability</span>
+                  <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>

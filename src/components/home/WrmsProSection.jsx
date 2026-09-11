@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   ExternalLink,
   ArrowRight,
@@ -11,6 +12,7 @@ import {
   Calendar,
   CheckCircle2,
   Lock,
+  ChevronRight,
 } from "lucide-react";
 
 export default function WrmsProSection({ onTrial, onSpecialist }) {
@@ -20,31 +22,37 @@ export default function WrmsProSection({ onTrial, onSpecialist }) {
     {
       icon: Wrench,
       title: "Work Order Management",
+      slug: "work-order-management",
       description: "Create, manage and track workshop jobs from start to completion.",
     },
     {
       icon: Users,
       title: "Customer Management",
+      slug: "workshop-customer-management",
       description: "Keep customer information and workshop history organised.",
     },
     {
       icon: Car,
       title: "Vehicle Management",
+      slug: "vehicle-management",
       description: "Maintain a complete view of vehicles and their service activity.",
     },
     {
       icon: Package,
       title: "Parts & Inventory",
+      slug: "parts-inventory",
       description: "Keep better control over parts, stock and workshop resources.",
     },
     {
       icon: ClipboardCheck,
       title: "Inspections",
+      slug: "inspections",
       description: "Manage inspections and capture important vehicle information.",
     },
     {
       icon: Calendar,
       title: "Scheduling",
+      slug: "scheduling",
       description: "Organise workshop activity and keep jobs moving efficiently.",
     },
   ];
@@ -52,26 +60,32 @@ export default function WrmsProSection({ onTrial, onSpecialist }) {
   const benefits = [
     {
       title: "Better Job Visibility",
+      slug: "better-job-visibility",
       desc: "Instant live dashboard of ongoing repair jobs, assigned technicians, and stage completion.",
     },
     {
       title: "Faster Workflows",
+      slug: "faster-workflows",
       desc: "Convert quotes to job cards and generate invoices with automatic parts deduction in one click.",
     },
     {
       title: "Organised Work Orders",
+      slug: "organised-work-orders",
       desc: "Structured labor hours, technician notes, parts usage, and sign-offs kept in a unified digital ledger.",
     },
     {
       title: "Improved Customer Management",
+      slug: "improved-customer-management",
       desc: "Store vehicle history, previous repairs, warranty records, and communicate status directly.",
     },
     {
       title: "Better Parts Control",
+      slug: "better-parts-control",
       desc: "Track supplier orders, minimum stock levels, and markup margins to protect shop profitability.",
     },
     {
       title: "More Efficient Workshop Operations",
+      slug: "more-efficient-workshop-operations",
       desc: "Balance technician bays, eliminate turnaround bottlenecks, and boost shop throughput.",
     },
   ];
@@ -115,21 +129,26 @@ export default function WrmsProSection({ onTrial, onSpecialist }) {
               </div>
 
               {/* Product Dashboard Visual */}
-              <div className="relative aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden">
+              <Link
+                to="/product/wrms-pro"
+                className="relative aspect-[16/10] bg-slate-950 flex items-center justify-center overflow-hidden block cursor-pointer"
+                title="View WRMS Pro Overview"
+              >
                 <img
                   src="/images/wrms-pro.svg"
                   alt="WRMS Pro Workshop Repair Management Dashboard"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   onError={(e) => {
                     e.currentTarget.src = "/images/Screenshot 2026-09-10 134242.png";
                   }}
                   loading="lazy"
                 />
-                <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-slate-700/80 shadow-md">
-                  <span className="w-2 h-2 rounded-full bg-rose-500 inline-block mr-1.5" />
-                  WRMS Pro
+                <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-slate-700/80 shadow-md flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-rose-500 inline-block" />
+                  <span>WRMS Pro Workshop Hub</span>
+                  <span className="text-[10px] text-rose-300 ml-1">View Details &rarr;</span>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
 
@@ -221,18 +240,23 @@ export default function WrmsProSection({ onTrial, onSpecialist }) {
             {solutions.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div
+                <Link
                   key={idx}
-                  className="p-6 rounded-2xl bg-slate-50 hover:bg-rose-50/40 border border-slate-200/90 hover:border-rose-200 transition-all duration-200 shadow-sm hover:shadow-md group flex flex-col justify-between"
+                  to={`/solutions/${item.slug}`}
+                  className="p-6 rounded-2xl bg-slate-50 hover:bg-rose-50/50 border border-slate-200/90 hover:border-rose-300 transition-all duration-200 shadow-sm hover:shadow-lg hover:-translate-y-1 group flex flex-col justify-between cursor-pointer"
                 >
                   <div>
-                    <div className="w-11 h-11 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h4 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h4>
+                    <h4 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-rose-700 transition-colors">{item.title}</h4>
                     <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
                   </div>
-                </div>
+                  <div className="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-rose-600 group-hover:text-rose-700">
+                    <span>Learn more</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
               );
             })}
           </div>
@@ -259,16 +283,23 @@ export default function WrmsProSection({ onTrial, onSpecialist }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((b, i) => (
-              <div
+              <Link
                 key={i}
-                className="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/60 hover:border-rose-400/30 transition-colors"
+                to={`/solutions/${b.slug}`}
+                className="p-5 rounded-2xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-rose-400/40 transition-all duration-200 hover:-translate-y-0.5 group flex flex-col justify-between cursor-pointer"
               >
-                <div className="flex items-center gap-2 mb-2 font-bold text-white text-base">
-                  <CheckCircle2 className="w-4 h-4 text-rose-400" />
-                  <span>{b.title}</span>
+                <div>
+                  <div className="flex items-center gap-2 mb-2 font-bold text-white group-hover:text-rose-300 text-base transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-rose-400 shrink-0" />
+                    <span>{b.title}</span>
+                  </div>
+                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">{b.desc}</p>
                 </div>
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">{b.desc}</p>
-              </div>
+                <div className="pt-3 mt-3 border-t border-slate-700/80 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-rose-300">
+                  <span>Explore capability</span>
+                  <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
