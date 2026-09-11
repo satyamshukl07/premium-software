@@ -215,8 +215,8 @@ const sectorDataMap = {
 export default function SectorDetailPage() {
   const { sector } = useParams();
 
-  // If this slug matches one of our solution cards, render SolutionDetailPage
-  if (sector && !sectorDataMap[sector] && getSolutionDetail(sector)) {
+  // If this slug is not a sector industry, render SolutionDetailPage
+  if (sector && !sectorDataMap[sector]) {
     return <SolutionDetailPage />;
   }
 

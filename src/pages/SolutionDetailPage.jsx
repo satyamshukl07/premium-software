@@ -19,13 +19,66 @@ import CallToActionBanner from '../components/CallToActionBanner.jsx';
 import TrialModal from '../components/TrialModal.jsx';
 import SpecialistModal from '../components/SpecialistModal.jsx';
 
+function createFallbackDetail(slug) {
+  const cleanTitle = (slug || 'Platform Feature')
+    .split('-')
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+
+  return {
+    title: cleanTitle,
+    subtitle: `Dedicated Feature Overview & Operational Workflow for ${cleanTitle}`,
+    tag: "Core Capability",
+    badgeColor: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+    accentColor: "#f97316",
+    category: "Platform Solutions",
+    description: `Comprehensive capability designed to streamline workflows, eliminate manual administrative friction, and improve end-to-end visibility for ${cleanTitle.toLowerCase()}.`,
+    overview: `${cleanTitle} delivers an intuitive, high-performance module engineered for Australian industry requirements. Discover seamless integration, real-time data synchronization, and automated compliance tools designed to maximize productivity.`,
+    problemSolved: `Manual paperwork, fragmented communication across teams, delayed reporting, and lack of real-time visibility across ${cleanTitle.toLowerCase()} processes.`,
+    whoItsFor: `Operations managers, team leads, field technicians, and Australian business operators requiring dependable workflows.`,
+    howItWorks: [
+      { step: "01", title: "Setup & Connect", desc: `Configure your ${cleanTitle.toLowerCase()} preferences and sync with existing workflows.` },
+      { step: "02", title: "Automate Operations", desc: "Benefit from real-time alerts, digital logging, and status tracking." },
+      { step: "03", title: "Review & Optimize", desc: "Generate compliance reports, measure operational KPIs, and scale with confidence." },
+    ],
+    bullets: [
+      `Streamlined digital workflows replacing manual spreadsheets and paper records`,
+      `Real-time data synchronization across mobile devices and central management consoles`,
+      `Designed specifically to satisfy strict Australian regulatory and safety standards`,
+      `Seamless interoperability across the broader enterprise software ecosystem`,
+    ],
+    features: [
+      { title: "Real-Time Tracking", desc: `Live status monitoring with immediate notifications when updates occur.` },
+      { title: "Digital Record Keeping", desc: `Auditable cloud history with timestamped logs and photo documentation.` },
+      { title: "Automated Compliance", desc: `Built-in checklists and validation rules enforcing organizational standards.` },
+      { title: "1-Click Exporting", desc: `Export comprehensive summaries in PDF and Excel formats instantly.` },
+    ],
+    stat1: "Real-Time",
+    stat1Label: "Data Synchronization",
+    stat2: "100%",
+    stat2Label: "Digital Compliance",
+    stat3: "30%",
+    stat3Label: "Time Saved",
+    stat4: "24/7",
+    stat4Label: "Cloud Availability",
+    image: "/images/hirecar-marketplace.svg",
+    photoUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    advantages: [
+      `Dramatically cuts turnaround times across day-to-day operations`,
+      `Ensures complete visibility and eliminates lost documentation`,
+      `Empowers field and depot teams with mobile-ready cloud tools`,
+      `Backed by local Australian customer support and regular updates`,
+    ],
+  };
+}
+
 export default function SolutionDetailPage() {
-  const { category, slug: routeSlug } = useParams();
+  const { category, slug: routeSlug, sector, subpage } = useParams();
   const navigate = useNavigate();
 
-  // If slug is in category param (e.g. /solutions/:slug or /product/:slug)
-  const slug = routeSlug || category || 'mex-overview';
-  const data = getSolutionDetail(slug) || getSolutionDetail('mex-overview');
+  // If slug is in category, sector, subpage, or routeSlug param
+  const slug = routeSlug || sector || subpage || category || 'mex-overview';
+  const data = getSolutionDetail(slug) || createFallbackDetail(slug);
 
   const [trialModalOpen, setTrialModalOpen] = useState(false);
   const [specialistModalOpen, setSpecialistModalOpen] = useState(false);

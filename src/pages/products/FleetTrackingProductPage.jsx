@@ -492,11 +492,9 @@ export default function FleetTrackingProductPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {fleetModules.map((feat) => (
-              <a
+              <Link
                 key={feat.slug}
-                href={MAIN_WEBSITE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                to={`/solutions/${feat.slug}`}
                 className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#00c875]/50 hover:-translate-y-1 transition-all flex flex-col justify-between group"
               >
                 <div>
@@ -521,7 +519,7 @@ export default function FleetTrackingProductPage() {
                   <span>Explore module</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

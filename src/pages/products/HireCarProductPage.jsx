@@ -247,7 +247,12 @@ export default function HireCarProductPage() {
                             Selected <strong>{selectedCity}</strong>: Showing direct depot vehicles with zero airport booking surcharges.
                           </span>
                         </div>
-                        <span className="font-bold underline cursor-pointer">View Cars</span>
+                        <Link
+                          to={`/solutions/${selectedCity.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="font-bold underline cursor-pointer text-amber-950 hover:text-amber-700 whitespace-nowrap ml-2"
+                        >
+                          View {selectedCity} Fleet →
+                        </Link>
                       </div>
                     )}
                   </div>
@@ -346,7 +351,12 @@ export default function HireCarProductPage() {
                             Showing verified <strong>{selectedCategory}</strong> with clear insurance inclusions.
                           </span>
                         </div>
-                        <span className="font-bold underline cursor-pointer">Filter Fleet</span>
+                        <Link
+                          to={`/solutions/${selectedCategory.toLowerCase().replace(/\s+/g, '-').replace('&', '').replace(/--+/g, '-')}`}
+                          className="font-bold underline cursor-pointer text-amber-950 hover:text-amber-700 whitespace-nowrap ml-2"
+                        >
+                          View {selectedCategory} Details →
+                        </Link>
                       </div>
                     )}
                   </div>
@@ -356,35 +366,45 @@ export default function HireCarProductPage() {
 
             {/* Bottom Row: Remaining Single Cards (Pricing, Vendors, About, Blog, Contact) from Screenshot 3 */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-              {singleCards.map((card) => (
-                <div
-                  key={card.slug}
-                  className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 hover:-translate-y-1 transition-all flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
-                        {card.icon}
+              {singleCards.map((card) => {
+                const targetUrl =
+                  card.slug === 'contact'
+                    ? '/contact'
+                    : card.slug === 'blog'
+                    ? '/resources/blog'
+                    : `/solutions/${card.slug}`;
+
+                return (
+                  <Link
+                    key={card.slug}
+                    to={targetUrl}
+                    className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 hover:-translate-y-1 transition-all flex flex-col justify-between group cursor-pointer"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+                          {card.icon}
+                        </div>
+                        <span className="text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+                          {card.tag}
+                        </span>
                       </div>
-                      <span className="text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
-                        {card.tag}
-                      </span>
+
+                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors mb-2">
+                        {card.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {card.desc}
+                      </p>
                     </div>
 
-                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors mb-2">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {card.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 group-hover:text-amber-600">
-                    <span className="text-amber-700 font-semibold">{card.highlight}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-amber-600" />
-                  </div>
-                </div>
-              ))}
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 group-hover:text-amber-600">
+                      <span className="text-amber-700 font-semibold">{card.highlight}</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-amber-600" />
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>

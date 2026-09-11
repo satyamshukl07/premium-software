@@ -112,6 +112,7 @@ function MainLayout() {
           <Route path="/products/fleet-tracking" element={<FleetTrackingProductPage />} />
           <Route path="/products/fleet-tracking/:subpage" element={<FleetTrackingProductPage />} />
           <Route path="/product/:slug" element={<SolutionDetailPage />} />
+          <Route path="/products/:slug" element={<SolutionDetailPage />} />
           <Route path="/products/:category/:slug" element={<SolutionDetailPage />} />
           <Route path="/solution/:slug" element={<SolutionDetailPage />} />
           <Route path="/solutions/:category/:slug" element={<SolutionDetailPage />} />

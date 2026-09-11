@@ -113,7 +113,7 @@ export const wrmsDetails = {
   },
 
   'workshop-customer-management': {
-    title: "Customer Management",
+    title: "Workshop & Fleet Customer Management",
     subtitle: "Automated Service Reminders, SMS Approvals & Complete Vehicle Service Histories",
     tag: "Customer CRM",
     badgeColor: "bg-rose-500/10 text-rose-400 border-rose-500/20",

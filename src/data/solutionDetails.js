@@ -1,6 +1,9 @@
 import { chmDetails } from './chmDetails.js';
 import { fleetTrackingDetails } from './fleetTrackingDetails.js';
 import { wrmsDetails } from './wrmsDetails.js';
+import { hireCarExtraDetails } from './hireCarExtraDetails.js';
+import { chmExtraDetails } from './chmExtraDetails.js';
+import { fleetTrackingExtraDetails } from './fleetTrackingExtraDetails.js';
 
 // Base HireCar Marketplace items
 const hireCarDetails = {
@@ -966,8 +969,11 @@ const mexDetails = {
 // Combine all product details into one unified export
 export const solutionDetails = {
   ...hireCarDetails,
+  ...hireCarExtraDetails,
   ...chmDetails,
+  ...chmExtraDetails,
   ...fleetTrackingDetails,
+  ...fleetTrackingExtraDetails,
   ...wrmsDetails,
   ...mexDetails,
 };
@@ -986,30 +992,78 @@ export function getSolutionDetail(slug) {
     return item;
   }
 
-  // Common aliases
+  // Common aliases & variations
   const aliasMap = {
+    // HireCar
     'hirecar': 'hire-car-marketplace',
     'hirecar-marketplace': 'hire-car-marketplace',
     'hire-car': 'hire-car-marketplace',
+    'easy-booking': 'easy-booking',
+    'easy-vehicle-discovery': 'easy-vehicle-discovery',
+    'flexible-rental-options': 'flexible-rental-options',
+    'rental-pricing': 'pricing',
+    'fleet-operators': 'vendors',
+    'about-hirecar': 'about',
+
+    // CHM
     'chm-overview': 'chm',
     'car-hire-manager': 'chm',
+    'dashboard': 'chm-dashboard',
+    'recurring': 'recurring-booking',
+    'calendar': 'calendar-scheduling',
+    'insights': 'financial-insights',
+    'expenses': 'financials-expenses',
+    'drivers': 'driver-management',
+    'tolls': 'toll-management',
+    'rego': 'rego-insurance',
+
+    // Fleet Tracking
     'fleet': 'australia-fleet-tracking',
     'fleet-tracking': 'australia-fleet-tracking',
     'techtonika-autolink': 'australia-fleet-tracking',
     'australian-fleet-tracking': 'australia-fleet-tracking',
+    'faster-response-to-incidents': 'faster-response-incidents',
+    'more-control-over-assets': 'more-control-assets',
+
+    // WRMS
     'wrms': 'wrms-pro',
     'wrms-repair': 'wrms-pro',
+    'inspections': 'workshop-inspections',
+    'scheduling': 'workshop-scheduling',
+    'parts-inventory': 'parts-and-inventory',
+    'vehicle-management': 'workshop-vehicle-management',
+    'more-efficient-workshop-operations': 'efficient-workshop-operations',
+
+    // MEX
     'mex': 'mex-overview',
     'mex-cmms': 'mex-overview',
   };
 
   if (aliasMap[normalized] && solutionDetails[aliasMap[normalized]]) {
-    return solutionDetails[aliasMap[normalized]];
+    const item = solutionDetails[aliasMap[normalized]];
+    if (item.redirect && solutionDetails[item.redirect]) {
+      return solutionDetails[item.redirect];
+    }
+    return item;
   }
 
-  // Fuzzy match on title or slug key
+  // Exact match without hyphens
+  const stripped = normalized.replace(/-/g, '');
+  for (const [key, value] of Object.entries(solutionDetails)) {
+    if (key.replace(/-/g, '') === stripped) {
+      if (value.redirect && solutionDetails[value.redirect]) {
+        return solutionDetails[value.redirect];
+      }
+      return value;
+    }
+  }
+
+  // Fuzzy match on slug key
   for (const [key, value] of Object.entries(solutionDetails)) {
     if (key.includes(normalized) || normalized.includes(key)) {
+      if (value.redirect && solutionDetails[value.redirect]) {
+        return solutionDetails[value.redirect];
+      }
       return value;
     }
   }
