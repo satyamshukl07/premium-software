@@ -490,4 +490,61 @@ export const blogArticles = [
       Unplanned downtime costs Australian industries billions every year. Implementing condition-based maintenance triggers and recurring inspection checklists reduces emergency overtime by up to 45%.
     `,
   },
+  {
+    slug: 'optimizing-commercial-workshop-turnaround-chm',
+    title: 'Optimizing Commercial Workshop Turnaround: How CHM Cuts Bay Dwell Time by 38%',
+    date: 'August 24, 2026',
+    author: 'Michael Vance, Workshop Operations Lead',
+    readTime: '7 min read',
+    category: 'CHM Workshop',
+    summary: 'Streamlining job cards, parts pre-allocation, and automated technician bay assignments transforms workshop profitability.',
+    content: `
+      Modern fleet workshops operate on tight turnarounds. When mechanics spend hours chasing missing parts dockets or waiting on repair authorizations, vehicle dwell time escalates and operational overhead spikes.
+      
+      Car Hire Manager (CHM) resolves this bottleneck by integrating the entire workshop lifecycle:
+      
+      1. Digital Job Card Generation: Mechanics scan vehicle QR codes to instantly pull up complete inspection history, outstanding recall items, and scheduled servicing schedules.
+      2. Automated Parts Dispatch: As soon as a service is scheduled, required filters, oils, and gaskets are reserved in stores, preventing bay holdups.
+      3. Real-Time Bay Scheduling: Interactive Gantt displays allow service managers to reassign bay capacity dynamically when urgent jobs arrive.
+      4. Statutory Compliance Logs: Every torque check, brake measurement, and oil grade is permanently signed off with technician timestamps for NHVR audits.
+    `,
+  },
+  {
+    slug: 'independent-rental-fleet-monetization-hirecar',
+    title: 'Unlocking Growth for Independent Rental Fleets with Direct Marketplace Bookings',
+    date: 'August 12, 2026',
+    author: 'Jessica Reynolds, Mobility Analyst',
+    readTime: '6 min read',
+    category: 'HireCar Marketplace',
+    summary: 'Why regional Australian car hire operators are cutting out overseas OTA middleman fees and boosting margins via HireCar Marketplace.',
+    content: `
+      For years, independent Australian car rental operators were forced to surrender 20% to 28% of their gross revenue to massive overseas booking aggregators.
+      
+      HireCar Marketplace changes the game by offering a transparent direct-booking platform:
+      
+      - Zero Marketplace Markup: Renters pay fair, transparent daily rates without hidden counter add-ons.
+      - Operator Identity First: Local operators build brand loyalty with travelers directly.
+      - Instant Telematics Verification: Renters undergo instant digital license validation, eliminating long airport queues.
+      - Seamless Fleet Sync: Automatic calendar integration prevents double-bookings and keeps daily pricing competitive with live market demand.
+    `,
+  },
+  {
+    slug: 'telematics-fuel-savings-australia-fleet-tracking',
+    title: 'Cutting Fleet Fuel & Wear: The Power of Sub-Second GPS Telematics in Remote Australia',
+    date: 'July 18, 2026',
+    author: 'Elena Rossi, VP of Telematics',
+    readTime: '8 min read',
+    category: 'Fleet Tracking',
+    summary: 'How real-time CAN bus telemetry, smart geofencing, and driver behavior scoring drive a 22% drop in fleet operating expenditures.',
+    content: `
+      Managing fleets across vast Australian highway networks, outback mining corridors, and urban freight lanes demands high-fidelity telemetry that never drops offline.
+      
+      Australia Fleet Tracking combines satellite failover with sub-second CAN bus data to deliver:
+      
+      1. Live Speed & Harsh Braking Alerts: Instant driver coaching minimizes unnecessary acceleration and tire wear.
+      2. Idle Time Reduction: Identify vehicles idling on job sites, saving hundreds of liters of diesel weekly.
+      3. Geofenced Automated Prestarts: Ensure operators complete roadworthy checks before ignition is enabled in hazardous zones.
+      4. Predictive Component Wear: Synchronize odometer meters directly with MEX CMMS and CHM for timely preventive servicing.
+    `,
+  },
 ];

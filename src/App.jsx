@@ -21,6 +21,27 @@ import ChmProductPage from './pages/products/ChmProductPage.jsx';
 import HireCarProductPage from './pages/products/HireCarProductPage.jsx';
 import FleetTrackingProductPage from './pages/products/FleetTrackingProductPage.jsx';
 
+// Company Pages
+import OurStoryPage from './pages/company/OurStoryPage.jsx';
+import LeadershipPage from './pages/company/LeadershipPage.jsx';
+import CareersPage from './pages/company/CareersPage.jsx';
+import PressPage from './pages/company/PressPage.jsx';
+import PartnersPage from './pages/company/PartnersPage.jsx';
+
+// Resource Pages
+import BlogListPage from './pages/resources/BlogListPage.jsx';
+import ProductGuidesPage from './pages/resources/ProductGuidesPage.jsx';
+import WhitepapersPage from './pages/resources/WhitepapersPage.jsx';
+import WebinarsPage from './pages/resources/WebinarsPage.jsx';
+import TrainingPage from './pages/resources/TrainingPage.jsx';
+import HelpCentrePage from './pages/resources/HelpCentrePage.jsx';
+import FaqPage from './pages/resources/FaqPage.jsx';
+
+// Legal & Directory Pages
+import TermsPage from './pages/legal/TermsPage.jsx';
+import PrivacyPage from './pages/legal/PrivacyPage.jsx';
+import SitemapPage from './pages/legal/SitemapPage.jsx';
+
 // CHM Operations Platform
 import { ChmProvider } from './context/ChmContext.jsx';
 import ChmLayout from './components/chm/ChmLayout.jsx';
@@ -121,16 +142,32 @@ function MainLayout() {
           <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/solutions/by-capability" element={<SectorDetailPage />} />
           <Route path="/solutions/:sector" element={<SectorDetailPage />} />
+          <Route path="/sectors" element={<SolutionsPage />} />
+          <Route path="/sectors/:sector" element={<SectorDetailPage />} />
 
           {/* Resources Routes */}
           <Route path="/resources" element={<ResourcesPage defaultFilter="all" />} />
-          <Route path="/resources/blog" element={<ResourcesPage defaultFilter="blog" />} />
+          <Route path="/resources/blog" element={<BlogListPage />} />
           <Route path="/resources/blog/:slug" element={<BlogDetailPage />} />
           <Route path="/resources/client-success-stories" element={<ResourcesPage defaultFilter="case-studies" />} />
           <Route path="/resources/client-success-stories/:slug" element={<CaseStudyDetailPage />} />
-          <Route path="/resources/webinars" element={<ResourcesPage defaultFilter="webinars" />} />
-          <Route path="/resources/whitepapers" element={<ResourcesPage defaultFilter="whitepapers" />} />
-          <Route path="/resources/training" element={<ResourcesPage defaultFilter="training" />} />
+          <Route path="/resources/product-guides" element={<ProductGuidesPage />} />
+          <Route path="/resources/whitepapers" element={<WhitepapersPage />} />
+          <Route path="/resources/webinars" element={<WebinarsPage />} />
+          <Route path="/resources/training" element={<TrainingPage />} />
+          <Route path="/resources/help" element={<HelpCentrePage />} />
+          <Route path="/resources/faqs" element={<FaqPage />} />
+
+          {/* Company & Legal Routes */}
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/our-story" element={<OurStoryPage />} />
+          <Route path="/leadership" element={<LeadershipPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/press" element={<PressPage />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
 
           {/* Pricing & Calculator Routes */}
           <Route path="/pricing" element={<PricingPage />} />
@@ -141,7 +178,6 @@ function MainLayout() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/user-portal" element={<LoginPage />} />
-          <Route path="/about" element={<AboutPage />} />
 
           {/* Fallback */}
           <Route path="*" element={<HomePage />} />
