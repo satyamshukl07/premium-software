@@ -53,7 +53,6 @@ export default function Footer() {
         { label: 'Overview', to: '/product/mex-cmms' },
         { label: 'Features', to: '/product/mex-cmms#features' },
         { label: 'Pricing', to: '/pricing' },
-        { label: 'User Portal', to: '/user-portal' },
       ],
     },
     {
@@ -65,7 +64,6 @@ export default function Footer() {
       items: [
         { label: 'Overview', to: '/products/chm' },
         { label: 'Features', to: '/products/chm#features' },
-        { label: 'Integrations', to: '/products/chm#integrations' },
         { label: 'Pricing', to: '/pricing' },
       ],
     },
@@ -78,7 +76,6 @@ export default function Footer() {
       items: [
         { label: 'Overview', to: '/products/hirecar' },
         { label: 'For Operators', to: '/products/hirecar/operators' },
-        { label: 'For Customers', to: '/products/hirecar/customers' },
         { label: 'Pricing', to: '/pricing' },
       ],
     },
@@ -91,7 +88,6 @@ export default function Footer() {
       items: [
         { label: 'Overview', to: '/products/fleet-tracking' },
         { label: 'Features', to: '/products/fleet-tracking/features' },
-        { label: 'Coverage', to: '/products/fleet-tracking/coverage' },
         { label: 'Pricing', to: '/pricing' },
       ],
     },
@@ -140,8 +136,6 @@ export default function Footer() {
     byIndustry: [
       { label: 'Aged Care', to: '/sectors/aged-care' },
       { label: 'Construction & Mining', to: '/sectors/construction-mining' },
-      { label: 'Government & Infrastructure', to: '/sectors/government-infrastructure' },
-      { label: 'Healthcare & Biotech', to: '/sectors/healthcare-biotech' },
       { label: 'Logistics & Transport', to: '/sectors/logistics-transport' },
       { label: 'Manufacturing', to: '/sectors/manufacturing' },
       { label: 'Rental & Mobility', to: '/sectors/rental-mobility' },
@@ -155,7 +149,6 @@ export default function Footer() {
       group: 'MEX CMMS FEATURES',
       color: 'text-sky-400',
       links: [
-        { label: 'Inventory Management', to: '/product/mex-cmms#features' },
         { label: 'Work Request Management', to: '/product/mex-cmms#features' },
         { label: 'AI Insights & Reporting', to: '/product/mex-cmms#features' },
       ],
@@ -166,7 +159,6 @@ export default function Footer() {
       links: [
         { label: 'Job Card Management', to: '/products/chm#features' },
         { label: 'Service Scheduling', to: '/products/chm#features' },
-        { label: 'Parts & Inventory Control', to: '/products/chm#features' },
       ],
     },
     {
@@ -175,7 +167,6 @@ export default function Footer() {
       links: [
         { label: 'Vehicle Listing & Booking', to: '/products/hirecar#features' },
         { label: 'Payment & Billing', to: '/products/hirecar#features' },
-        { label: 'Customer Management', to: '/products/hirecar#features' },
       ],
     },
     {
@@ -184,7 +175,6 @@ export default function Footer() {
       links: [
         { label: 'Live GPS Tracking', to: '/products/fleet-tracking#features' },
         { label: 'Geofencing & Alerts', to: '/products/fleet-tracking#features' },
-        { label: 'Driver Behavior Monitoring', to: '/products/fleet-tracking#features' },
       ],
     },
     {
@@ -194,8 +184,6 @@ export default function Footer() {
         { label: 'Multi-Site Management', to: '/solutions/by-capability' },
         { label: 'Mobile Access', to: '/solutions/by-capability' },
         { label: 'Real-Time Analytics', to: '/solutions/by-capability' },
-        { label: 'Role-Based Access', to: '/solutions/by-capability' },
-        { label: 'Data Security', to: '/solutions/by-capability' },
       ],
     },
   ];
@@ -205,8 +193,6 @@ export default function Footer() {
     { label: 'All Resources', to: '/resources' },
     { label: 'Blog', to: '/resources/blog' },
     { label: 'Client Success Stories', to: '/resources/client-success-stories' },
-    { label: 'Whitepapers', to: '/resources/whitepapers' },
-    { label: 'Webinars', to: '/resources/webinars' },
     { label: 'Product Guides', to: '/resources/product-guides' },
     { label: 'Training', to: '/resources/training' },
     { label: 'Help Centre', to: '/resources/help' },
@@ -219,8 +205,6 @@ export default function Footer() {
     { label: 'Our Story', to: '/our-story' },
     { label: 'Leadership', to: '/leadership' },
     { label: 'Careers', to: '/careers', badge: "We're Hiring" },
-    { label: 'Press', to: '/press' },
-    { label: 'Partners', to: '/partners' },
     { label: 'Contact Us', to: '/contact' },
   ];
 
@@ -271,62 +255,21 @@ export default function Footer() {
             </linearGradient>
           </defs>
         </svg>
-
-        {/* Top-Right Glowing Automotive Silhouette with Laser-Blue Headlights */}
-        <div className="absolute right-4 top-2 hidden xl:block w-[380px] h-[130px] opacity-75">
-          <svg viewBox="0 0 380 130" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-            {/* Aerodynamic Roofline & Windshield */}
-            <path
-              d="M70 72 C120 40, 200 38, 270 52 C310 60, 345 74, 370 78"
-              stroke="#38bdf8"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            {/* Beltline & Tail */}
-            <path
-              d="M30 84 C80 82, 130 80, 200 80 C270 80, 330 79, 375 79"
-              stroke="#0284c7"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            {/* Front Hood & Bumper */}
-            <path
-              d="M270 52 C295 62, 335 70, 368 76 C376 78, 378 84, 370 87 C340 92, 310 93, 280 92"
-              stroke="#38bdf8"
-              strokeWidth="1.5"
-            />
-            {/* Laser Headlight Beam Projector (Cyan/White Glow) */}
-            <path
-              d="M365 77 L380 75 L378 81 Z"
-              fill="#ffffff"
-            />
-            {/* Projecting Laser Beams */}
-            <line x1="375" y1="77" x2="385" y2="76" stroke="#ffffff" strokeWidth="2" />
-            <line x1="376" y1="78" x2="385" y2="82" stroke="#38bdf8" strokeWidth="2" />
-            {/* Wheels Silhouette */}
-            <circle cx="95" cy="85" r="14" stroke="#0ea5e9" strokeWidth="2" strokeDasharray="3 3" />
-            <circle cx="95" cy="85" r="7" fill="#0284c7" />
-            <circle cx="305" cy="85" r="14" stroke="#0ea5e9" strokeWidth="2" strokeDasharray="3 3" />
-            <circle cx="305" cy="85" r="7" fill="#0284c7" />
-            {/* Underbody Light Glow */}
-            <line x1="120" y1="92" x2="280" y2="92" stroke="#06b6d4" strokeWidth="2.5" opacity="0.8" />
-          </svg>
-        </div>
       </div>
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
         {/* Main 6-Column Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 pb-10">
           
           {/* ========================================================================= */}
           {/* COLUMN 1: COMPANY INFO & CONTACT (Span 4 on LG, Span 3.5 on XL) */}
           {/* ========================================================================= */}
-          <div className="md:col-span-2 lg:col-span-4 xl:col-span-3 space-y-6 pr-0 lg:pr-3">
+          <div className="md:col-span-2 lg:col-span-4 xl:col-span-3 space-y-5 pr-0 lg:pr-3">
             {/* Logo Badge */}
             <Link to="/" className="flex items-center gap-3.5 group inline-flex">
               {/* Circular Logo Icon with Blue Ring and Golden Accent */}
-              <div className="relative w-12 h-12 rounded-full bg-[#0a1526] border-2 border-[#1e5bb8] flex items-center justify-center shadow-lg shadow-blue-900/30 flex-shrink-0 group-hover:border-sky-400 transition-colors">
-                <svg viewBox="0 0 44 44" className="w-9 h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="relative w-11 h-11 rounded-full bg-[#0a1526] border-2 border-[#1e5bb8] flex items-center justify-center shadow-lg shadow-blue-900/30 flex-shrink-0 group-hover:border-sky-400 transition-colors">
+                <svg viewBox="0 0 44 44" className="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Outer Blue Ring */}
                   <circle cx="22" cy="22" r="20" stroke="#2563eb" strokeWidth="2" />
                   {/* Golden Crescent Swoosh */}
@@ -335,16 +278,13 @@ export default function Footer() {
                     fill="#f59e0b"
                     opacity="0.95"
                   />
-                  {/* Sleek White Vehicle Outline */}
+                  {/* Sleek Center Mark */}
                   <path
                     d="M11 25 C14 22, 17 19, 23 19 C28 19, 31 22, 34 25 C35 26, 36 28, 34 29 C32 30, 13 30, 11 29 C10 28, 10 26, 11 25 Z"
                     fill="#ffffff"
                   />
-                  {/* Wheel Cutouts */}
-                  <circle cx="16" cy="29" r="2.5" fill="#0a1526" stroke="#38bdf8" strokeWidth="1" />
-                  <circle cx="29" cy="29" r="2.5" fill="#0a1526" stroke="#38bdf8" strokeWidth="1" />
-                  {/* Headlight Beam */}
-                  <line x1="33" y1="24" x2="38" y2="23" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" />
+                  <circle cx="16" cy="29" r="2" fill="#0a1526" stroke="#38bdf8" strokeWidth="1" />
+                  <circle cx="29" cy="29" r="2" fill="#0a1526" stroke="#38bdf8" strokeWidth="1" />
                 </svg>
               </div>
 
@@ -362,9 +302,9 @@ export default function Footer() {
               </div>
             </Link>
 
-            {/* Mission Statement */}
+            {/* Mission Statement (Concise) */}
             <p className="text-xs text-slate-300/90 leading-relaxed max-w-sm">
-              Empowering businesses with intelligent automotive software solutions for a connected, efficient and sustainable future.
+              Intelligent automotive software solutions for a connected and efficient future.
             </p>
 
             {/* 4 Metric Badges Row */}
