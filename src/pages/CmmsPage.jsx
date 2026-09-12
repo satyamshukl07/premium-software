@@ -22,100 +22,100 @@ import CallToActionBanner from '../components/CallToActionBanner.jsx';
 export default function CmmsPage() {
   const cmmsFeatures = [
     {
-      title: 'MEX Overview',
-      slug: 'mex-overview',
-      path: '/product/mex-overview',
-      desc: 'See how MEX CMMS keeps maintenance organised, efficient, and compliant across every asset hierarchy.',
+      title: 'WRMS Pro Overview',
+      slug: 'wrms-pro-overview',
+      path: '/products/wrms-pro/overview',
+      desc: 'See how WRMS Pro brings total operational precision to automotive workshops with unified job cards, customer CRM, and live bay scheduling.',
       icon: <Layers className="w-6 h-6 text-red-500" />,
       tag: 'Core System',
     },
     {
-      title: 'MEX Apps',
-      slug: 'mex-apps',
-      path: '/product/mex-apps',
-      desc: 'Access, update, and manage maintenance tasks anywhere on native iOS and Android devices with offline sync.',
+      title: 'Technician Mobile App',
+      slug: 'technician-app',
+      path: '/products/wrms-pro/technician-app',
+      desc: 'Access, update, and manage repair work orders directly in the bay on iOS and Android tablets with offline sync.',
       icon: <Smartphone className="w-6 h-6 text-red-500" />,
-      tag: 'Mobile & Field',
+      tag: 'Mobile & Bay',
     },
     {
-      title: 'Services',
-      slug: 'services',
-      path: '/product/services',
-      desc: 'Get expert Australian-based technical support, cloud hosting, database migrations, and accredited training.',
+      title: 'Workshop Services & Support',
+      slug: 'workshop-services',
+      path: '/products/wrms-pro/services',
+      desc: 'Get expert Australian-based technical support, database migrations, customer onboarding, and accredited training.',
       icon: <Headphones className="w-6 h-6 text-red-500" />,
       tag: 'Expert Support',
     },
     {
-      title: 'Integrations',
-      slug: 'integrations',
-      path: '/product/integrations',
-      desc: 'Connect your systems and data to reduce duplicate work, speed up processes, and sync ERPs (SAP, Xero, MYOB).',
+      title: 'Accounting & Parts Integrations',
+      slug: 'workshop-integrations',
+      path: '/products/wrms-pro/integrations',
+      desc: 'Connect your workshop with Xero, MYOB, and QuickBooks to sync invoices automatically, while connecting live auto parts catalogues.',
       icon: <Cpu className="w-6 h-6 text-red-500" />,
-      tag: 'API & ERP',
+      tag: 'API & Accounting',
     },
     {
-      title: 'Inventory Management',
-      slug: 'inventory-management',
-      path: '/product/inventory-management',
-      desc: 'Track and manage parts in real time to avoid shortages, control minimum stock levels, and minimize downtime.',
+      title: 'Stock & Parts Management',
+      slug: 'parts-and-inventory',
+      path: '/products/wrms-pro/inventory-management',
+      desc: 'Track and manage parts in real time to avoid shortages, control minimum stock levels, and minimize vehicle bay downtime.',
       icon: <Package className="w-6 h-6 text-red-500" />,
       tag: 'Stores & Parts',
     },
     {
-      title: 'Prestart Checklist',
-      slug: 'prestart-checklist',
-      path: '/product/prestart-checklist',
-      desc: 'Run safer, paper-free inspections that keep assets compliant, audit-ready, and operators accountable.',
+      title: 'Digital Vehicle Inspections',
+      slug: 'workshop-inspections',
+      path: '/products/wrms-pro/vehicle-inspections',
+      desc: 'Run safer, paperless inspections with photo capture that keep vehicles compliant, roadworthy, and customers fully informed.',
       icon: <ClipboardCheck className="w-6 h-6 text-red-500" />,
-      tag: 'Safety & Compliance',
+      tag: 'Safety & DVI',
     },
     {
-      title: 'Work Request Management',
-      slug: 'work-request-management',
-      path: '/product/work-request-management',
-      desc: 'Keep every work request visible, triaged, tracked, and completed on time from across the business.',
+      title: 'Work Orders & Job Cards',
+      slug: 'work-order-management',
+      path: '/products/wrms-pro/work-orders',
+      desc: 'Keep every repair order visible, triaged, tracked, and invoiced on time from initial customer intake to completion.',
       icon: <FileText className="w-6 h-6 text-red-500" />,
-      tag: 'Operations',
+      tag: 'Job Operations',
     },
     {
-      title: 'Multi-Site Management',
+      title: 'Multi-Branch Management',
       slug: 'multi-site-management',
-      path: '/product/multi-site-management',
-      desc: 'Manage maintenance across multiple sites, facilities, and regional warehouses with one connected cloud database.',
+      path: '/products/wrms-pro/multi-site',
+      desc: 'Manage workshop operations across multiple branches, service centres, and mobile vans with one connected cloud database.',
       icon: <Building2 className="w-6 h-6 text-red-500" />,
-      tag: 'Enterprise Scale',
+      tag: 'Multi-Branch',
     },
     {
-      title: 'Admin Control Centre',
+      title: 'Admin & Security Hub',
       slug: 'admin-control-centre',
-      path: '/product/admin-control-centre',
-      desc: 'Control user access, roles, custom fields, audit trails, and security policies in one centralized hub.',
+      path: '/products/wrms-pro/admin-control',
+      desc: 'Control staff permissions, labor rate tiers, markup formulas, technician commission rates, and audit logs in one central hub.',
       icon: <Shield className="w-6 h-6 text-red-500" />,
-      tag: 'Security & Governance',
+      tag: 'Security & Rates',
     },
     {
-      title: 'AI Insights & Reporting',
-      slug: 'ai-insights-reporting',
-      path: '/product/ai-insights-reporting',
-      desc: 'Build reports, graphical charts & analyse maintenance data with natural language and predictive trends.',
+      title: 'Financials & Invoicing',
+      slug: 'workshop-analytics-invoicing',
+      path: '/products/wrms-pro/analytics-invoicing',
+      desc: 'Track real-time workshop gross profit, technician billing efficiency, parts margins, and generate compliant tax invoices in one click.',
       icon: <LineChart className="w-6 h-6 text-red-500" />,
-      tag: 'Analytics & AI',
+      tag: 'Financials & KPI',
     },
     {
-      title: 'Inspections',
-      slug: 'inspections',
-      path: '/product/inspections',
-      desc: 'Automate recurring inspections, statutory certifications, and safety walks to keep equipment 100% compliant.',
+      title: 'Customer & Vehicle Registry',
+      slug: 'workshop-customer-management',
+      path: '/products/wrms-pro/customer-crm',
+      desc: 'Maintain complete customer profiles and vehicle service histories with Australian rego lookup and automated SMS service reminders.',
       icon: <CheckCircle2 className="w-6 h-6 text-red-500" />,
-      tag: 'Auditing',
+      tag: 'CRM & History',
     },
     {
-      title: 'AI Maintenance Scheduling',
-      slug: 'ai-maintenance-scheduling',
-      path: '/product/ai-maintenance-scheduling',
-      desc: 'Balance technician workloads, prioritize critical plant lines, and automate routine PM assignments.',
+      title: 'Smart Bay Scheduling',
+      slug: 'workshop-scheduling',
+      path: '/products/wrms-pro/bay-scheduling',
+      desc: 'Balance technician workloads, drag-and-drop jobs across hoists, manage loan cars, and automate customer booking confirmations.',
       icon: <CalendarClock className="w-6 h-6 text-red-500" />,
-      tag: 'Intelligent Ops',
+      tag: 'Bay Scheduling',
     },
   ];
 
@@ -126,13 +126,13 @@ export default function CmmsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-wider">
-              Computerised Maintenance Management System
+              Workshop Repair Management Software
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-sans">
-              MEX CMMS
+              WRMS PRO
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Australia's premier enterprise maintenance software. Designed to manage asset lifecycles, eliminate unplanned plant downtime, and bring complete operational clarity to maintenance teams nationwide.
+              Australia's modern, all-in-one workshop repair management software. Designed to streamline work orders, job cards, parts inventory, customer invoicing, and technician scheduling with total operational precision.
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
@@ -157,13 +157,13 @@ export default function CmmsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs uppercase font-extrabold tracking-wider text-red-600 block mb-2">
-              Comprehensive Modular System
+              Comprehensive Workshop System
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Built to manage every phase of maintenance
+              Built to manage every phase of your workshop
             </h2>
             <p className="text-slate-600 text-sm mt-3">
-              Explore the core capabilities that empower maintenance managers and tradespeople alike. Click any module for detailed features.
+              Explore the core capabilities that empower front-desk service advisors, workshop mechanics, and business owners alike. Click any module for detailed features.
             </p>
           </div>
 
@@ -202,27 +202,27 @@ export default function CmmsPage() {
         </div>
       </section>
 
-      {/* Why Choose MEX Section */}
+      {/* Why Choose WRMS Pro Section */}
       <section className="py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-xs uppercase font-extrabold tracking-wider text-red-600 block mb-2">
-                Enterprise Reliability
+                Workshop Precision
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Designed for front-line technicians, trusted by executive directors
+                Designed for busy workshop technicians, trusted by garage owners
               </h2>
               <p className="text-slate-600 text-sm sm:text-base mt-4 leading-relaxed">
-                Too many enterprise tools fail because they are overly convoluted for the tradespeople entering daily job notes. MEX was built in Australia with direct input from maintenance fitters, electricians, and reliability engineers.
+                Too many workshop systems are clunky, slow, and tie your front desk to outdated servers. WRMS Pro was built in Australia with direct input from mechanics, auto electricians, and service advisors to run lightning-fast on any device — from bay tablets to office PCs.
               </p>
 
               <div className="mt-8 space-y-3">
                 {[
-                  '100% Australian owned, operated, and locally supported in Brisbane',
-                  'Modular architecture — pay only for the tools your operations need',
-                  'Seamless integration with SAP, Oracle, Xero, MYOB, and Microsoft Dynamics',
-                  'Rock-solid offline synchronization for underground mines and remote regional sites',
+                  '100% Australian owned, operated, and locally supported for automotive workshops',
+                  'All-in-one architecture — manage customers, vehicles, jobs, inventory & invoicing seamlessly',
+                  'Two-way accounting sync with Xero, MYOB, and QuickBooks for instant reconciliation',
+                  'Built-in digital vehicle inspections with photo and video capture sent straight to customer phones',
                 ].map((point, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="p-1 rounded-full bg-emerald-100 text-emerald-700 flex-shrink-0 mt-0.5">
@@ -236,16 +236,16 @@ export default function CmmsPage() {
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 h-96">
               <img
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
-                alt="Technicians working with modern tablet in industrial plant"
+                src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80"
+                alt="Technicians working with modern tablet in automotive repair workshop"
                 className="w-full h-full object-cover opacity-85"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/30 to-transparent flex items-end p-8">
                 <div className="text-white">
                   <span className="text-xs uppercase font-mono tracking-widest text-red-400 block mb-1">
-                    FIELD DEPLOYED
+                    WORKSHOP DEPLOYED
                   </span>
-                  <h4 className="text-lg font-bold">Tested in heavy industry across Australasia</h4>
+                  <h4 className="text-lg font-bold">Tested in high-volume auto service centres and repair shops across Australasia</h4>
                 </div>
               </div>
             </div>

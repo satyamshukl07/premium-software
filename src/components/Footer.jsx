@@ -45,13 +45,13 @@ export default function Footer() {
   const products = [
     {
       id: 'mex',
-      name: 'MEX CMMS',
-      subtitle: 'Maintenance Made Simple',
+      name: 'WRMS PRO',
+      subtitle: 'Workshop Repair Management',
       icon: <Settings className="w-4 h-4 text-sky-400" />,
-      headerLink: '/product/mex-cmms',
+      headerLink: '/products/wrms-pro',
       items: [
-        { label: 'Overview', to: '/product/mex-cmms' },
-        { label: 'Features', to: '/product/mex-cmms#features' },
+        { label: 'Overview', to: '/products/wrms-pro/overview' },
+        { label: 'Features', to: '/products/wrms-pro' },
         { label: 'Pricing', to: '/pricing' },
       ],
     },

@@ -123,6 +123,10 @@ function MainLayout() {
           {/* Product Routes */}
           <Route path="/product" element={<ProductPage />} />
           <Route path="/products" element={<ProductPage />} />
+          <Route path="/products/wrms-pro" element={<CmmsPage />} />
+          <Route path="/product/wrms-pro" element={<CmmsPage />} />
+          <Route path="/products/wrms" element={<CmmsPage />} />
+          <Route path="/product/wrms" element={<CmmsPage />} />
           <Route path="/products/mex" element={<CmmsPage />} />
           <Route path="/product/mex-cmms" element={<CmmsPage />} />
           <Route path="/products/chm" element={<ChmProductPage />} />

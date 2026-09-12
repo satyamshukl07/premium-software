@@ -439,20 +439,20 @@ export default function Header() {
             </div>
 
             <div className="pl-3 space-y-3 pt-2 text-sm">
-              {/* Product 1: MEX CMMS */}
+              {/* Product 1: WRMS PRO */}
               <div className="border-l-2 border-red-500 pl-3 space-y-1">
                 <Link to="/products/mex" className="block font-bold text-slate-900 hover:text-red-600">
-                  MEX CMMS
+                  WRMS PRO
                 </Link>
                 <div className="text-xs text-slate-500 space-y-1 pl-1">
-                  <Link to="/product/mex-overview" className="block hover:text-red-600">
+                  <Link to="/products/wrms-pro/overview" className="block hover:text-red-600">
                     Overview & Capabilities
                   </Link>
-                  <Link to="/product/mex-apps" className="block hover:text-red-600">
-                    MEX Mobile Apps
+                  <Link to="/products/wrms-pro/technician-app" className="block hover:text-red-600">
+                    Technician Mobile App
                   </Link>
-                  <Link to="/product/integrations" className="block hover:text-red-600">
-                    API & Telematics Integrations
+                  <Link to="/products/wrms-pro/integrations" className="block hover:text-red-600">
+                    Accounting & Parts Integrations
                   </Link>
                 </div>
               </div>

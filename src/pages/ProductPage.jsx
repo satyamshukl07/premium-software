@@ -27,23 +27,23 @@ export default function ProductPage() {
   const ecosystemProducts = [
     {
       id: 'mex',
-      name: 'MEX CMMS',
-      subtitle: 'Maintenance Management Software',
-      badge: 'Core Enterprise CMMS',
+      name: 'WRMS PRO',
+      subtitle: 'Workshop Repair Management Software',
+      badge: 'Automotive Repair SaaS',
       badgeStyle: 'bg-red-50 text-red-600 border-red-200',
       accentColor: 'red',
       path: '/products/mex',
-      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80',
       description:
-        'Australia’s premier Computerised Maintenance Management System for complete asset lifecycle management, work order scheduling, inventory control, and statutory compliance.',
+        'Australia’s modern, all-in-one workshop repair management software. Streamline work orders, digital job cards, technician labor clocking, parts inventory control, and customer invoicing.',
       features: [
-        'Asset register & hierarchy management',
-        'Automated preventive maintenance schedules',
-        'Mobile technician apps with offline mode',
-        'Spares inventory & purchase order control',
+        'Digital job cards & technician labor clocking',
+        'Customer & vehicle registry with service history',
+        'Parts inventory, stock control & purchase orders',
+        'Smart drag-and-drop bay scheduler & inspections',
       ],
-      primaryCta: 'Explore MEX CMMS',
-      stats: '12,000+ Active Facilities',
+      primaryCta: 'Explore WRMS PRO',
+      stats: '5,000+ Active Workshop Bays',
     },
     {
       id: 'chm',
@@ -208,18 +208,18 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* Feature Grid: MEX CMMS Modules */}
+      {/* Feature Grid: WRMS PRO Modules */}
       <section className="py-20 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-red-600">
-              Deep Engineering
+              Workshop Precision
             </span>
             <h2 className="text-3xl font-black text-slate-900 mt-1">
-              MEX CMMS Core Functional Modules
+              WRMS PRO Core Functional Modules
             </h2>
             <p className="text-slate-600 text-sm mt-2">
-              Over 30 years of maintenance engineering experience packaged into modular components.
+              End-to-end workshop repair management capabilities packaged into modular, high-efficiency components.
             </p>
           </div>
 

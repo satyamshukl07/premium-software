@@ -974,8 +974,8 @@ export const solutionDetails = {
   ...chmExtraDetails,
   ...fleetTrackingDetails,
   ...fleetTrackingExtraDetails,
-  ...wrmsDetails,
   ...mexDetails,
+  ...wrmsDetails,
 };
 
 // Helper function to find details by slug (with fallback and aliases)
@@ -1025,18 +1025,32 @@ export function getSolutionDetail(slug) {
     'faster-response-to-incidents': 'faster-response-incidents',
     'more-control-over-assets': 'more-control-assets',
 
-    // WRMS
+    // WRMS Pro
     'wrms': 'wrms-pro',
     'wrms-repair': 'wrms-pro',
+    'wrms-pro': 'wrms-pro',
+    'wrms-pro-overview': 'wrms-pro-overview',
     'inspections': 'workshop-inspections',
     'scheduling': 'workshop-scheduling',
     'parts-inventory': 'parts-and-inventory',
     'vehicle-management': 'workshop-vehicle-management',
     'more-efficient-workshop-operations': 'efficient-workshop-operations',
+    'technician-app': 'technician-app',
+    'workshop-services': 'workshop-services',
+    'workshop-integrations': 'workshop-integrations',
+    'multi-site': 'multi-site-management',
+    'admin-control': 'admin-control-centre',
+    'analytics-invoicing': 'workshop-analytics-invoicing',
+    'customer-crm': 'workshop-customer-management',
+    'bay-scheduling': 'workshop-scheduling',
 
-    // MEX
-    'mex': 'mex-overview',
-    'mex-cmms': 'mex-overview',
+    // MEX Product section migration to WRMS Pro
+    'mex': 'wrms-pro',
+    'mex-cmms': 'wrms-pro',
+    'mex-overview': 'wrms-pro-overview',
+    'mex-apps': 'technician-app',
+    'mex-services': 'workshop-services',
+    'mex-integrations': 'workshop-integrations',
   };
 
   if (aliasMap[normalized] && solutionDetails[aliasMap[normalized]]) {

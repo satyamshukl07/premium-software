@@ -533,9 +533,370 @@ export const wrmsDetails = {
       { title: "15 Hours Saved Weekly", desc: "Cut administrative paperwork and manual double-handling." },
       { title: "Scalable Multi-Depot Support", desc: "Manage multiple workshop branches with centralized inventory and reporting." },
     ],
-    stat1: "25%+", stat1Label: "Typical Profit Improvement",
-    stat2: "15h", stat2Label: "Admin Hours Saved Weekly",
+  },
+
+  // =========================================================================
+  // DEDICATED WRMS PRO PRODUCT MODULES
+  // =========================================================================
+
+  'overview': {
+    redirect: 'wrms-pro-overview',
+  },
+  'wrms-pro-overview': {
+    title: "WRMS Pro Overview",
+    subtitle: "End-to-End Operating System for Modern Automotive & Fleet Repair Workshops",
+    tag: "Core Workshop System",
+    badgeColor: "bg-red-500/10 text-red-500 border-red-500/20",
+    accentColor: "#dc2626",
+    category: "WRMS Pro",
+    description:
+      "See how WRMS Pro brings total operational precision to auto workshops with unified job cards, customer CRM, live bay scheduling, and real-time inventory.",
+    overview:
+      "WRMS Pro is Australia's all-in-one workshop repair management software engineered specifically for independent mechanical garages, diesel repairers, auto-electricians, and fleet depots. Centralize work orders, customer approvals, technician labor clocking, parts inventory, and accounting reconciliation into one high-performance cloud platform.",
+    problemSolved:
+      "Paper-based job cards lost or grease-stained in bays, unbilled technician labor hours, delayed customer quote approvals, and untracked inventory draining workshop profit.",
+    whoItsFor:
+      "Workshop business owners, service advisors, workshop foremen, mechanics, and fleet maintenance controllers.",
+    howItWorks: [
+      { step: "01", title: "Customer Check-In", desc: "Type vehicle license plate to auto-populate VIN, year, make, model, and engine specifications instantly." },
+      { step: "02", title: "Bay Execution", desc: "Technicians clock labor on bay tablets, check off digital inspection items, and scan parts barcodes." },
+      { step: "03", title: "Instant Invoicing", desc: "Send 1-tap SMS quotes for customer sign-off and convert directly to tax invoices syncing with Xero or MYOB." },
+    ],
+    bullets: [
+      "Interactive Kanban work board displaying all active jobs across hoists, wash bays, and testing bays",
+      "Instant Australian rego plate lookup retrieving verified OEM fluid specs and factory service schedules",
+      "Mobile technician job cards with digital labor timers tracking billable efficiency vs book time",
+      "Two-way accounting synchronization with Xero, MYOB, and QuickBooks for instant reconciliation",
+    ],
+    features: [
+      { title: "Live Bay Kanban Board", desc: "Drag-and-drop repair orders across Booked, In Progress, Awaiting Parts, and Ready for Pickup." },
+      { title: "Digital Job Cards", desc: "Replace paper clipboards with cloud work orders accessible on technician bay tablets." },
+      { title: "SMS Quote Approvals", desc: "Customers review itemized estimates and approve additional work with one tap on their smartphone." },
+      { title: "Parts & Margin Control", desc: "Enforce target gross profit margins automatically with barcode inventory scanning." },
+    ],
+    stat1: "5,000+", stat1Label: "Active Workshop Bays",
+    stat2: "1-Click", stat2Label: "Invoicing & Accounting Sync",
+    stat3: "30%", stat3Label: "Faster Job Turnaround",
+    stat4: "0", stat4Label: "Lost Job Cards or Parts",
     image: "/images/wrms-pro.svg",
     photoUrl: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80",
+    advantages: [
+      "Zero unbilled parts or lost mechanic labor hours across any bay",
+      "Instant vehicle service history lookup by registration plate or VIN",
+      "Professional SMS estimates increase customer upsell approval rates by 40%",
+      "Seamless integration with Australian accounting and parts distribution networks",
+    ],
+  },
+
+  'technician-app': {
+    title: "Technician Mobile App",
+    subtitle: "Bay-Ready Mobile Workstation for iOS & Android Tablets",
+    tag: "Mobile & Bay",
+    badgeColor: "bg-red-500/10 text-red-500 border-red-500/20",
+    accentColor: "#dc2626",
+    category: "WRMS Pro",
+    description:
+      "Equip workshop technicians with intuitive mobile apps to clock into work orders, scan parts barcodes, snap diagnostic photos, and record inspection notes right in the bay.",
+    overview:
+      "WRMS Pro Mobile turns any tablet or smartphone into a rugged workshop tool. Mechanics view assigned work orders, start and pause labor timers, record oil and filter part numbers with barcode scanning, and attach high-definition photos or short video walkarounds to show customers worn components.",
+    problemSolved:
+      "Mechanics walking back and forth to front-desk PCs to read job notes, unrecorded apprentice labor hours, and lack of visual proof for recommended repairs.",
+    whoItsFor:
+      "Automotive mechanics, apprentices, diagnostic technicians, and workshop bay leaders.",
+    howItWorks: [
+      { step: "01", title: "View Assigned Work", desc: "Technician opens their personal daily job queue on a tablet mounted at their bay." },
+      { step: "02", title: "Clock Labor & Add Parts", desc: "Tap 'Start Job' to begin billable timer, snap photos of worn brakes, and scan replacement parts." },
+      { step: "03", title: "Quality Check Sign-Off", desc: "Complete multi-point inspection items, dictate voice notes, and notify front desk." },
+    ],
+    bullets: [
+      "One-tap start and pause labor clocking tracking actual mechanic hours against quoted labor",
+      "Built-in camera barcode scanner instantly deducting spark plugs, filters, and brake pads from stock",
+      "Photo and video capture allowing mechanics to document cracked bushes or oil leaks with arrows",
+      "Voice-to-text dictation enabling technicians to record detailed diagnostic observations hands-free",
+    ],
+    features: [
+      { title: "One-Tap Labor Clocking", desc: "Record exact minutes spent on each repair task for accurate technician efficiency." },
+      { title: "Photo & Video Proof", desc: "Snap worn brake pads or split boots directly into the customer's job card." },
+      { title: "Barcode Parts Scanner", desc: "Use tablet camera to scan and allocate parts to active repair orders." },
+      { title: "Offline Bay Resilience", desc: "Continue recording inspection notes and checklists even if workshop Wi-Fi drops out." },
+    ],
+    stat1: "Real-time", stat1Label: "Technician Labor Clocking",
+    stat2: "100%", stat2Label: "Bay Tablet Access",
+    stat3: "40%", stat3Label: "Less Walking Between Bays",
+    stat4: "iOS & Android", stat4Label: "Native Support",
+    image: "/images/wrms-pro.svg",
+    photoUrl: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80",
+    advantages: [
+      "Capture every minute of billable technician labor without paper timesheets",
+      "Empower mechanics to document evidence that sells necessary safety work",
+      "Eliminate illegible handwriting on job cards and parts requisitions",
+      "Keep workshop floor completely connected with front desk reception",
+    ],
+  },
+
+  'services': {
+    redirect: 'workshop-services',
+  },
+  'workshop-services': {
+    title: "Workshop Services & Support",
+    subtitle: "Australian Onboarding, Data Migration & Dedicated Technical Support",
+    tag: "Expert Support",
+    badgeColor: "bg-red-500/10 text-red-500 border-red-500/20",
+    accentColor: "#dc2626",
+    category: "WRMS Pro",
+    description:
+      "Fast-track your workshop transition with complete customer and vehicle data migration, staff training, and dedicated Australian technical support.",
+    overview:
+      "Switching workshop software should never disrupt your daily bookings. Our Brisbane and Sydney-based automotive specialists migrate your existing customer records, vehicle histories, parts catalogs, and pricing matrices from legacy systems smoothly, followed by personalized staff training.",
+    problemSolved:
+      "Fear of downtime during software switches, messy legacy customer databases, and overseas call centres that do not understand Australian automotive standards.",
+    whoItsFor:
+      "Workshop owners, general managers, and administrative coordinators upgrading to modern cloud software.",
+    howItWorks: [
+      { step: "01", title: "Data Extraction & Cleanse", desc: "Our team extracts and formats your legacy customer, vehicle, and supplier data files." },
+      { step: "02", title: "Configuration & Branding", desc: "Setup labor rates, markup matrices, invoice branding, and staff user permissions." },
+      { step: "03", title: "Team Training & Go-Live", desc: "Interactive training sessions for service advisors and mechanics ensuring day-one confidence." },
+    ],
+    bullets: [
+      "Complete historical data migration: customer contacts, vehicle records, parts inventory, and supplier catalogs",
+      "Hands-on interactive staff training for front-desk service advisors and workshop mechanics",
+      "Direct Australian phone, live chat, and email support staffed by automotive software professionals",
+      "Custom invoice and quote template branding with your logos, trading terms, and payment details",
+    ],
+    features: [
+      { title: "24-Hour Fast Migration", desc: "Transfer customer and vehicle records over a weekend with zero lost workshop days." },
+      { title: "Staff Onboarding Programs", desc: "Practical training modules ensuring every mechanic and advisor is proficient." },
+      { title: "Local Australian Support", desc: "Speak directly with local specialists who understand workshop operations." },
+      { title: "Custom Template Design", desc: "Tailor digital invoices, inspection reports, and SMS notifications to your brand." },
+    ],
+    stat1: "24h", stat1Label: "Fast-Track Data Migration",
+    stat2: "100%", stat2Label: "Data Integrity Preserved",
+    stat3: "Local", stat3Label: "Australian Support Team",
+    stat4: "4.9/5", stat4Label: "Customer Satisfaction",
+    image: "/images/wrms-pro.svg",
+    photoUrl: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1200&q=80",
+    advantages: [
+      "Smooth, stress-free transition with zero lost customer repair histories",
+      "Your team becomes productive and confident on the new system immediately",
+      "Reliable local support when you need assistance during peak morning rush hours",
+      "Professional customer-facing documents that reinforce workshop credibility",
+    ],
+  },
+
+  'integrations': {
+    redirect: 'workshop-integrations',
+  },
+  'workshop-integrations': {
+    title: "Accounting & Parts Integrations",
+    subtitle: "Two-Way Sync with Xero, MYOB, QuickBooks & Live Auto Parts Catalogues",
+    tag: "API & Accounting",
+    badgeColor: "bg-red-500/10 text-red-500 border-red-500/20",
+    accentColor: "#dc2626",
+    category: "WRMS Pro",
+    description:
+      "Connect your workshop software with Xero, MYOB, and QuickBooks to sync invoices and payments automatically, while connecting live auto parts catalogues.",
+    overview:
+      "Eliminate double data entry between your workshop management system and your accounting ledger. WRMS Pro synchronizes closed customer invoices, payments, and supplier parts bills automatically into Xero, MYOB, or QuickBooks, keeping your bank feeds and debtor ledgers completely balanced.",
+    problemSolved:
+      "Manual re-keying of daily workshop invoices into accounting software, reconciliation discrepancies, and delayed supplier bill processing.",
+    whoItsFor:
+      "Workshop bookkeepers, accountants, service managers, and business owners.",
+    howItWorks: [
+      { step: "01", title: "1-Click Cloud Connect", desc: "Authorize secure OAuth connection to Xero, MYOB, or QuickBooks in under 60 seconds." },
+      { step: "02", title: "Automatic Invoice Sync", desc: "When a repair order is finalized and paid, the tax invoice and receipt export instantly." },
+      { step: "03", title: "Parts Bill Reconciliation", desc: "Supplier delivery invoices match against workshop purchase orders with zero discrepancy." },
+    ],
+    bullets: [
+      "Real-time two-way sync for sales invoices, customer contact ledgers, and payments",
+      "Automated mapping of parts revenue, labor sales, sublet repairs, and environmental waste fees",
+      "Supplier bill import matching supplier trade statements with internal purchase orders",
+      "Integrated EFTPOS and payment gateway processing clearing invoices automatically",
+    ],
+    features: [
+      { title: "Instant Xero & MYOB Sync", desc: "Send closed invoices, credit notes, and payment receipts with one click." },
+      { title: "Supplier Bill Reconciliation", desc: "Match incoming parts delivery dockets against purchase orders." },
+      { title: "EFTPOS Terminal Integration", desc: "Push exact invoice amounts directly to countertop card terminals to eliminate typos." },
+      { title: "Parts Catalogue Connectivity", desc: "Check trade parts availability and live pricing directly from your job card screen." },
+    ],
+    stat1: "Real-time", stat1Label: "Two-Way Accounting Sync",
+    stat2: "0", stat2Label: "Manual Double Data Entry",
+    stat3: "100%", stat3Label: "Reconciled Invoices",
+    stat4: "Top 3", stat4Label: "Xero, MYOB & QuickBooks",
+    image: "/images/wrms-pro.svg",
+    photoUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    advantages: [
+      "Save 10+ hours of manual bookkeeping and data entry every week",
+      "Ensure accurate GST reporting and flawless tax time compliance",
+      "Eliminate payment typos at the front counter with integrated card terminals",
+      "Gain clear visibility into workshop revenue and net profit margins",
+    ],
+  },
+
+  'inventory-management': {
+    redirect: 'parts-and-inventory',
+  },
+
+  'vehicle-inspections': {
+    redirect: 'workshop-inspections',
+  },
+
+  'work-orders': {
+    redirect: 'work-order-management',
+  },
+
+  'multi-site': {
+    redirect: 'multi-site-management',
+  },
+  'multi-site-management': {
+    title: "Multi-Branch Workshop Control",
+    subtitle: "Centralized Management for Multi-Location Auto Garages & Franchises",
+    tag: "Multi-Branch",
+    badgeColor: "bg-red-500/10 text-red-500 border-red-500/20",
+    accentColor: "#dc2626",
+    category: "WRMS Pro",
+    description:
+      "Manage workshop operations across multiple branches, service centres, and mobile vans with one connected cloud database.",
+    overview:
+      "Oversee multiple repair locations effortlessly. WRMS Pro provides executive multi-site visibility, allowing owners to view bookings, technician efficiency, parts inventory transfers, and financial metrics across every branch from a single centralized dashboard.",
+    problemSolved:
+      "Disconnected branches using separate software, inability to share parts stock across nearby depots, and complex manual consolidated reporting.",
+    whoItsFor:
+      "Workshop franchise owners, multi-branch service directors, and enterprise fleet repair operations.",
+    howItWorks: [
+      { step: "01", title: "Branch Switcher", desc: "Toggle between individual workshop branches or view consolidated group metrics with one click." },
+      { step: "02", title: "Shared Customer CRM", desc: "Customers can visit any workshop in your group with their full service history visible." },
+      { step: "03", title: "Inter-Depot Transfers", desc: "Transfer excess parts or specialized diagnostic tools between workshops easily." },
+    ],
+    bullets: [
+      "Unified customer and vehicle database shared securely across all workshop locations",
+      "Inter-branch inventory visibility and transfer tracking reducing emergency parts freight",
+      "Standardized pricing matrices, labor rates, and logbook templates enforced company-wide",
+      "Consolidated financial and productivity reporting comparing revenue, margins, and bay utilization",
+    ],
+    features: [
+      { title: "Multi-Depot Dashboard", desc: "Monitor live jobs, bay throughput, and daily revenue across all branches." },
+      { title: "Inter-Branch Stock Transfers", desc: "Check stock on hand at sister workshops and transfer parts in seconds." },
+      { title: "Centralized Customer Profiles", desc: "Drivers can book at any branch with previous repair histories fully intact." },
+      { title: "Group Performance Analytics", desc: "Benchmark technician efficiency and parts margins branch against branch." },
+    ],
+    stat1: "Unlimited", stat1Label: "Branch & Depot Support",
+    stat2: "Unified", stat2Label: "Group Customer Database",
+    stat3: "Real-time", stat3Label: "Inter-Branch Stock Transfers",
+    stat4: "1-Click", stat4Label: "Consolidated P&L Reporting",
+    image: "/images/wrms-pro.svg",
+    photoUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+    advantages: [
+      "Scale your automotive workshop business from one shop to multiple regional locations",
+      "Deliver consistent, premium customer service across all group workshops",
+      "Optimize parts capital by sharing inventory across nearby facilities",
+      "Compare branch performance to identify growth and efficiency opportunities",
+    ],
+  },
+
+  'admin-control': {
+    redirect: 'admin-control-centre',
+  },
+  'admin-control-centre': {
+    title: "Admin & Security Hub",
+    subtitle: "Role-Based Access Control, Labor Rates & Workshop Financial Settings",
+    tag: "Security & Control",
+    badgeColor: "bg-red-500/10 text-red-500 border-red-500/20",
+    accentColor: "#dc2626",
+    category: "WRMS Pro",
+    description:
+      "Control staff permissions, labor rate tiers, markup formulas, technician commission rates, and audit logs in one central hub.",
+    overview:
+      "Maintain strict control over workshop operations and financial data. Set granular user roles so mechanics only see their assigned work orders, while service advisors handle customer invoicing and owners access full profit margins, business metrics, and sensitive settings.",
+    problemSolved:
+      "Staff accidentally editing retail prices, unauthorized viewing of business profit margins, and lack of accountability for invoice edits.",
+    whoItsFor:
+      "Workshop owners, general managers, and administrative supervisors.",
+    howItWorks: [
+      { step: "01", title: "Role Assignment", desc: "Assign staff to pre-built roles: Owner, Service Advisor, Storeman, Mechanic, or Apprentice." },
+      { step: "02", title: "Configure Rate Tiers", desc: "Set mechanical, diagnostic, auto-electrical, and fleet discounted hourly rates." },
+      { step: "03", title: "Audit Trail Monitoring", desc: "Review complete logs of who edited an invoice, gave a discount, or deleted an item." },
+    ],
+    bullets: [
+      "Granular role-based security protecting sensitive cost prices and business margins from floor staff",
+      "Configurable labor rate tiers tailored to retail, trade, commercial fleet, and warranty accounts",
+      "Technician commission and efficiency tracking to calculate performance incentives accurately",
+      "Immutable audit log recording every change, discount, price override, and payment entry",
+    ],
+    features: [
+      { title: "Role-Based Security", desc: "Control screen and field visibility for each employee role in your workshop." },
+      { title: "Custom Labor Rate Tiers", desc: "Define standard, diagnostic, air-con, and corporate fleet labor rates." },
+      { title: "Commission & Bonus Tracker", desc: "Calculate technician productivity incentives based on actual billable hours." },
+      { title: "Complete Audit Logging", desc: "Track every invoice modification, price override, and user action with timestamps." },
+    ],
+    stat1: "100%", stat1Label: "Role-Based Security",
+    stat2: "Complete", stat2Label: "Timestamped Audit Trails",
+    stat3: "Flexible", stat3Label: "Custom Labor Rate Tiers",
+    stat4: "Bank-Grade", stat4Label: "Cloud Data Encryption",
+    image: "/images/wrms-pro.svg",
+    photoUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    advantages: [
+      "Safeguard your workshop's financial profitability and sensitive margins",
+      "Prevent unauthorized discounting or alteration of finalized job cards",
+      "Reward your highest performing technicians with transparent commission reporting",
+      "Maintain full compliance with digital records and accounting standards",
+    ],
+  },
+
+  'analytics-invoicing': {
+    redirect: 'workshop-analytics-invoicing',
+  },
+  'workshop-analytics-invoicing': {
+    title: "Financial Analytics & Invoicing",
+    subtitle: "Real-Time Gross Profit, Technician Efficiency & Automated Invoicing",
+    tag: "Financials & KPI",
+    badgeColor: "bg-red-500/10 text-red-500 border-red-500/20",
+    accentColor: "#dc2626",
+    category: "WRMS Pro",
+    description:
+      "Track real-time workshop gross profit, technician billing efficiency, parts margins, and generate compliant tax invoices in one click.",
+    overview:
+      "Know your workshop numbers in real time. WRMS Pro eliminates financial guesswork with automated KPI dashboards tracking bay recovery rate, average repair order (ARO) value, technician billable efficiency, and parts gross margin percentage.",
+    problemSolved:
+      "Waiting until the end of the month to discover the workshop operated at a loss, slow manual invoice drafting, and uncollected debtor accounts.",
+    whoItsFor:
+      "Workshop owners, finance directors, service managers, and bookkeepers.",
+    howItWorks: [
+      { step: "01", title: "Automated Job Totals", desc: "Labor hours and allocated parts calculate automatically with appropriate markups and GST." },
+      { step: "02", title: "1-Click Tax Invoice", desc: "Convert the job card into a professional PDF tax invoice sent via SMS or email." },
+      { step: "03", title: "Live Financial Dashboard", desc: "Monitor daily turnover, parts margin percentage, and bay profitability as jobs close." },
+    ],
+    bullets: [
+      "Instant tax invoice generation with itemized parts, labor, environmental levies, and trade discounts",
+      "Real-time gross margin analytics breaking down parts profitability vs labor billable recovery",
+      "Technician efficiency metrics comparing actual clocked bay time against billed flat-rate book time",
+      "Debtor aging ledger with automated SMS reminder sequences for unpaid trade accounts",
+    ],
+    features: [
+      { title: "One-Click Invoicing", desc: "Convert job cards to tax invoices with single-click accounting sync." },
+      { title: "Real-Time Profit Tracker", desc: "See your exact gross profit on every job card before the vehicle leaves." },
+      { title: "Technician Productivity Reports", desc: "Identify top producers and address bay bottlenecks immediately." },
+      { title: "Automated Payment Reminders", desc: "Send polite automated SMS reminders for overdue fleet invoices." },
+    ],
+    stat1: "Real-time", stat1Label: "Gross Profit Tracking",
+    stat2: "1-Click", stat2Label: "Invoice Creation",
+    stat3: "30s", stat3Label: "Payment Reconciliation",
+    stat4: "Instant", stat4Label: "Export to Xero/MYOB",
+    image: "/images/wrms-pro.svg",
+    photoUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    advantages: [
+      "Eliminate end-of-month financial surprises by monitoring margins daily",
+      "Speed up customer checkout times at reception with instant invoicing",
+      "Recover overdue trade customer payments faster with automated reminders",
+      "Drive higher profitability per bay by optimizing labor pricing and markup",
+    ],
+  },
+
+  'customer-crm': {
+    redirect: 'workshop-customer-management',
+  },
+
+  'bay-scheduling': {
+    redirect: 'workshop-scheduling',
   },
 };
+
