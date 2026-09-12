@@ -18,7 +18,7 @@ export default function SolutionsPage() {
             Solutions built for your operational reality
           </h1>
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            Whether managing a national fleet of heavy haulers, a high-throughput food factory, or complex hospital clinical assets, MEX delivers proven frameworks engineered for your exact industry standards.
+            Four powerful platforms. One connected ecosystem. Built to streamline operations, improve efficiency, and drive growth across the automotive, workshop, rental, and fleet management industries.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
@@ -32,6 +32,121 @@ export default function SolutionsPage() {
               className="px-8 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700"
             >
               Calculate My Pricing
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 4 Core Solutions Overview */}
+      <section className="py-16 bg-slate-50 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-extrabold uppercase tracking-wider text-rose-600 block mb-2">
+              The Ecosystem
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+              Four Core Connected Platforms
+            </h2>
+            <p className="text-slate-600 text-sm mt-2">
+              Engineered to work seamlessly together or integrate directly into your existing infrastructure.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Link
+              to="/products/wrms-pro"
+              className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-rose-400 hover:shadow-xl transition-all group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-600 border border-rose-100 uppercase tracking-wider">
+                  Workshop SaaS
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-rose-600 transition-colors mt-3 mb-1">
+                  WRMS Pro
+                </h3>
+                <p className="text-xs font-medium text-slate-500 mb-2">
+                  Workshop Repair Management
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Work orders, repairs, diagnostics, technician scheduling, parts inventory, and 1-click invoicing.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-rose-600">
+                <span>Explore WRMS Pro</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/products/chm"
+              className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-xl transition-all group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-600 border border-amber-100 uppercase tracking-wider">
+                  Safety & Audits
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors mt-3 mb-1">
+                  CHM
+                </h3>
+                <p className="text-xs font-medium text-slate-500 mb-2">
+                  Compliance & Workshop Management
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Automate compliance, digital inspections, statutory safety audits, and real-time bay workflows.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-amber-600">
+                <span>Explore CHM</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/products/hirecar-marketplace"
+              className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-pink-400 hover:shadow-xl transition-all group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-pink-50 text-pink-600 border border-pink-100 uppercase tracking-wider">
+                  Rental Platform
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-pink-600 transition-colors mt-3 mb-1">
+                  HireCar Marketplace
+                </h3>
+                <p className="text-xs font-medium text-slate-500 mb-2">
+                  Vehicle Rental Marketplace
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Car rental operations connecting independent operators with travelers, digital KYC, and booking automation.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-pink-600">
+                <span>Explore HireCar</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/products/australia-fleet-tracking"
+              className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-emerald-400 hover:shadow-xl transition-all group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 uppercase tracking-wider">
+                  Live GPS
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition-colors mt-3 mb-1">
+                  Australia Fleet Tracking
+                </h3>
+                <p className="text-xs font-medium text-slate-500 mb-2">
+                  Real-Time Fleet Tracking
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Telstra 4G-powered live GPS tracking, geofence alerts, AI dashcams, and driver safety scoring.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs font-bold text-emerald-600">
+                <span>Explore Fleet Tracking</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
             </Link>
           </div>
         </div>

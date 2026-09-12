@@ -133,9 +133,13 @@ function MainLayout() {
           <Route path="/product/chm" element={<ChmProductPage />} />
           <Route path="/products/chm/overview" element={<ChmProductPage />} />
           <Route path="/products/hirecar" element={<HireCarProductPage />} />
+          <Route path="/products/hirecar-marketplace" element={<HireCarProductPage />} />
           <Route path="/products/hirecar/:subpage" element={<HireCarProductPage />} />
+          <Route path="/products/hirecar-marketplace/:subpage" element={<HireCarProductPage />} />
           <Route path="/products/fleet-tracking" element={<FleetTrackingProductPage />} />
+          <Route path="/products/australia-fleet-tracking" element={<FleetTrackingProductPage />} />
           <Route path="/products/fleet-tracking/:subpage" element={<FleetTrackingProductPage />} />
+          <Route path="/products/australia-fleet-tracking/:subpage" element={<FleetTrackingProductPage />} />
           <Route path="/product/:slug" element={<SolutionDetailPage />} />
           <Route path="/products/:slug" element={<SolutionDetailPage />} />
           <Route path="/products/:category/:slug" element={<SolutionDetailPage />} />
@@ -145,6 +149,7 @@ function MainLayout() {
           {/* Solutions & Industry Routes */}
           <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/solutions/by-capability" element={<SectorDetailPage />} />
+          <Route path="/solutions/industries/:sector" element={<SectorDetailPage />} />
           <Route path="/solutions/:sector" element={<SectorDetailPage />} />
           <Route path="/sectors" element={<SolutionsPage />} />
           <Route path="/sectors/:sector" element={<SectorDetailPage />} />

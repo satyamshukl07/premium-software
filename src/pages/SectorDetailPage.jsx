@@ -99,6 +99,12 @@ const sectorDataMap = {
     stat1Label: 'Aged Care Quality Compliance',
     stat2: '24/7',
     stat2Label: 'Resident Safety & Asset Uptime',
+    keyPoints: [
+      'Comprehensive compliance tracking aligned with Aged Care Quality Standards',
+      'Preventive maintenance schedules for nurse calls, HVAC, and emergency power',
+      'Rapid digital work order logging for staff and maintenance contractors',
+      'Complete audit trail of fire safety, legionella testing, and statutory checks',
+    ],
   },
   'breweries-wineries': {
     title: 'Breweries & Wineries',
@@ -109,6 +115,12 @@ const sectorDataMap = {
     stat1Label: 'Vintage Line Availability',
     stat2: 'HACCP',
     stat2Label: 'Food Safety Audit Ready',
+    keyPoints: [
+      'Preventive servicing on bottling lines, fermentation tanks, and refrigeration units',
+      'Strict food-grade lubricant and seal tracking conforming to HACCP guidelines',
+      'Mobile breakdown response to protect peak seasonal harvest and crush windows',
+      'Automated calibration logs for temperature probes, valves, and flow meters',
+    ],
   },
   facilities: {
     title: 'Facilities & Commercial Property',
@@ -119,6 +131,12 @@ const sectorDataMap = {
     stat1Label: 'Reduced Tenant Complaint Tickets',
     stat2: 'NABERS',
     stat2Label: 'Energy Efficiency Alignment',
+    keyPoints: [
+      'Centralized work requests for HVAC, lifts, lighting, and tenant amenities',
+      'Contractor portal with automated inductions, insurance, and SLA monitoring',
+      'Predictive PM scheduling to maintain high NABERS energy efficiency ratings',
+      'Multi-building portfolio dashboards with live budget and work order tracking',
+    ],
   },
   'fleet-logistics': {
     title: 'Fleet & Logistics Operations',
@@ -129,6 +147,12 @@ const sectorDataMap = {
     stat1Label: 'On-Time Fleet Dispatch',
     stat2: 'NHVR',
     stat2Label: 'Regulatory Compliance',
+    keyPoints: [
+      'NHVR compliance management with digital roadworthy inspections and audit trails',
+      'Automated service intervals based on live GPS odometers and engine run hours',
+      'Fast breakdown triage, mobile van dispatch, and component rebuild lifecycle logs',
+      'Tire wear analysis, fuel consumption monitoring, and defect reporting workflows',
+    ],
   },
   'construction-mining': {
     title: 'Construction & Heavy Mining Fleets',
@@ -139,6 +163,12 @@ const sectorDataMap = {
     stat1Label: 'Heavy Plant Reliability',
     stat2: '100%',
     stat2Label: 'Offline Sync in Underground Pits',
+    keyPoints: [
+      'Heavy equipment maintenance cycles for excavators, loaders, and haul trucks',
+      'Offline tablet sync for pit mechanics working without cellular coverage',
+      'Critical spare parts management avoiding multimillion-dollar plant shutdowns',
+      'Structural crack inspections, hydraulic pressure logs, and oil analysis tracking',
+    ],
   },
   'logistics-transport': {
     title: 'Logistics, Transport & Commercial Fleets',
@@ -149,6 +179,12 @@ const sectorDataMap = {
     stat1Label: 'On-Time Fleet Dispatch',
     stat2: 'NHVR',
     stat2Label: 'Regulatory Compliance',
+    keyPoints: [
+      'Automated service intervals triggered by real-time GPS telematics odometers',
+      'Electronic pre-trip driver checklists and instantaneous defect notifications',
+      'Trailer, refrigeration unit, and prime mover maintenance synchronisation',
+      'Comprehensive fuel tax rebate and operating cost-per-kilometre analytics',
+    ],
   },
   'rental-mobility': {
     title: 'Car Rental, Fleets & Urban Mobility',
@@ -159,6 +195,12 @@ const sectorDataMap = {
     stat1Label: 'Faster Vehicle Turnaround',
     stat2: 'Zero',
     stat2Label: 'Double-Booking Errors',
+    keyPoints: [
+      'Fast turnaround inspection check-in with high-resolution photo condition reports',
+      'Instant service flagging when mileage or warning sensors indicate mechanical needs',
+      'Direct marketplace synchronization preventing double bookings across sales channels',
+      'Integrated toll tag reconciliation, bond management, and driver verification',
+    ],
   },
   'food-beverage': {
     title: 'Food & Beverage Manufacturing',
@@ -169,6 +211,12 @@ const sectorDataMap = {
     stat1Label: 'Hygiene Audit Non-Conformances',
     stat2: '45%',
     stat2Label: 'Less Packaging Line Downtime',
+    keyPoints: [
+      'Full HACCP and SQF food safety maintenance compliance and sign-off records',
+      'Clean-in-place (CIP) and sanitation washdown work order scheduling',
+      'Sanitary grade parts inventory with expiration dates and batch tracking',
+      'Rapid conveyor, packaging machine, and cold storage chiller fault resolution',
+    ],
   },
   'government-infrastructure': {
     title: 'Government & Public Infrastructure',
@@ -179,6 +227,12 @@ const sectorDataMap = {
     stat1Label: 'Auditable Public Spending',
     stat2: 'ISO 55000',
     stat2Label: 'Asset Standards Alignment',
+    keyPoints: [
+      'ISO 55000 asset lifecycle planning for civic structures, parks, and roadways',
+      'Transparent audit trails for municipal council budget allocations and grants',
+      'Citizen work order reporting integration for potholes, streetlights, and graffiti',
+      'Contractor compliance management for multi-year public civil tenders',
+    ],
   },
   'healthcare-biotech': {
     title: 'Healthcare & Biomedical Facilities',
@@ -189,6 +243,12 @@ const sectorDataMap = {
     stat1Label: 'Biomedical Certification Rate',
     stat2: '24/7',
     stat2Label: 'Critical Power & HVAC Monitoring',
+    keyPoints: [
+      'AS/NZS 3551 biomedical medical device testing and calibration scheduling',
+      'Operating theatre HEPA air filtration and positive pressure validation',
+      'Emergency generator, UPS battery, and medical gas pipeline preventive routines',
+      'Real-time technician response dispatch for critical patient-care equipment',
+    ],
   },
   manufacturing: {
     title: 'Manufacturing & Industrial Processing',
@@ -199,6 +259,12 @@ const sectorDataMap = {
     stat1Label: 'Downtime Reduction',
     stat2: '15%',
     stat2Label: 'Overall Equipment Effectiveness (OEE) Boost',
+    keyPoints: [
+      'Predictive and scheduled maintenance for CNC machines, presses, and robotic arms',
+      'Root cause analysis (RCA) and mean time to repair (MTTR) performance analytics',
+      'Critical spare parts min/max replenishment to avoid supply chain disruptions',
+      'Digital operator pre-start checklists and automated maintenance handover logs',
+    ],
   },
   mining: {
     title: 'Mining & Heavy Plant Maintenance',
@@ -209,6 +275,12 @@ const sectorDataMap = {
     stat1Label: 'Plant Line Reliability',
     stat2: '100%',
     stat2Label: 'Offline Sync in Underground Pits',
+    keyPoints: [
+      'Extreme duty cycle scheduling for draglines, crushers, haulers, and conveyors',
+      'Offline tablet synchronization for remote mine pits and underground shafts',
+      'High-value component changeout forecasting and core exchange tracking',
+      'Statutory mining safety inspections and non-destructive testing (NDT) logs',
+    ],
   },
   'ports-marines': {
     title: 'Ports, Marinas & Maritime Logistics',
@@ -219,6 +291,12 @@ const sectorDataMap = {
     stat1Label: 'Vessel Berth Readiness',
     stat2: '40%',
     stat2Label: 'Reduced Crane Breakdown Delays',
+    keyPoints: [
+      'Preventive inspection schedules for ship-to-shore gantry cranes and reach stackers',
+      'Maritime vessel survey preparation and Lloyds / AMSA compliance records',
+      'Corrosion prevention routines, cathodic protection, and mooring winches upkeep',
+      'Fuel bunkering, shore power, and terminal refrigerated reefer container audits',
+    ],
   },
   utilities: {
     title: 'Utilities & Power Generation',
@@ -229,6 +307,12 @@ const sectorDataMap = {
     stat1Label: 'Grid & Treatment Availability',
     stat2: 'ISO 55000',
     stat2Label: 'Certified Infrastructure',
+    keyPoints: [
+      'Critical infrastructure compliance aligned with Australian Energy Regulator rules',
+      'Substation transformer, switchgear, and circuit breaker servicing workflows',
+      'Water filtration membrane, pump station, and chlorination maintenance logs',
+      'Field crew GIS-tagged work orders with satellite communication support',
+    ],
   },
   education: {
     title: 'Schools, Universities & Campus Facilities',
@@ -239,6 +323,12 @@ const sectorDataMap = {
     stat1Label: 'Faster Campus Work Request Resolutions',
     stat2: '100%',
     stat2Label: 'Heritage Asset Compliance',
+    keyPoints: [
+      'Simplified student and faculty maintenance request portal with auto-routing',
+      'Preventive servicing of campus HVAC, laboratory fume hoods, and fire systems',
+      'Groundskeeper turf management, sporting facility, and lighting scheduling',
+      'Heritage preservation compliance records for historic university architecture',
+    ],
   },
 };
 

@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { navigationData } from '../data/contentData.js';
 import ProductMegaMenu from './ProductMegaMenu.jsx';
+import SolutionsMegaMenu from './SolutionsMegaMenu.jsx';
 import TechtonikaLogo from './TechtonikaLogo.jsx';
 
 export default function Header() {
@@ -36,6 +37,7 @@ export default function Header() {
   const navigate = useNavigate();
   const navRef = useRef(null);
   const productHoverTimeoutRef = useRef(null);
+  const solutionsHoverTimeoutRef = useRef(null);
 
   const handleProductMouseEnter = () => {
     if (productHoverTimeoutRef.current) {
@@ -47,6 +49,19 @@ export default function Header() {
   const handleProductMouseLeave = () => {
     productHoverTimeoutRef.current = setTimeout(() => {
       setActiveMenu((curr) => (curr === 'product' ? null : curr));
+    }, 180);
+  };
+
+  const handleSolutionsMouseEnter = () => {
+    if (solutionsHoverTimeoutRef.current) {
+      clearTimeout(solutionsHoverTimeoutRef.current);
+    }
+    setActiveMenu('solutions');
+  };
+
+  const handleSolutionsMouseLeave = () => {
+    solutionsHoverTimeoutRef.current = setTimeout(() => {
+      setActiveMenu((curr) => (curr === 'solutions' ? null : curr));
     }, 180);
   };
 
@@ -157,22 +172,28 @@ export default function Header() {
             </div>
 
             {/* Solutions Trigger */}
-            <button
-              id="nav-btn-solutions"
-              onClick={() => toggleMenu('solutions')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors ${
-                activeMenu === 'solutions'
-                  ? 'text-slate-900 bg-slate-100'
-                  : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
-              }`}
+            <div
+              className="relative"
+              onMouseEnter={handleSolutionsMouseEnter}
+              onMouseLeave={handleSolutionsMouseLeave}
             >
-              <span>Solutions</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
-                  activeMenu === 'solutions' ? 'rotate-180 text-red-600' : 'text-slate-400'
+              <button
+                id="nav-btn-solutions"
+                onClick={() => toggleMenu('solutions')}
+                className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors ${
+                  activeMenu === 'solutions'
+                    ? 'text-slate-900 bg-slate-100'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
                 }`}
-              />
-            </button>
+              >
+                <span>Solutions</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    activeMenu === 'solutions' ? 'rotate-180 text-red-600' : 'text-slate-400'
+                  }`}
+                />
+              </button>
+            </div>
 
             {/* Resources Trigger */}
             <button
@@ -255,86 +276,17 @@ export default function Header() {
         </div>
       )}
 
-      {/* 2. SOLUTIONS DROPDOWN */}
+      {/* 2. SOLUTIONS MEGA MENU (HOVER & CLICK ACTIVATED) */}
       {activeMenu === 'solutions' && (
         <div
-          id="dropdown-solutions"
-          className="absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-2xl transition-all animate-in fade-in slide-in-from-top-2 duration-200"
+          onMouseEnter={() => {
+            if (solutionsHoverTimeoutRef.current) {
+              clearTimeout(solutionsHoverTimeoutRef.current);
+            }
+          }}
+          onMouseLeave={handleSolutionsMouseLeave}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-12 gap-8">
-              {/* By Capability Column */}
-              <div className="col-span-4 border-r border-slate-100 pr-8">
-                <div className="mb-4">
-                  <span className="text-xs uppercase font-bold tracking-wider text-slate-400">
-                    Solutions
-                  </span>
-                  <h3 className="text-xl font-bold text-slate-900 mt-1">By Capability</h3>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Proven frameworks tailored for specific maintenance challenges.
-                  </p>
-                </div>
-
-                <div className="space-y-3.5 mt-6">
-                  {navigationData.solutions.capabilities.map((cap) => (
-                    <Link
-                      key={cap.slug}
-                      to={cap.path}
-                      className="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors"
-                    >
-                      <div className="p-2 rounded-lg bg-slate-100 group-hover:bg-red-50 transition-colors flex-shrink-0">
-                        {getFeatureIcon(cap.iconName)}
-                      </div>
-                      <div>
-                        <div className="font-bold text-sm text-slate-900 group-hover:text-red-600 transition-colors flex items-center gap-1.5">
-                          <span>{cap.name}</span>
-                          <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-red-600" />
-                        </div>
-                        <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                          {cap.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* By Industry Column */}
-              <div className="col-span-8">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <span className="text-xs uppercase font-bold tracking-wider text-slate-400">
-                      Solutions
-                    </span>
-                    <h3 className="text-xl font-bold text-slate-900 mt-1">By Industry</h3>
-                  </div>
-                  <Link
-                    to="/solutions"
-                    className="text-xs font-semibold text-slate-600 hover:text-slate-900"
-                  >
-                    View all industries &rarr;
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3">
-                  {navigationData.solutions.industries.map((ind) => (
-                    <Link
-                      key={ind.slug}
-                      to={ind.path}
-                      className="group p-3 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100"
-                    >
-                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-red-600 transition-colors">
-                        {ind.name}
-                      </h4>
-                      <p className="text-xs text-slate-500 mt-1 leading-snug line-clamp-2">
-                        {ind.description}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          <SolutionsMegaMenu onClose={() => setActiveMenu(null)} />
         </div>
       )}
 
@@ -513,20 +465,20 @@ export default function Header() {
               Solutions
             </Link>
             <div className="pl-4 space-y-1 text-sm text-slate-600">
-              <Link to="/solutions/by-capability" className="block py-1 hover:text-red-600">
-                By Capability
+              <Link to="/products/wrms-pro" className="block py-1 hover:text-rose-600">
+                WRMS Pro (Workshop Repair)
               </Link>
-              <Link to="/solutions/asset-management" className="block py-1 hover:text-red-600">
-                Asset Management
+              <Link to="/products/chm" className="block py-1 hover:text-amber-600">
+                CHM (Compliance & Safety)
               </Link>
-              <Link to="/solutions/fleet-management" className="block py-1 hover:text-red-600">
-                Fleet Management
+              <Link to="/products/hirecar-marketplace" className="block py-1 hover:text-pink-600">
+                HireCar Marketplace
               </Link>
-              <Link to="/solutions/preventive-maintenance" className="block py-1 hover:text-red-600">
-                Preventive Maintenance
+              <Link to="/products/australia-fleet-tracking" className="block py-1 hover:text-emerald-600">
+                Australia Fleet Tracking
               </Link>
-              <Link to="/solutions/work-order-management" className="block py-1 hover:text-red-600">
-                Work Order Management
+              <Link to="/solutions" className="block py-1 font-semibold text-rose-600">
+                View all solutions &rarr;
               </Link>
             </div>
 
