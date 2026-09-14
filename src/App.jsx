@@ -30,12 +30,14 @@ import PartnersPage from './pages/company/PartnersPage.jsx';
 
 // Resource Pages
 import BlogListPage from './pages/resources/BlogListPage.jsx';
+import ClientSuccessStoriesPage from './pages/resources/ClientSuccessStoriesPage.jsx';
 import ProductGuidesPage from './pages/resources/ProductGuidesPage.jsx';
 import WhitepapersPage from './pages/resources/WhitepapersPage.jsx';
 import WebinarsPage from './pages/resources/WebinarsPage.jsx';
 import TrainingPage from './pages/resources/TrainingPage.jsx';
 import HelpCentrePage from './pages/resources/HelpCentrePage.jsx';
 import FaqPage from './pages/resources/FaqPage.jsx';
+import ProductPricingDetailPage from './pages/ProductPricingDetailPage.jsx';
 
 // Legal & Directory Pages
 import TermsPage from './pages/legal/TermsPage.jsx';
@@ -158,7 +160,7 @@ function MainLayout() {
           <Route path="/resources" element={<ResourcesPage defaultFilter="all" />} />
           <Route path="/resources/blog" element={<BlogListPage />} />
           <Route path="/resources/blog/:slug" element={<BlogDetailPage />} />
-          <Route path="/resources/client-success-stories" element={<ResourcesPage defaultFilter="case-studies" />} />
+          <Route path="/resources/client-success-stories" element={<ClientSuccessStoriesPage />} />
           <Route path="/resources/client-success-stories/:slug" element={<CaseStudyDetailPage />} />
           <Route path="/resources/product-guides" element={<ProductGuidesPage />} />
           <Route path="/resources/whitepapers" element={<WhitepapersPage />} />
@@ -180,7 +182,8 @@ function MainLayout() {
 
           {/* Pricing & Calculator Routes */}
           <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/pricing/calculate" element={<PricingPage initialMode="calculator" />} />
+          <Route path="/pricing/calculate" element={<PricingPage />} />
+          <Route path="/pricing/:productSlug" element={<ProductPricingDetailPage />} />
 
           {/* Conversion & Portal Routes */}
           <Route path="/free-trial" element={<FreeTrialPage />} />

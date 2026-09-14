@@ -28,6 +28,7 @@ import {
 import { navigationData } from '../data/contentData.js';
 import ProductMegaMenu from './ProductMegaMenu.jsx';
 import SolutionsMegaMenu from './SolutionsMegaMenu.jsx';
+import ResourcesMegaMenu from './ResourcesMegaMenu.jsx';
 import TechtonikaLogo from './TechtonikaLogo.jsx';
 
 export default function Header() {
@@ -38,6 +39,7 @@ export default function Header() {
   const navRef = useRef(null);
   const productHoverTimeoutRef = useRef(null);
   const solutionsHoverTimeoutRef = useRef(null);
+  const resourcesHoverTimeoutRef = useRef(null);
 
   const handleProductMouseEnter = () => {
     if (productHoverTimeoutRef.current) {
@@ -62,6 +64,19 @@ export default function Header() {
   const handleSolutionsMouseLeave = () => {
     solutionsHoverTimeoutRef.current = setTimeout(() => {
       setActiveMenu((curr) => (curr === 'solutions' ? null : curr));
+    }, 180);
+  };
+
+  const handleResourcesMouseEnter = () => {
+    if (resourcesHoverTimeoutRef.current) {
+      clearTimeout(resourcesHoverTimeoutRef.current);
+    }
+    setActiveMenu('resources');
+  };
+
+  const handleResourcesMouseLeave = () => {
+    resourcesHoverTimeoutRef.current = setTimeout(() => {
+      setActiveMenu((curr) => (curr === 'resources' ? null : curr));
     }, 180);
   };
 
@@ -196,22 +211,28 @@ export default function Header() {
             </div>
 
             {/* Resources Trigger */}
-            <button
-              id="nav-btn-resources"
-              onClick={() => toggleMenu('resources')}
-              className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors ${
-                activeMenu === 'resources'
-                  ? 'text-slate-900 bg-slate-100'
-                  : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
-              }`}
+            <div
+              className="relative"
+              onMouseEnter={handleResourcesMouseEnter}
+              onMouseLeave={handleResourcesMouseLeave}
             >
-              <span>Resources</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
-                  activeMenu === 'resources' ? 'rotate-180 text-red-600' : 'text-slate-400'
+              <button
+                id="nav-btn-resources"
+                onClick={() => toggleMenu('resources')}
+                className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors ${
+                  activeMenu === 'resources'
+                    ? 'text-slate-900 bg-slate-100'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
                 }`}
-              />
-            </button>
+              >
+                <span>Resources</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    activeMenu === 'resources' ? 'rotate-180 text-red-600' : 'text-slate-400'
+                  }`}
+                />
+              </button>
+            </div>
 
             {/* Plans & Pricing Direct Link */}
             <Link
@@ -290,87 +311,17 @@ export default function Header() {
         </div>
       )}
 
-      {/* 3. RESOURCES DROPDOWN */}
+      {/* 3. RESOURCES MEGA MENU (HOVER & CLICK ACTIVATED) */}
       {activeMenu === 'resources' && (
         <div
-          id="dropdown-resources"
-          className="absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-2xl transition-all animate-in fade-in slide-in-from-top-2 duration-200"
+          onMouseEnter={() => {
+            if (resourcesHoverTimeoutRef.current) {
+              clearTimeout(resourcesHoverTimeoutRef.current);
+            }
+          }}
+          onMouseLeave={handleResourcesMouseLeave}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-12 gap-8">
-              {/* Left Column: Resource Links */}
-              <div className="col-span-4 border-r border-slate-100 pr-8">
-                <div className="mb-4">
-                  <span className="text-xs uppercase font-bold tracking-wider text-slate-400">
-                    Resources
-                  </span>
-                  <h3 className="text-xl font-bold text-slate-900 mt-1">Knowledge Hub</h3>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Access industry insights, proven success stories, and expert resources to make
-                    maintenance simpler and smarter.
-                  </p>
-                  <Link
-                    to="/resources"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-red-600 hover:text-red-700 mt-2"
-                  >
-                    <span>See all resources</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-
-                <div className="space-y-1.5 mt-4">
-                  {navigationData.resources.links.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className="block px-3 py-2 text-sm font-semibold text-slate-700 hover:text-red-600 hover:bg-slate-50 rounded-lg transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right Column: Featured Cards */}
-              <div className="col-span-8">
-                <span className="text-xs uppercase font-bold tracking-wider text-slate-400 block mb-4">
-                  Featured
-                </span>
-                <div className="grid grid-cols-2 gap-6">
-                  {navigationData.resources.featured.map((card, idx) => (
-                    <Link
-                      key={idx}
-                      to={card.path}
-                      className="group block border border-slate-100 rounded-2xl overflow-hidden hover:shadow-md transition-all bg-white"
-                    >
-                      <div className="relative h-36 overflow-hidden bg-slate-900">
-                        <img
-                          src={card.image}
-                          alt={card.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
-                        />
-                        <span className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[11px] font-bold text-slate-900 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                          {card.type}
-                        </span>
-                      </div>
-                      <div className="p-4">
-                        <h4 className="text-sm font-bold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">
-                          {card.title}
-                        </h4>
-                        <p className="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">
-                          {card.description}
-                        </p>
-                        <div className="mt-3 flex items-center gap-1 text-xs font-bold text-red-600">
-                          <span>{card.linkText}</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          <ResourcesMegaMenu onClose={() => setActiveMenu(null)} />
         </div>
       )}
 
@@ -500,6 +451,18 @@ export default function Header() {
               </Link>
               <Link to="/resources/webinars" className="block py-1 hover:text-red-600">
                 Webinars
+              </Link>
+              <Link to="/resources/product-guides" className="block py-1 hover:text-red-600">
+                Product Guides
+              </Link>
+              <Link to="/resources/training" className="block py-1 hover:text-red-600">
+                Training
+              </Link>
+              <Link to="/resources/help" className="block py-1 hover:text-red-600">
+                Help Centre
+              </Link>
+              <Link to="/resources/faqs" className="block py-1 hover:text-red-600">
+                FAQs
               </Link>
             </div>
 
