@@ -63,7 +63,7 @@ export default function SpecialistModal({ isOpen, onClose, defaultProduct = "Gen
     setIsSubmitting(true);
 
     try {
-      await fetch("/api/contact", {
+      const response = await fetch("/api/specialist-requests", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -71,13 +71,19 @@ export default function SpecialistModal({ isOpen, onClose, defaultProduct = "Gen
           email: formData.email,
           phone: formData.phone,
           company: formData.company,
-          subject: `Specialist Consultation: ${formData.product}`,
-          message: formData.message || `Customer requested a consultation regarding ${formData.product}`,
+          product: formData.product,
+          message: formData.message || `Customer requested a specialist consultation regarding ${formData.product}`,
         }),
       });
-      setIsSuccess(true);
+
+      const data = await response.json().catch(() => ({}));
+      if (response.ok && data.success !== false) {
+        setIsSuccess(true);
+      } else {
+        setErrors({ general: data.message || "Failed to submit request. Please try again." });
+      }
     } catch {
-      setIsSuccess(true);
+      setErrors({ general: "Network error. Please try again or call our office." });
     } finally {
       setIsSubmitting(false);
     }

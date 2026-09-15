@@ -29,15 +29,31 @@ import {
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setTimeout(() => {
-        setSubscribed(false);
-        setEmail('');
-      }, 4000);
+    if (!email.trim() || submitting) return;
+
+    setSubmitting(true);
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      if (response.ok) {
+        setSubscribed(true);
+        setTimeout(() => {
+          setSubscribed(false);
+          setEmail('');
+        }, 4000);
+      }
+    } catch {
+      // Fallback
+    } finally {
+      setSubmitting(false);
     }
   };
 

@@ -115,15 +115,15 @@ export default function TrialModal({ isOpen, onClose, defaultProductName }) {
         }),
       });
 
-      if (!response.ok) {
-        // Even if server returns non-200, don't leave user stranded
-        console.warn("Server trial submission fallback:", response.status);
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.success !== false) {
+        setIsSuccess(true);
+      } else {
+        setServerError(data.message || 'Failed to submit trial request. Please verify your details.');
       }
-      setIsSuccess(true);
     } catch (err) {
-      console.warn("Trial API call error, recording client-side lead:", err);
-      // Seamlessly fallback to successful confirmation
-      setIsSuccess(true);
+      setServerError('Connection error. Please check your internet connection.');
     } finally {
       setIsSubmitting(false);
     }

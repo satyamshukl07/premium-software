@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import HomePage from './pages/HomePage.jsx';
@@ -63,6 +63,18 @@ import AnalyticsPage from './pages/chm/AnalyticsPage.jsx';
 import ReportsPage from './pages/chm/ReportsPage.jsx';
 import SettingsPage from './pages/chm/SettingsPage.jsx';
 
+// Admin Panel Platform
+import { AdminAuthProvider } from './context/AdminAuthContext.jsx';
+import ProtectedRoute from './components/admin/ProtectedRoute.jsx';
+import AdminLoginPage from './pages/admin/AdminLoginPage.jsx';
+import AdminDashboardPage from './pages/admin/AdminDashboardPage.jsx';
+import AdminEnquiriesPage from './pages/admin/AdminEnquiriesPage.jsx';
+import AdminFreeTrialsPage from './pages/admin/AdminFreeTrialsPage.jsx';
+import AdminDemoRequestsPage from './pages/admin/AdminDemoRequestsPage.jsx';
+import AdminSpecialistsPage from './pages/admin/AdminSpecialistsPage.jsx';
+import AdminNewsletterPage from './pages/admin/AdminNewsletterPage.jsx';
+import AdminSettingsPage from './pages/admin/AdminSettingsPage.jsx';
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -80,6 +92,88 @@ function MainLayout() {
     location.pathname !== '/products/chm' &&
     location.pathname !== '/products/chm/' &&
     !location.pathname.startsWith('/products/chm/overview');
+
+  const isAdminApp = location.pathname.startsWith('/admin');
+
+  if (isAdminApp) {
+    return (
+      <Routes>
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Navigate to="/admin/dashboard" replace />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/enquiries"
+          element={
+            <ProtectedRoute>
+              <AdminEnquiriesPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/free-trials"
+          element={
+            <ProtectedRoute>
+              <AdminFreeTrialsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/demo-requests"
+          element={
+            <ProtectedRoute>
+              <AdminDemoRequestsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/specialist-requests"
+          element={
+            <ProtectedRoute>
+              <AdminSpecialistsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/newsletter"
+          element={
+            <ProtectedRoute>
+              <AdminNewsletterPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/settings"
+          element={
+            <ProtectedRoute>
+              <AdminSettingsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/*"
+          element={
+            <ProtectedRoute>
+              <Navigate to="/admin/dashboard" replace />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    );
+  }
 
   if (isChmApp) {
     return (
@@ -203,8 +297,10 @@ function MainLayout() {
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <MainLayout />
+      <AdminAuthProvider>
+        <ScrollToTop />
+        <MainLayout />
+      </AdminAuthProvider>
     </BrowserRouter>
   );
 }
