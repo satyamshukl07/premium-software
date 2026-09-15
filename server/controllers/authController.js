@@ -50,7 +50,7 @@ export async function login(req, res) {
     console.error('[Admin Login Error]:', err);
     return res.status(500).json({
       success: false,
-      message: 'Internal server error during login.',
+      message: err?.message ? `Login error: ${err.message}` : 'Internal server error during login.',
     });
   }
 }

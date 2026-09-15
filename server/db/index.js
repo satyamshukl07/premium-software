@@ -34,7 +34,9 @@ if (isPostgres) {
   // Use Node.js 22 built-in SQLite engine
   try {
     const { DatabaseSync } = require('node:sqlite');
-    const dataDir = path.join(process.cwd(), 'data');
+    // In serverless environments like Vercel/AWS Lambda, only /tmp is writable
+    const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+    const dataDir = isServerless ? '/tmp' : path.join(process.cwd(), 'data');
     if (!fs.existsSync(dataDir)) {
       fs.mkdirSync(dataDir, { recursive: true });
     }

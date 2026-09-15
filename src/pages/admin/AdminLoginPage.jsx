@@ -8,8 +8,8 @@ export default function AdminLoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [email, setEmail] = useState('techtonikadigital@gmail.com');
-  const [password, setPassword] = useState('techtonica@123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@mex.com.au"
+                  placeholder="Enter your admin email"
                   className="w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-hidden focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all text-xs"
                 />
               </div>
@@ -116,22 +116,6 @@ export default function AdminLoginPage() {
               )}
             </button>
           </form>
-
-          {/* Testing Credentials Quick Box */}
-          <div className="mt-6 pt-5 border-t border-slate-800 text-[11px] text-slate-400 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800/80">
-            <div className="flex items-center gap-1.5 text-slate-300 font-semibold mb-1">
-              <Shield className="w-3.5 h-3.5 text-sky-400" />
-              <span>Current Configured Credentials</span>
-            </div>
-            <p className="text-slate-400">
-              Email: <span className="font-mono text-white">techtonikadigital@gmail.com</span>
-              <br />
-              Password: <span className="font-mono text-white">techtonica@123</span>
-            </p>
-            <p className="text-[10px] text-slate-400 mt-1">
-              (You can change your password securely inside the Admin Settings tab)
-            </p>
-          </div>
         </div>
 
         {/* Back to website */}
