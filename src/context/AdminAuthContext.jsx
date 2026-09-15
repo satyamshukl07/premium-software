@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { getApiUrl } from '../config/api.js';
 
 const AdminAuthContext = createContext(null);
 
@@ -16,7 +17,8 @@ export function AdminAuthProvider({ children }) {
         ...(options.headers || {}),
       };
 
-      const res = await fetch(url, { ...options, headers });
+      const fullUrl = url.startsWith('http') ? url : getApiUrl(url);
+      const res = await fetch(fullUrl, { ...options, headers });
 
       if (res.status === 401) {
         // Token expired or invalid
@@ -42,7 +44,7 @@ export function AdminAuthProvider({ children }) {
       }
 
       try {
-        const res = await fetch('/api/admin/auth/me', {
+        const res = await fetch(getApiUrl('/api/admin/auth/me'), {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -78,24 +80,31 @@ export function AdminAuthProvider({ children }) {
   // Login action
   const login = async (email, password) => {
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(getApiUrl('/api/auth/login'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => null);
 
-      if (res.ok && data.success && data.token) {
+      if (res.ok && data && data.success && data.token) {
         localStorage.setItem('mex_admin_token', data.token);
         setToken(data.token);
         setAdmin(data.admin);
         return { success: true };
       } else {
-        return { success: false, message: data.message || 'Login failed. Please check credentials.' };
+        return {
+          success: false,
+          message: data?.message || `Login failed (${res.status}: ${res.statusText || 'Check credentials'}).`,
+        };
       }
     } catch (err) {
-      return { success: false, message: 'Server communication error. Please try again.' };
+      console.error('Login network error:', err);
+      return {
+        success: false,
+        message: 'Server communication error. Check your network or verify backend server is running.',
+      };
     }
   };
 

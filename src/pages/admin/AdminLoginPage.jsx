@@ -8,8 +8,8 @@ export default function AdminLoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [email, setEmail] = useState('admin@mex.com.au');
-  const [password, setPassword] = useState('AdminPass123!');
+  const [email, setEmail] = useState('techtonikadigital@gmail.com');
+  const [password, setPassword] = useState('techtonica@123');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -121,12 +121,12 @@ export default function AdminLoginPage() {
           <div className="mt-6 pt-5 border-t border-slate-800 text-[11px] text-slate-400 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800/80">
             <div className="flex items-center gap-1.5 text-slate-300 font-semibold mb-1">
               <Shield className="w-3.5 h-3.5 text-sky-400" />
-              <span>Initial Provisioned Credentials</span>
+              <span>Current Configured Credentials</span>
             </div>
             <p className="text-slate-400">
-              Email: <span className="font-mono text-white">admin@mex.com.au</span>
+              Email: <span className="font-mono text-white">techtonikadigital@gmail.com</span>
               <br />
-              Password: <span className="font-mono text-white">AdminPass123!</span>
+              Password: <span className="font-mono text-white">techtonica@123</span>
             </p>
             <p className="text-[10px] text-slate-400 mt-1">
               (You can change your password securely inside the Admin Settings tab)
