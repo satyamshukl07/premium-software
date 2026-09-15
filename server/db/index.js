@@ -264,8 +264,8 @@ export async function initializeDatabase() {
  */
 async function seedInitialAdmin() {
   try {
-    const adminEmail = (process.env.ADMIN_EMAIL || 'admin@mex.com.au').toLowerCase().trim();
-    const adminPassword = process.env.ADMIN_PASSWORD || 'AdminPass123!';
+    const adminEmail = (process.env.ADMIN_EMAIL || 'techtonikadigital@gmail.com').toLowerCase().trim();
+    const adminPassword = process.env.ADMIN_PASSWORD || 'techtonica@123';
     const adminName = process.env.ADMIN_NAME || 'MEX System Administrator';
 
     const check = await query('SELECT id, email FROM admins WHERE email = $1', [adminEmail]);

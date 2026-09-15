@@ -1,31 +1,36 @@
 import express from 'express';
-import cors from 'cors';
-import apiRoutes from './server/routes/api.js';
-import { initializeDatabase } from './server/db/index.js';
+import apiRoutes from '../server/routes/api.js';
+import { initializeDatabase } from '../server/db/index.js';
 
 const app = express();
 
-// Enable CORS for Vercel / external frontend calls
-app.use(
-  cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  })
-);
+// Standard CORS headers without external dependency
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  next();
+});
 
 app.use(express.json());
 
 // Initialize DB promise singleton so serverless invocations reuse connection
 let dbInitPromise = null;
 app.use(async (req, res, next) => {
-  if (!dbInitPromise) {
-    dbInitPromise = initializeDatabase().catch((err) => {
-      console.error('[Vercel API DB Init Error]:', err);
-      dbInitPromise = null;
-    });
+  try {
+    if (!dbInitPromise) {
+      dbInitPromise = initializeDatabase().catch((err) => {
+        console.error('[Vercel API DB Init Error]:', err);
+        dbInitPromise = null;
+      });
+    }
+    await dbInitPromise;
+  } catch (err) {
+    console.error('[Middleware DB Wait Error]:', err);
   }
-  await dbInitPromise;
   next();
 });
 

@@ -86,7 +86,13 @@ export function AdminAuthProvider({ children }) {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await res.json().catch(() => null);
+      const text = await res.text();
+      let data = null;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        // Not JSON
+      }
 
       if (res.ok && data && data.success && data.token) {
         localStorage.setItem('mex_admin_token', data.token);
@@ -94,9 +100,10 @@ export function AdminAuthProvider({ children }) {
         setAdmin(data.admin);
         return { success: true };
       } else {
+        const errorDetail = data?.message || (text && !text.includes('<html') ? text.slice(0, 120) : '') || `${res.status}: ${res.statusText || 'Check credentials'}`;
         return {
           success: false,
-          message: data?.message || `Login failed (${res.status}: ${res.statusText || 'Check credentials'}).`,
+          message: `Login failed (${errorDetail}).`,
         };
       }
     } catch (err) {
