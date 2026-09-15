@@ -719,6 +719,10 @@ export default function Footer() {
             <Link to="/sitemap" className="hover:text-white transition-colors">
               Sitemap
             </Link>
+            <span className="text-slate-600">|</span>
+            <Link to="/admin/login" className="text-red-400 hover:text-red-300 font-medium transition-colors">
+              Admin Portal
+            </Link>
           </div>
 
           {/* Global Motto */}
