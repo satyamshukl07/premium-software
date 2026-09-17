@@ -24,7 +24,6 @@ import {
   Headphones,
   Cpu,
   BookOpen,
-  ShieldCheck,
 } from 'lucide-react';
 import { navigationData } from '../data/contentData.js';
 import ProductMegaMenu from './ProductMegaMenu.jsx';
@@ -132,15 +131,6 @@ export default function Header() {
             className="hover:text-slate-900 transition-colors"
           >
             User Portal
-          </Link>
-          <span className="text-slate-300">|</span>
-          <Link
-            id="nav-admin-portal"
-            to="/admin/login"
-            className="hover:text-red-600 text-slate-700 font-semibold transition-colors flex items-center gap-1.5"
-          >
-            <ShieldCheck className="w-3.5 h-3.5 text-red-600" />
-            <span>Admin Portal</span>
           </Link>
           <span className="text-slate-300">|</span>
           <Link
@@ -488,14 +478,6 @@ export default function Header() {
               className="block px-3 py-2 text-base font-semibold text-slate-900 hover:bg-slate-50 rounded-lg mt-2"
             >
               User Portal / Login
-            </Link>
-
-            <Link
-              to="/admin/login"
-              className="block px-3 py-2 text-base font-bold text-red-600 hover:bg-red-50 rounded-lg flex items-center gap-2"
-            >
-              <ShieldCheck className="w-4 h-4 text-red-600" />
-              <span>Admin Portal</span>
             </Link>
 
             <Link

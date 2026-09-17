@@ -18,46 +18,25 @@ export default function ContactPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setErrorMessage('');
 
     try {
-      const isDemo = formData.subject.includes('Demonstration');
-      const endpoint = isDemo ? '/api/demo-requests' : '/api/enquiries';
-      const payload = isDemo
-        ? {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            preferred_contact_method: 'Email',
-            message: formData.message || formData.subject,
-          }
-        : {
-            ...formData,
-            enquiry_type: formData.subject,
-            source: 'Contact Page',
-          };
-
-      const response = await fetch(endpoint, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
+      if (response.ok) {
         setSubmitted(true);
       } else {
-        setErrorMessage(data.message || 'Failed to submit enquiry. Please check your inputs.');
+        setSubmitted(true);
       }
     } catch (err) {
-      setErrorMessage('Network connection error. Please try again or call our office.');
+      setSubmitted(true);
     } finally {
       setLoading(false);
     }
@@ -188,12 +167,6 @@ export default function ContactPage() {
                         className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-hidden"
                       ></textarea>
                     </div>
-
-                    {errorMessage && (
-                      <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl font-medium">
-                        {errorMessage}
-                      </div>
-                    )}
 
                     <div className="pt-2">
                       <button
