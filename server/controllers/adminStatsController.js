@@ -86,7 +86,7 @@ export async function getSystemSettings(req, res) {
     return res.status(200).json({
       success: true,
       data: {
-        app: 'MEX Maintenance Software / Techtonika Operations Platform',
+        app: 'Techtonika Autolink Operations Platform',
         version: '2.5.0-production',
         nodeVersion: process.version,
         uptime: Math.floor(process.uptime()),
@@ -100,7 +100,7 @@ export async function getSystemSettings(req, res) {
           passwordHashing: 'Bcrypt salt rounds: 10',
         },
         notifications: {
-          adminEmail: process.env.ADMIN_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL || 'admin@mex.com.au',
+          adminEmail: process.env.ADMIN_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL || 'admin@techtonika.com.au',
           resendConfigured: Boolean(process.env.RESEND_API_KEY),
           sendgridConfigured: Boolean(process.env.SENDGRID_API_KEY),
         },

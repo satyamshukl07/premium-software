@@ -61,8 +61,8 @@ export default function LoginPage() {
   };
 
   const fillDemoAccount = () => {
-    setEmail('demo@mex.com.au');
-    setPassword('mex12345');
+    setEmail('demo@techtonika.com.au');
+    setPassword('techtonika123');
     setErrorMessage('');
   };
 

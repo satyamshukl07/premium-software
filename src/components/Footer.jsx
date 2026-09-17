@@ -114,7 +114,7 @@ export default function Footer() {
   const solutionsData = {
     byProduct: [
       {
-        product: 'FOR MEX CMMS',
+        product: 'FOR TECHTONIKA AUTOLINK',
         color: 'text-sky-400',
         icon: <Settings className="w-3.5 h-3.5 text-sky-400" />,
         links: [
@@ -163,11 +163,11 @@ export default function Footer() {
   // Features Column Data
   const featuresData = [
     {
-      group: 'MEX CMMS FEATURES',
+      group: 'TECHTONIKA AUTOLINK FEATURES',
       color: 'text-sky-400',
       links: [
-        { label: 'Work Request Management', to: '/product/mex-cmms#features' },
-        { label: 'AI Insights & Reporting', to: '/product/mex-cmms#features' },
+        { label: 'Work Request Management', to: '/products/wrms-pro#features' },
+        { label: 'AI Insights & Reporting', to: '/products/wrms-pro#features' },
       ],
     },
     {

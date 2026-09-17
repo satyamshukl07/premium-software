@@ -49,7 +49,7 @@ export const fleetTrackingDetails = {
       "Coverage in remote Australian territories where consumer cellular networks drop out",
       "Ruggedized hardware built to withstand intense outback heat and vibrations",
       "Rapid self-installation with plug-and-play OBD-II devices or discrete hardwiring",
-      "Full integration with CHM rental operations and MEX maintenance scheduling",
+      "Full integration with CHM rental operations and Techtonika Autolink maintenance scheduling",
     ],
   },
   'fleet-tracking': {

@@ -35,7 +35,7 @@ export default function CareersPage() {
       location: 'Melbourne or Sydney / Remote',
       type: 'Full-time',
       salary: '$110k – $135k + Super',
-      desc: 'Partner with enterprise transport, mining, and manufacturing clients to migrate legacy asset records into MEX CMMS and train shift leaders.',
+      desc: 'Partner with enterprise transport, mining, and manufacturing clients to migrate legacy asset records into Techtonika Autolink and train shift leaders.',
       requirements: ['3+ years in CMMS or ERP software implementation', 'Strong grasp of preventive maintenance and asset hierarchies', 'Exceptional executive presentation and coaching skills'],
     },
     {

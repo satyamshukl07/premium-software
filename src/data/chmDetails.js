@@ -47,7 +47,7 @@ export const chmDetails = {
     photoUrl: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80",
     advantages: [
       "Eliminates toll notice fines and lost council parking ticket revenues",
-      "Direct sync with MEX CMMS for scheduled fleet servicing and roadworthy checks",
+      "Direct sync with Techtonika Autolink for scheduled fleet servicing and roadworthy checks",
       "Cloud-hosted in Australian data centers with high-speed encryption and automated backups",
       "Zero software installation required—runs smoothly on tablet, mobile, and desktop browsers",
     ],

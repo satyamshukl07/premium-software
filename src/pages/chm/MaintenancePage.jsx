@@ -70,7 +70,7 @@ export default function MaintenancePage() {
             Maintenance
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            Synchronized with MEX CMMS work orders, mechanical repairs, and routine services.
+            Synchronized with Techtonika Autolink work orders, mechanical repairs, and routine services.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ export default function MaintenancePage() {
           <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h2 className="text-xl font-bold text-slate-900 dark:text-white">Maintenance Schedule</h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">MEX CMMS linked vehicle repairs and preventative checkups</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Techtonika Autolink linked vehicle repairs and preventative checkups</p>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
@@ -253,7 +253,7 @@ export default function MaintenancePage() {
       <ViewDetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title="MEX CMMS Work Order Job Card"
+        title="Techtonika Autolink Work Order Job Card"
         data={selectedRecord}
       />
     </div>

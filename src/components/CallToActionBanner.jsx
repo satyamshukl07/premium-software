@@ -13,7 +13,7 @@ export default function CallToActionBanner() {
           Ready to simplify your maintenance management?
         </h2>
         <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-          MEX helps teams of all sizes simplify workflows, extend asset life, and prevent costly breakdowns. See why Australia's #1 CMMS is trusted by thousands of organisations.
+          Techtonika Autolink helps teams of all sizes simplify workflows, extend asset life, and prevent costly breakdowns. See why Techtonika Autolink is trusted by thousands of organisations.
         </p>
 
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">

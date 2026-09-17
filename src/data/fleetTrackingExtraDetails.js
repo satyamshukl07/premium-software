@@ -210,7 +210,7 @@ export const fleetTrackingExtraDetails = {
     description:
       "Seamlessly feed live vehicle coordinates, odometer readings, fuel consumption, and driver statuses into your enterprise ERP, CRM, and transport management systems.",
     overview:
-      "Siloed telematics platforms force dispatchers to constantly copy and paste data between multiple browser tabs. Australia Fleet Tracking features a robust, high-throughput RESTful API and real-time Webhook architecture. Push live odometer readings into MEX CMMS for maintenance scheduling, stream GPS locations into custom dispatch tools, and sync driver hours into payroll systems automatically.",
+      "Siloed telematics platforms force dispatchers to constantly copy and paste data between multiple browser tabs. Australia Fleet Tracking features a robust, high-throughput RESTful API and real-time Webhook architecture. Push live odometer readings into Techtonika Autolink for maintenance scheduling, stream GPS locations into custom dispatch tools, and sync driver hours into payroll systems automatically.",
     problemSolved:
       "Double data entry, outdated odometer readings in maintenance software, and disconnected logistics management tools.",
     whoItsFor:
@@ -218,18 +218,18 @@ export const fleetTrackingExtraDetails = {
     howItWorks: [
       { step: "01", title: "Generate API Tokens", desc: "Create secure, scoped API credentials in your Australia Fleet Tracking administrative console." },
       { step: "02", title: "Configure Webhooks", desc: "Subscribe to real-time events: geofence entry/exit, ignition on/off, and harsh braking triggers." },
-      { step: "03", title: "Automate Enterprise Workflows", desc: "Sync true vehicle odometers into MEX and update delivery job statuses in your CRM." },
+      { step: "03", title: "Automate Enterprise Workflows", desc: "Sync true vehicle odometers into Techtonika Autolink and update delivery job statuses in your CRM." },
     ],
     bullets: [
       "High-performance REST API with sub-100ms response times and 99.99% service level availability",
       "Real-time Webhook subscriptions streaming instant event payloads for geofence and alarm triggers",
-      "Pre-built native connectors for MEX CMMS, CHM, WRMS Pro, Xero, Salesforce, and SAP",
+      "Pre-built native connectors for Techtonika Autolink, CHM, WRMS Pro, Xero, Salesforce, and SAP",
       "Comprehensive Swagger / OpenAPI 3.0 documentation with interactive testing sandboxes",
     ],
     features: [
       { title: "RESTful Data Endpoints", desc: "Query live positions, historical breadcrumb trips, engine telemetry, and diagnostic fault codes." },
       { title: "Real-Time Webhook Engine", desc: "Eliminate wasteful polling—receive instant HTTP POST payloads the second an event occurs." },
-      { title: "Automated MEX Odometer Sync", desc: "Keep maintenance interval triggers accurate by feeding live CAN-bus odometers into MEX CMMS." },
+      { title: "Automated Autolink Odometer Sync", desc: "Keep maintenance interval triggers accurate by feeding live CAN-bus odometers into Techtonika Autolink." },
       { title: "Enterprise SSO & RBAC", desc: "Authenticate via SAML 2.0 / Okta with role-based access control across multi-tier teams." },
     ],
     stat1: "99.99%",
@@ -452,13 +452,13 @@ export const fleetTrackingExtraDetails = {
 
   'maintenance-triggers': {
     title: "Odometer & Engine Hour Maintenance Triggers",
-    subtitle: "Automated Service Intervals, Brake Reminders & Integration With MEX & WRMS Pro",
+    subtitle: "Automated Service Intervals, Brake Reminders & Integration With Techtonika Autolink & WRMS Pro",
     tag: "Preventive Care",
     badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     accentColor: "#10b981",
     category: "Australia Fleet Tracking",
     description:
-      "Automate maintenance schedules with live odometer and engine-hour tracking. Automatically trigger service job cards in MEX CMMS or WRMS Pro before breakdowns occur.",
+      "Automate maintenance schedules with live odometer and engine-hour tracking. Automatically trigger service job cards in Techtonika Autolink or WRMS Pro before breakdowns occur.",
     overview:
       "Relying on manual driver logbooks or windshield service stickers to schedule oil changes and brake inspections inevitably leads to skipped service intervals, voided manufacturer warranties, and catastrophic roadside breakdowns. Australia Fleet Tracking continuously reads true odometer distance and engine operating hours from the vehicle CAN-bus, automatically alerting workshop coordinators when vehicles are within 500 km of service due dates.",
     problemSolved:
@@ -468,13 +468,13 @@ export const fleetTrackingExtraDetails = {
     howItWorks: [
       { step: "01", title: "Configure Service Rules", desc: "Set maintenance triggers by distance (e.g., every 15,000 km) or engine hours (every 250 hours)." },
       { step: "02", title: "Live Telemetry Tracking", desc: "System continuously compares live vehicle odometer and run hours against service thresholds." },
-      { step: "03", title: "Automated Work Order Push", desc: "Proactively creates scheduled service work orders in MEX CMMS or WRMS Pro before due date." },
+      { step: "03", title: "Automated Work Order Push", desc: "Proactively creates scheduled service work orders in Techtonika Autolink or WRMS Pro before due date." },
     ],
     bullets: [
       "Direct CAN-bus odometer sync eliminates manual mileage recording by mechanics and drivers",
       "Engine-hour tracking ideal for stationary plant machinery, yellow mining equipment, and generators",
       "Proactive countdown warnings alert workshop coordinators at 1,000 km and 500 km before service due",
-      "Two-way integration with MEX CMMS and WRMS Pro for automated digital job card generation",
+      "Two-way integration with Techtonika Autolink and WRMS Pro for automated digital job card generation",
     ],
     features: [
       { title: "True CAN-Bus Odometer", desc: "Captures true instrument cluster distance with zero manual estimation or odometer fraud." },
@@ -488,7 +488,7 @@ export const fleetTrackingExtraDetails = {
     stat2Label: "Missed Scheduled Services",
     stat3: "35%",
     stat3Label: "Reduction in Engine Breakdowns",
-    stat4: "MEX / WRMS",
+    stat4: "Autolink / WRMS",
     stat4Label: "Direct Work Order Sync",
     image: "/images/fleet-tracking.svg",
     photoUrl: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80",

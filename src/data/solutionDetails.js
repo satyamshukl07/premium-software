@@ -528,16 +528,16 @@ const hireCarDetails = {
 // MEX CMMS core details
 const mexDetails = {
   'mex-overview': {
-    title: 'MEX Maintenance Software Overview',
+    title: 'Techtonika Autolink Overview',
     subtitle: "Australia's #1 Computerized Maintenance Management System (CMMS)",
     tag: 'Enterprise CMMS',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
-      'MEX is the trusted maintenance management software designed to track assets, schedule preventative work, manage spare parts inventory, and eliminate costly unexpected equipment downtime across mining, manufacturing, fleet, and public facilities.',
+      'Techtonika Autolink is the trusted maintenance management software designed to track assets, schedule preventative work, manage spare parts inventory, and eliminate costly unexpected equipment downtime across mining, manufacturing, fleet, and public facilities.',
     overview:
-      'Used by over 12,000 maintenance professionals globally and trusted by Australian tier-1 operators, MEX CMMS centralizes work orders, historical breakdowns, asset hierarchies, statutory certifications, and spare parts requisition into one reliable platform.',
+      'Used by over 12,000 maintenance professionals globally and trusted by Australian tier-1 operators, Techtonika Autolink centralizes work orders, historical breakdowns, asset hierarchies, statutory certifications, and spare parts requisition into one reliable platform.',
     problemSolved:
       'Unplanned production downtime, paper-based work order chaos, missing spare parts during emergencies, and non-compliance with statutory safety audits.',
     whoItsFor:
@@ -565,16 +565,16 @@ const mexDetails = {
     stat4Label: 'Industry Proven',
   },
   'mex-apps': {
-    title: 'MEX Mobile Apps',
+    title: 'Techtonika Autolink Mobile Apps',
     subtitle: 'Powerful Field Maintenance for iOS, Android & Rugged Scanners',
     tag: 'Mobile & Offline',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Empower your field technicians and tradespeople to manage jobs, inspect equipment, scan barcodes, and log parts usage on-site with zero paper and full offline sync.',
     overview:
-      'MEX Mobile puts the full power of your CMMS onto tablets and smartphones. Technicians working in remote underground mine shafts, processing basements, or remote transport depots continue working without Wi-Fi, syncing instantly when back in range.',
+      'Techtonika Autolink Mobile puts the full power of your CMMS onto tablets and smartphones. Technicians working in remote underground mine shafts, processing basements, or remote transport depots continue working without Wi-Fi, syncing instantly when back in range.',
     problemSolved:
       'Technicians having to return to desktop computers to log work orders, handwritten paperwork errors, and delayed job sign-offs.',
     whoItsFor:
@@ -602,12 +602,12 @@ const mexDetails = {
     stat4Label: 'Lost Paper Job Sheets',
   },
   services: {
-    title: 'MEX Professional Services',
+    title: 'Techtonika Autolink Professional Services',
     subtitle: 'Local Australian Support, Cloud Hosting & Expert Implementation',
     tag: 'Services & Support',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Backed by 30+ years of maintenance engineering know-how, our Brisbane-based support and consulting teams ensure seamless implementation and high adoption.',
     overview:
@@ -636,13 +636,13 @@ const mexDetails = {
   },
   integrations: {
     title: 'Enterprise Integrations',
-    subtitle: 'Connect MEX to Your Core ERP, Accounting, and SCADA Systems',
+    subtitle: 'Connect Techtonika Autolink to Your Core ERP, Accounting, and SCADA Systems',
     tag: 'Data Connectivity',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
-      'Break down data silos. MEX integrates cleanly with enterprise ERPs, financial tools, and telemetry hardware to keep inventory, purchase orders, and run hours in lockstep.',
+      'Break down data silos. Techtonika Autolink integrates cleanly with enterprise ERPs, financial tools, and telemetry hardware to keep inventory, purchase orders, and run hours in lockstep.',
     overview:
       'Connect maintenance directly with corporate finance and plant control systems. Seamlessly pass work order costs to ERPs, trigger maintenance from SCADA meters, and sync inventory with accounting tools.',
     problemSolved:
@@ -668,12 +668,12 @@ const mexDetails = {
     stat2Label: 'Double Data Entry',
   },
   'mex-engineering': {
-    title: 'MEX Engineering Solutions',
+    title: 'Techtonika Autolink Engineering Solutions',
     subtitle: 'Customized Reliability Engineering & Data Auditing',
     tag: 'Consulting',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Our team of seasoned reliability engineers helps clients optimize asset hierarchies, refine preventative maintenance triggers, and achieve ISO 55000 compliance.',
     overview:
@@ -684,7 +684,7 @@ const mexDetails = {
       'Plant operations directors, reliability teams, and asset portfolio managers.',
     bullets: [
       'Asset hierarchy structuring and criticality ranking workshops',
-      'Failure Modes and Effects Analysis (FMEA) alignment in MEX',
+      'Failure Modes and Effects Analysis (FMEA) alignment in Techtonika Autolink',
       'Preventative Maintenance Optimization (PMO) to eliminate wasteful inspections',
       'Compliance and statutory audit preparation across hazardous facilities',
     ],
@@ -706,11 +706,11 @@ const mexDetails = {
     tag: 'Inventory & Parts',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Ensure the right replacement parts are on hand before machines stop. Track bin locations, minimum reorder thresholds, catalog costs, and vendor lead times across warehouses.',
     overview:
-      'Prevent emergency overnight freight costs and production halts. MEX Inventory gives storepersons and planners complete visibility over spare parts stock, auto-generating purchase orders before critical supplies run out.',
+      'Prevent emergency overnight freight costs and production halts. Techtonika Autolink Inventory gives storepersons and planners complete visibility over spare parts stock, auto-generating purchase orders before critical supplies run out.',
     problemSolved:
       'Technicians opening store bins to find critical bearings missing, excess stock tying up working capital, and untracked parts shrinkage.',
     whoItsFor:
@@ -739,7 +739,7 @@ const mexDetails = {
     tag: 'Safety & Compliance',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Equip operators and drivers to complete mandatory pre-operational equipment checks directly on their phone or tablet before starting shift machinery.',
     overview:
@@ -772,7 +772,7 @@ const mexDetails = {
     tag: 'Workflows',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Allow facility occupants, machine operators, and staff to log maintenance requests in seconds without requiring full CMMS licenses.',
     overview:
@@ -805,9 +805,9 @@ const mexDetails = {
     tag: 'Enterprise Scale',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
-      'Oversee multiple factories, branches, ports, or mines from a single unified MEX database while maintaining granular site-level security.',
+      'Oversee multiple factories, branches, ports, or mines from a single unified Techtonika Autolink database while maintaining granular site-level security.',
     overview:
       'Scale your asset management nationwide or globally. Corporate leaders compare site KPIs and standardize maintenance plans, while regional branches manage their own stores and contractors independently.',
     problemSolved:
@@ -838,7 +838,7 @@ const mexDetails = {
     tag: 'Security & Admin',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Configure fields, user roles, security groups, approval thresholds, and detailed audit trails in one centralized control center.',
     overview:
@@ -871,7 +871,7 @@ const mexDetails = {
     tag: 'AI & Analytics',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Ask questions about maintenance spend, recurring failure causes, and technician hours in plain English and receive instant graphical charts and predictive models.',
     overview:
@@ -904,11 +904,11 @@ const mexDetails = {
     tag: 'Audits & Quality',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Set up automated inspection intervals to ensure critical statutory pressure vessels, fire systems, electrical gear, and lifting equipment are always certified.',
     overview:
-      'Never miss a statutory safety audit. MEX Inspections automates recurring compliance rounds for boilers, cranes, fire systems, and high-voltage gear with strict numeric tolerance checking and certificate generation.',
+      'Never miss a statutory safety audit. Techtonika Autolink Inspections automates recurring compliance rounds for boilers, cranes, fire systems, and high-voltage gear with strict numeric tolerance checking and certificate generation.',
     problemSolved:
       'Missed statutory inspections resulting in government shutdown notices, invalid insurance policies, and workplace safety hazards.',
     whoItsFor:
@@ -937,7 +937,7 @@ const mexDetails = {
     tag: 'AI Automation',
     badgeColor: 'bg-red-500/10 text-red-400 border-red-500/20',
     accentColor: '#dc2626',
-    category: 'MEX Maintenance Software',
+    category: 'Techtonika Autolink',
     description:
       'Use intelligent scheduling algorithms to balance trade availability, spare part arrival dates, and plant shutdown windows automatically.',
     overview:

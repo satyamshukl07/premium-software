@@ -49,7 +49,7 @@ export const wrmsDetails = {
       "Zero unbilled parts or lost mechanic labor hours",
       "Instant vehicle service history lookup by registration plate or VIN",
       "Professional SMS estimates increase customer upsell approval rates by 40%",
-      "Seamless integration with MEX CMMS for enterprise heavy-plant servicing",
+      "Seamless integration with Techtonika Autolink for enterprise heavy-plant servicing",
     ],
   },
   'wrms': {

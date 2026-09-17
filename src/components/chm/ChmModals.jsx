@@ -824,7 +824,7 @@ export function AddMaintenanceModal({ isOpen, onClose }) {
   };
 
   return (
-    <ModalBackdrop title="Schedule Vehicle Maintenance" subtitle="Sync job with MEX CMMS work order schedule" onClose={onClose}>
+    <ModalBackdrop title="Schedule Vehicle Maintenance" subtitle="Sync job with Techtonika Autolink work order schedule" onClose={onClose}>
       <form onSubmit={handleSubmit} className="space-y-4 text-sm">
         <div>
           <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Select Vehicle</label>

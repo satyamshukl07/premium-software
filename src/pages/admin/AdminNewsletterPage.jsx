@@ -84,7 +84,7 @@ export default function AdminNewsletterPage() {
     const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
     const link = document.createElement('a');
     link.setAttribute('href', encodeURI(csvContent));
-    link.setAttribute('download', `mex_subscribers_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute('download', `autolink_subscribers_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

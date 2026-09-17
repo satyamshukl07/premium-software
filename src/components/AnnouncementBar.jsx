@@ -10,7 +10,7 @@ export default function AnnouncementBar() {
           <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-red-600/30 text-red-400 border border-red-500/30">
             NEW
           </span>
-          <span>MEX launches MEX v16 in Australia, advancing its maintenance platform for modern operations.</span>
+          <span>Techtonika Autolink launches v16 in Australia, advancing its fleet & maintenance platform for modern operations.</span>
         </div>
         <Link
           id="cta-press-release"

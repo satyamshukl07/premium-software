@@ -284,7 +284,7 @@ export default function ChmLayout({ children }) {
             <div className="flex items-center justify-between text-[11px] text-slate-400 px-1">
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>MEX CMMS Sync</span>
+                <span>Techtonika Autolink Sync</span>
               </span>
               <span className="text-[10px] font-mono text-emerald-400 font-bold">ONLINE</span>
             </div>
@@ -323,13 +323,13 @@ export default function ChmLayout({ children }) {
 
             {/* Top Right Actions */}
             <div className="flex items-center gap-2 sm:gap-3">
-              {/* Back to MEX Site button */}
+              {/* Back to Autolink Site button */}
               <Link
                 to="/"
                 className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors"
-                title="Return to MEX CMMS Marketing Website"
+                title="Return to Techtonika Autolink Marketing Website"
               >
-                <span>Exit to MEX Site</span>
+                <span>Exit to Main Site</span>
                 <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
               </Link>
 

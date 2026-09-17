@@ -14,28 +14,28 @@ export const handlePricingCalculation = async (req, res) => {
     // Dynamic pricing calculation logic
     let usersCount = 5;
     let basePricePerUser = 110;
-    let plan = 'MEX Advanced';
+    let plan = 'Autolink Advanced';
 
     if (teamSize === '1-3') {
       usersCount = 2;
       basePricePerUser = 110;
-      plan = 'MEX Advanced';
+      plan = 'Autolink Advanced';
     } else if (teamSize === '4-10') {
       usersCount = 7;
       basePricePerUser = 145;
-      plan = 'MEX Professional';
+      plan = 'Autolink Professional';
     } else if (teamSize === '11-25') {
       usersCount = 18;
       basePricePerUser = 135;
-      plan = 'MEX Professional';
+      plan = 'Autolink Professional';
     } else if (teamSize === '26-50') {
       usersCount = 35;
       basePricePerUser = 125;
-      plan = 'MEX Enterprise';
+      plan = 'Autolink Enterprise';
     } else if (teamSize === '50+') {
       usersCount = 65;
       basePricePerUser = 115;
-      plan = 'MEX Enterprise';
+      plan = 'Autolink Enterprise';
     }
 
     const estimatedMonthlyCost = usersCount * basePricePerUser;

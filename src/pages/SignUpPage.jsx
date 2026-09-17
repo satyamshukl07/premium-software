@@ -116,7 +116,7 @@ export default function SignUpPage() {
             Create Your Account
           </h1>
           <p className="text-xs sm:text-sm text-slate-400">
-            Join thousands of businesses managing maintenance, operations, and fleet logistics with MEX.
+            Join thousands of businesses managing maintenance, operations, and fleet logistics with Techtonika Autolink.
           </p>
         </div>
 
@@ -286,7 +286,7 @@ export default function SignUpPage() {
                 className="mt-0.5 w-4 h-4 rounded-sm border-slate-700 bg-[#0b1320] text-red-600 focus:ring-red-500 cursor-pointer"
               />
               <span className="text-[11px] text-slate-400 leading-tight">
-                I agree to MEX’s <Link to="/terms" className="text-red-400 hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-red-400 hover:underline">Privacy Policy</Link>, and consent to secure account creation.
+                I agree to Techtonika Autolink’s <Link to="/terms" className="text-red-400 hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-red-400 hover:underline">Privacy Policy</Link>, and consent to secure account creation.
               </span>
             </label>
           </div>
@@ -331,7 +331,7 @@ export default function SignUpPage() {
             className="text-[11px] text-slate-500 hover:text-slate-300 transition-colors inline-flex items-center gap-1"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-slate-500" />
-            <span>MEX System Administrator Portal →</span>
+            <span>Techtonika Autolink Administrator Portal →</span>
           </Link>
         </div>
       </div>

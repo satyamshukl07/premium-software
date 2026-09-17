@@ -489,7 +489,7 @@ export const initialSettings = {
     linktTollApiKey: 'linkt_live_sk_89201948291048',
     eastlinkPartnerId: 'EL-PARTNER-4491',
     mexCmmsSyncEnabled: true,
-    mexCmmsEndpoint: 'https://api.mex.com.au/v4/fleet/sync',
+    mexCmmsEndpoint: 'https://api.techtonika.com.au/v4/fleet/sync',
     autoBackupDaily: true,
     retentionDays: 365,
   },

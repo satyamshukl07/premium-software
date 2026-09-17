@@ -22,7 +22,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-xl font-bold text-slate-900 mb-3">1. Agreement to Terms</h2>
           <p>
-            By accessing or using the services provided by Techtonika Automotive Solutions (Advanced Systems Pty Ltd, ABN 43 060 923 189), including MEX CMMS, Car Hire Manager (CHM), HireCar Marketplace, and Australia Fleet Tracking, you agree to be bound by these Terms of Service. If you do not agree to these terms, you must not access or utilize our applications.
+            By accessing or using the services provided by Techtonika Automotive Solutions (Advanced Systems Pty Ltd, ABN 43 060 923 189), including Techtonika Autolink, Car Hire Manager (CHM), HireCar Marketplace, and Australia Fleet Tracking, you agree to be bound by these Terms of Service. If you do not agree to these terms, you must not access or utilize our applications.
           </p>
         </div>
 

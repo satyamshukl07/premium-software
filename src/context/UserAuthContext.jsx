@@ -6,7 +6,7 @@ const UserAuthContext = createContext(null);
 export function UserAuthProvider({ children }) {
   const [user, setUser] = useState(() => {
     try {
-      const stored = localStorage.getItem('mex_user_data');
+      const stored = localStorage.getItem('techtonika_user_data') || localStorage.getItem('mex_user_data');
       return stored ? JSON.parse(stored) : null;
     } catch {
       return null;
@@ -14,7 +14,7 @@ export function UserAuthProvider({ children }) {
   });
 
   const [token, setToken] = useState(() => {
-    return localStorage.getItem('mex_user_token') || null;
+    return localStorage.getItem('techtonika_user_token') || localStorage.getItem('mex_user_token') || null;
   });
 
   const [loading, setLoading] = useState(true);
@@ -22,7 +22,7 @@ export function UserAuthProvider({ children }) {
   // Validate session on boot
   useEffect(() => {
     const verifySession = async () => {
-      const storedToken = localStorage.getItem('mex_user_token');
+      const storedToken = localStorage.getItem('techtonika_user_token') || localStorage.getItem('mex_user_token');
       if (!storedToken) {
         setLoading(false);
         return;
@@ -39,7 +39,8 @@ export function UserAuthProvider({ children }) {
           const data = await res.json();
           if (data.success && data.user) {
             setUser(data.user);
-            localStorage.setItem('mex_user_data', JSON.stringify(data.user));
+            localStorage.setItem('techtonika_user_data', JSON.stringify(data.user));
+            localStorage.removeItem('mex_user_data');
           }
         } else {
           // Token invalid or expired
@@ -68,8 +69,10 @@ export function UserAuthProvider({ children }) {
       if (res.ok && data.success) {
         setToken(data.token);
         setUser(data.user);
-        localStorage.setItem('mex_user_token', data.token);
-        localStorage.setItem('mex_user_data', JSON.stringify(data.user));
+        localStorage.setItem('techtonika_user_token', data.token);
+        localStorage.setItem('techtonika_user_data', JSON.stringify(data.user));
+        localStorage.removeItem('mex_user_token');
+        localStorage.removeItem('mex_user_data');
         return { success: true, user: data.user };
       } else {
         return { success: false, message: data.message || 'Login failed. Please check your credentials.' };
@@ -94,8 +97,10 @@ export function UserAuthProvider({ children }) {
         // Automatically login user upon registration!
         setToken(data.token);
         setUser(data.user);
-        localStorage.setItem('mex_user_token', data.token);
-        localStorage.setItem('mex_user_data', JSON.stringify(data.user));
+        localStorage.setItem('techtonika_user_token', data.token);
+        localStorage.setItem('techtonika_user_data', JSON.stringify(data.user));
+        localStorage.removeItem('mex_user_token');
+        localStorage.removeItem('mex_user_data');
         return { success: true, user: data.user, message: data.message };
       } else {
         return { success: false, message: data.message || 'Sign up failed. Please try again.' };
@@ -109,6 +114,8 @@ export function UserAuthProvider({ children }) {
   const logout = useCallback(() => {
     setToken(null);
     setUser(null);
+    localStorage.removeItem('techtonika_user_token');
+    localStorage.removeItem('techtonika_user_data');
     localStorage.removeItem('mex_user_token');
     localStorage.removeItem('mex_user_data');
   }, []);

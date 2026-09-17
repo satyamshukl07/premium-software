@@ -31,7 +31,7 @@ export const handleContactSubmit = async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      message: 'Thank you for reaching out! A MEX specialist will contact you within 1 business day.',
+      message: 'Thank you for reaching out! A Techtonika Autolink specialist will contact you within 1 business day.',
       data: newContact,
     });
   } catch (error) {

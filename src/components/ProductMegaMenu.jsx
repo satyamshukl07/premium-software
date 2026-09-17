@@ -42,7 +42,7 @@ export default function ProductMegaMenu({ onClose }) {
       badgeColor: 'bg-red-50 text-red-600 border-red-200',
       accentColor: 'red',
       icon: Wrench,
-      path: '/products/mex',
+      path: '/products/techtonika-autolink',
       image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80',
       description:
         'Australia’s premier workshop repair management system for digital job cards, technician labor clocking, parts inventory, and seamless customer invoicing.',
@@ -143,7 +143,7 @@ export default function ProductMegaMenu({ onClose }) {
         <div className="flex items-center justify-between pb-6 border-b border-slate-100">
           <div>
             <span className="text-[11px] font-extrabold uppercase tracking-wider text-red-600 block">
-              MEX Connected Suite
+              Techtonika Autolink Connected Suite
             </span>
             <h2 className="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
               <span>Choose a Product Ecosystem</span>

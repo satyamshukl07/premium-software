@@ -311,40 +311,40 @@ export const successStories = [
     id: 'cranbrook-school',
     company: 'Cranbrook School',
     title: 'Streamlining maintenance at Cranbrook School',
-    description: 'MEX has allowed an independent day and boarding school to better collate and view its maintenance information to help keep track of all work carried out on its heritage listed buildings.',
+    description: 'Techtonika Autolink has allowed an independent day and boarding school to better collate and view its maintenance information to help keep track of all work carried out on its heritage listed buildings.',
     stats: [
       { label: 'Sites', value: '6' },
       { label: 'Buildings', value: '30' },
       { label: 'Students', value: '1,600' },
     ],
     image: 'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1000&q=80',
-    quote: 'MEX gives our facilities team complete visibility over hundreds of maintenance jobs across sprawling school campuses.',
+    quote: 'Techtonika Autolink gives our facilities team complete visibility over hundreds of maintenance jobs across sprawling school campuses.',
   },
   {
     id: 'tip-top',
     company: 'Tip Top',
     title: 'Maintaining reliability & minimising waste with Tip Top',
-    description: "Australia's leading brand of quality bread and bakery products, Tip Top, uses MEX to plan the Preventive Maintenance of its assets, capture unplanned work, and track spare parts across nationwide bakeries.",
+    description: "Australia's leading brand of quality bread and bakery products, Tip Top, uses Techtonika Autolink to plan the Preventive Maintenance of its assets, capture unplanned work, and track spare parts across nationwide bakeries.",
     stats: [
       { label: 'Bakeries', value: '15' },
       { label: 'Production lines', value: '70' },
       { label: 'Employees', value: '4,500' },
     ],
     image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80',
-    quote: 'Preventing downtime is critical in perishable food production. MEX ensures our ovens, packaging lines, and conveyors run at peak performance.',
+    quote: 'Preventing downtime is critical in perishable food production. Techtonika Autolink ensures our ovens, packaging lines, and conveyors run at peak performance.',
   },
   {
     id: 'westrac',
     company: 'WesTrac',
     title: 'Precision asset records and audit-ready tracking at WesTrac',
-    description: 'WesTrac is one of the largest Caterpillar equipment dealers in the world. They leverage MEX to create exhaustive work histories, track component rebuilds, and streamline technical inspections.',
+    description: 'WesTrac is one of the largest Caterpillar equipment dealers in the world. They leverage Techtonika Autolink to create exhaustive work histories, track component rebuilds, and streamline technical inspections.',
     stats: [
       { label: 'Branches', value: '28' },
       { label: 'Technicians', value: '3,200+' },
       { label: 'Equipment Tracked', value: '50,000+' },
     ],
     image: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1000&q=80',
-    quote: "We use MEX to create a work history for audits. It's easy to use and has made my job easier.",
+    quote: "We use Techtonika Autolink to create a work history for audits. It's easy to use and has made my job easier.",
   },
 ];
 
@@ -389,7 +389,7 @@ export const awardsList = [
 export const pricingPlans = [
   {
     id: 'advanced',
-    name: 'MEX Advanced',
+    name: 'Autolink Advanced',
     badge: 'Best for small to medium teams',
     description: 'Streamlined maintenance and asset management.',
     startingPrice: '$110',
@@ -406,7 +406,7 @@ export const pricingPlans = [
   },
   {
     id: 'professional',
-    name: 'MEX Professional',
+    name: 'Autolink Professional',
     badge: 'Best for growing teams',
     popular: true,
     description: 'Comprehensive control over labour, materials, and operational workflows.',
@@ -425,7 +425,7 @@ export const pricingPlans = [
   },
   {
     id: 'enterprise',
-    name: 'MEX Enterprise',
+    name: 'Autolink Enterprise',
     badge: 'Best for complex teams',
     description: 'Complete control, governance, and scalability across multiple locations.',
     startingPrice: 'Custom',
@@ -475,7 +475,7 @@ export const blogArticles = [
     content: `
       As Australia's skilled trade workforce approaches retirement milestones, facilities risk losing decades of unwritten machinery know-how.
       
-      Digitizing operating manuals, standard operating procedures (SOPs), and prestart checklists within MEX ensures that incoming apprentices and technicians have immediate access to step-by-step guidance.
+      Digitizing operating manuals, standard operating procedures (SOPs), and prestart checklists within Techtonika Autolink ensures that incoming apprentices and technicians have immediate access to step-by-step guidance.
     `,
   },
   {
@@ -544,7 +544,7 @@ export const blogArticles = [
       1. Live Speed & Harsh Braking Alerts: Instant driver coaching minimizes unnecessary acceleration and tire wear.
       2. Idle Time Reduction: Identify vehicles idling on job sites, saving hundreds of liters of diesel weekly.
       3. Geofenced Automated Prestarts: Ensure operators complete roadworthy checks before ignition is enabled in hazardous zones.
-      4. Predictive Component Wear: Synchronize odometer meters directly with MEX CMMS and CHM for timely preventive servicing.
+      4. Predictive Component Wear: Synchronize odometer meters directly with Techtonika Autolink and CHM for timely preventive servicing.
     `,
   },
 ];

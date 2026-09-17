@@ -8,7 +8,7 @@ export default function OurStoryPage() {
     {
       year: '1993',
       title: 'Humble Beginnings in Brisbane',
-      desc: 'Founded by maintenance engineers frustrated by lost paper dockets and reactive breakdown chaos. The first version of MEX was engineered to deliver industrial-grade maintenance scheduling to Australian plants.',
+      desc: 'Founded by maintenance engineers frustrated by lost paper dockets and reactive breakdown chaos. The first version was engineered to deliver industrial-grade maintenance scheduling to Australian plants.',
     },
     {
       year: '2004',
@@ -28,7 +28,7 @@ export default function OurStoryPage() {
     {
       year: '2026',
       title: 'Techtonika Automotive Solutions',
-      desc: 'Under Techtonika by Advanced Systems, all four industry-leading platforms—MEX CMMS, CHM, HireCar Marketplace, and Australia Fleet Tracking—united into a comprehensive automotive software powerhouse.',
+      desc: 'Under Techtonika by Advanced Systems, all four industry-leading platforms—Techtonika Autolink, CHM, HireCar Marketplace, and Australia Fleet Tracking—united into a comprehensive automotive software powerhouse.',
     },
   ];
 

@@ -394,7 +394,7 @@ export default function Header() {
             <div className="pl-3 space-y-3 pt-2 text-sm">
               {/* Product 1: WRMS PRO */}
               <div className="border-l-2 border-red-500 pl-3 space-y-1">
-                <Link to="/products/mex" className="block font-bold text-slate-900 hover:text-red-600">
+                <Link to="/products/techtonika-autolink" className="block font-bold text-slate-900 hover:text-red-600">
                   WRMS PRO
                 </Link>
                 <div className="text-xs text-slate-500 space-y-1 pl-1">

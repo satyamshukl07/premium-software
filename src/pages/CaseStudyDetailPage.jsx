@@ -63,12 +63,12 @@ export default function CaseStudyDetailPage() {
             <div className="md:col-span-8 space-y-6 text-slate-700 leading-relaxed text-sm sm:text-base">
               <h3 className="text-2xl font-bold text-slate-900 tracking-tight">The Operational Challenge</h3>
               <p>
-                Prior to standardizing on MEX, {story.company} relied on fragmented paper slips, decentralized spreadsheets, and verbal work requests. This led to overlooked preventive maintenance, lack of historical audit records, and escalating repair overheads.
+                Prior to standardizing on Techtonika Autolink, {story.company} relied on fragmented paper slips, decentralized spreadsheets, and verbal work requests. This led to overlooked preventive maintenance, lack of historical audit records, and escalating repair overheads.
               </p>
 
-              <h3 className="text-2xl font-bold text-slate-900 tracking-tight">The MEX Solution</h3>
+              <h3 className="text-2xl font-bold text-slate-900 tracking-tight">The Techtonika Autolink Solution</h3>
               <p>
-                Implementing MEX allowed the operations leadership to register all physical assets into structured hierarchies, deploy MEX Mobile apps for tradespeople on the floor, and automate statutory certification inspections.
+                Implementing Techtonika Autolink allowed the operations leadership to register all physical assets into structured hierarchies, deploy mobile apps for tradespeople on the floor, and automate statutory certification inspections.
               </p>
 
               <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
@@ -98,7 +98,7 @@ export default function CaseStudyDetailPage() {
                 </div>
                 <div>
                   <span className="font-semibold text-slate-900 block">Deployment:</span>
-                  <span>MEX Enterprise Cloud</span>
+                  <span>Techtonika Autolink Cloud</span>
                 </div>
                 <div>
                   <span className="font-semibold text-slate-900 block">Location:</span>

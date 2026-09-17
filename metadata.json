@@ -1,6 +1,6 @@
 {
-  "name": "MEX Maintenance Software",
-  "description": "Australia's leading connected operations ecosystem featuring MEX CMMS, CHM Smart Car Hire Management, HireCar Marketplace, and Australia Fleet Tracking telematics.",
+  "name": "Techtonika Autolink",
+  "description": "Australia's leading connected operations ecosystem featuring Techtonika Autolink, CHM Smart Car Hire Management, HireCar Marketplace, and Australia Fleet Tracking telematics.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

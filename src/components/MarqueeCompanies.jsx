@@ -12,7 +12,7 @@ export default function MarqueeCompanies() {
           4,000+ global companies
         </h3>
         <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-xl mx-auto font-medium">
-          trust MEX Maintenance for their daily operations, compliance audits, and asset longevity.
+          trust Techtonika Autolink for their daily operations, compliance audits, and asset longevity.
         </p>
       </div>
 

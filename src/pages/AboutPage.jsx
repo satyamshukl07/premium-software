@@ -7,11 +7,11 @@ import AwardsGrid from '../components/AwardsGrid.jsx';
 export default function AboutPage() {
   const unifiedProducts = [
     {
-      name: 'MEX CMMS',
+      name: 'Techtonika Autolink',
       category: 'Enterprise Asset & Plant Maintenance',
       desc: 'Over 30 years powering preventative maintenance, inventory control, and work order workflows for 4,000+ sites.',
       icon: <Settings className="w-6 h-6 text-sky-400" />,
-      url: '/product/mex-cmms',
+      url: '/products/techtonika-autolink',
     },
     {
       name: 'CHM',

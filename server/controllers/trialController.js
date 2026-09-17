@@ -31,7 +31,7 @@ export const handleFreeTrialSubmit = async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      message: 'Your 30-day free MEX sandbox is provisioned and ready!',
+      message: 'Your 30-day free Techtonika Autolink sandbox is provisioned and ready!',
       data: {
         trialId: newTrial.id,
         status: 'Active',

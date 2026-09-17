@@ -4,7 +4,7 @@ import { getApiUrl } from '../config/api.js';
 const AdminAuthContext = createContext(null);
 
 export function AdminAuthProvider({ children }) {
-  const [token, setToken] = useState(() => localStorage.getItem('mex_admin_token') || '');
+  const [token, setToken] = useState(() => localStorage.getItem('techtonika_admin_token') || localStorage.getItem('mex_admin_token') || '');
   const [admin, setAdmin] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -22,6 +22,7 @@ export function AdminAuthProvider({ children }) {
 
       if (res.status === 401) {
         // Token expired or invalid
+        localStorage.removeItem('techtonika_admin_token');
         localStorage.removeItem('mex_admin_token');
         setToken('');
         setAdmin(null);
@@ -55,6 +56,7 @@ export function AdminAuthProvider({ children }) {
           }
         } else {
           // Token invalid
+          localStorage.removeItem('techtonika_admin_token');
           localStorage.removeItem('mex_admin_token');
           if (isMounted) {
             setToken('');
@@ -95,7 +97,8 @@ export function AdminAuthProvider({ children }) {
       }
 
       if (res.ok && data && data.success && data.token) {
-        localStorage.setItem('mex_admin_token', data.token);
+        localStorage.setItem('techtonika_admin_token', data.token);
+        localStorage.removeItem('mex_admin_token');
         setToken(data.token);
         setAdmin(data.admin);
         return { success: true };
@@ -117,6 +120,7 @@ export function AdminAuthProvider({ children }) {
 
   // Logout action
   const logout = () => {
+    localStorage.removeItem('techtonika_admin_token');
     localStorage.removeItem('mex_admin_token');
     setToken('');
     setAdmin(null);

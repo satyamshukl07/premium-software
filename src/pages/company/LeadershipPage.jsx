@@ -7,7 +7,7 @@ export default function LeadershipPage() {
     {
       name: 'Julian Vance',
       role: 'Chief Executive Officer & Founder',
-      bio: 'Over 28 years of leadership across industrial software, automotive telematics, and enterprise asset management. Led the original architecture for MEX and guided the group through multi-product consolidation.',
+      bio: 'Over 28 years of leadership across industrial software, automotive telematics, and enterprise asset management. Led the original architecture for Techtonika Autolink and guided the group through multi-product consolidation.',
       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
     },
     {

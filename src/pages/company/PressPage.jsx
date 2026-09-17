@@ -7,7 +7,7 @@ export default function PressPage() {
     {
       date: 'September 2, 2026',
       title: 'Techtonika Automotive Solutions Unveils Unified Fleet & Workshop Platform Across Australia',
-      summary: 'Advanced Systems consolidates MEX CMMS, CHM, HireCar Marketplace, and Australia Fleet Tracking to eliminate operational silos between maintenance bays, rental counters, and active road telematics.',
+      summary: 'Advanced Systems consolidates Techtonika Autolink, CHM, HireCar Marketplace, and Australia Fleet Tracking to eliminate operational silos between maintenance bays, rental counters, and active road telematics.',
       category: 'Corporate Announcement',
       readTime: '4 min read',
     },
@@ -27,7 +27,7 @@ export default function PressPage() {
     },
     {
       date: 'March 11, 2026',
-      title: 'MEX v16 CMMS Named 2026 Category Leader by Capterra & GetApp',
+      title: 'Techtonika Autolink Named 2026 Category Leader by Capterra & GetApp',
       summary: 'Recognized for outstanding user satisfaction, comprehensive asset hierarchies, and enterprise mobile adoption in heavy industrial engineering and transportation.',
       category: 'Industry Recognition',
       readTime: '3 min read',

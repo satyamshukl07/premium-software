@@ -9,10 +9,10 @@ export const getResources = (req, res) => {
       webinars: [
         {
           id: 'webinar-1',
-          title: 'Mastering Preventative Maintenance Scheduling in MEX v16',
+          title: 'Mastering Preventative Maintenance Scheduling in Techtonika Autolink v16',
           date: 'Live on October 14, 2026',
           duration: '45 mins',
-          speaker: 'David Henderson (MEX Senior Consultant)',
+          speaker: 'David Henderson (Techtonika Senior Consultant)',
           status: 'Upcoming',
         },
         {

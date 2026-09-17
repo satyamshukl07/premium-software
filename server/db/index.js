@@ -15,6 +15,26 @@ let pgPool = null;
 let sqliteDb = null;
 let dbType = 'sqlite';
 
+function initSqlite() {
+  if (sqliteDb) return sqliteDb;
+  try {
+    const { DatabaseSync } = require('node:sqlite');
+    const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+    const dataDir = isServerless ? '/tmp' : path.join(process.cwd(), 'data');
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    const dbPath = path.join(dataDir, 'mex_database.sqlite');
+    sqliteDb = new DatabaseSync(dbPath);
+    sqliteDb.exec('PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL;');
+    console.log(`[Database] Initialized SQLite database at ${dbPath}`);
+    return sqliteDb;
+  } catch (err) {
+    console.error('[Database] Failed to initialize SQLite database:', err);
+    return null;
+  }
+}
+
 if (isPostgres) {
   try {
     dbType = 'postgres';
@@ -29,24 +49,37 @@ if (isPostgres) {
     console.log('[Database] Initialized PostgreSQL connection pool');
   } catch (err) {
     console.error('[Database] Failed to initialize PostgreSQL pool:', err);
+    dbType = 'sqlite';
+    initSqlite();
   }
 } else {
-  // Use Node.js 22 built-in SQLite engine
-  try {
-    const { DatabaseSync } = require('node:sqlite');
-    // In serverless environments like Vercel/AWS Lambda, only /tmp is writable
-    const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
-    const dataDir = isServerless ? '/tmp' : path.join(process.cwd(), 'data');
-    if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir, { recursive: true });
-    }
-    const dbPath = path.join(dataDir, 'mex_database.sqlite');
-    sqliteDb = new DatabaseSync(dbPath);
-    sqliteDb.exec('PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL;');
-    dbType = 'sqlite';
-    console.log(`[Database] Initialized SQLite database at ${dbPath}`);
-  } catch (err) {
-    console.error('[Database] Failed to initialize SQLite database:', err);
+  initSqlite();
+}
+
+function querySqlite(sql, params = []) {
+  if (!sqliteDb) initSqlite();
+  if (!sqliteDb) {
+    return { rows: [], rowCount: 0 };
+  }
+  const sqliteSql = sql.replace(/\$(\d+)/g, '?');
+  const trimmed = sqliteSql.trim().toUpperCase();
+
+  if (trimmed.startsWith('SELECT') || trimmed.includes('RETURNING')) {
+    const stmt = sqliteDb.prepare(sqliteSql);
+    const rows = stmt.all(...params);
+    return {
+      rows: rows || [],
+      rowCount: rows ? rows.length : 0,
+      insertId: rows?.[0]?.id,
+    };
+  } else {
+    const stmt = sqliteDb.prepare(sqliteSql);
+    const result = stmt.run(...params);
+    return {
+      rows: [],
+      rowCount: Number(result.changes || 0),
+      insertId: Number(result.lastInsertRowid || 0),
+    };
   }
 }
 
@@ -57,36 +90,19 @@ if (isPostgres) {
  */
 export async function query(sql, params = []) {
   if (dbType === 'postgres' && pgPool) {
-    const res = await pgPool.query(sql, params);
-    return {
-      rows: res.rows,
-      rowCount: res.rowCount,
-      insertId: res.rows?.[0]?.id,
-    };
-  } else if (sqliteDb) {
-    // Translate $1, $2, $3 to ? for SQLite
-    const sqliteSql = sql.replace(/\$(\d+)/g, '?');
-    const trimmed = sqliteSql.trim().toUpperCase();
-
-    if (trimmed.startsWith('SELECT') || trimmed.includes('RETURNING')) {
-      const stmt = sqliteDb.prepare(sqliteSql);
-      const rows = stmt.all(...params);
+    try {
+      const res = await pgPool.query(sql, params);
       return {
-        rows: rows || [],
-        rowCount: rows ? rows.length : 0,
-        insertId: rows?.[0]?.id,
+        rows: res.rows,
+        rowCount: res.rowCount,
+        insertId: res.rows?.[0]?.id,
       };
-    } else {
-      const stmt = sqliteDb.prepare(sqliteSql);
-      const result = stmt.run(...params);
-      return {
-        rows: [],
-        rowCount: Number(result.changes || 0),
-        insertId: Number(result.lastInsertRowid || 0),
-      };
+    } catch (err) {
+      console.warn('[Database] Postgres query failed, falling back to SQLite:', err.message);
+      return querySqlite(sql, params);
     }
   } else {
-    throw new Error('No database connection available');
+    return querySqlite(sql, params);
   }
 }
 
@@ -96,8 +112,10 @@ export async function query(sql, params = []) {
 export async function initializeDatabase() {
   console.log(`[Database] Running schema migrations for [${dbType}]...`);
 
+  let postgresSucceeded = false;
   if (dbType === 'postgres' && pgPool) {
-    const postgresSchema = `
+    try {
+      const postgresSchema = `
       CREATE TABLE IF NOT EXISTS admins (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
@@ -185,9 +203,19 @@ export async function initializeDatabase() {
       CREATE INDEX IF NOT EXISTS idx_demo_requests_status ON demo_requests(status);
       CREATE INDEX IF NOT EXISTS idx_specialist_requests_status ON specialist_requests(status);
     `;
-    await pgPool.query(postgresSchema);
-  } else if (sqliteDb) {
-    const sqliteSchema = `
+      await pgPool.query(postgresSchema);
+      postgresSucceeded = true;
+    } catch (err) {
+      console.warn('[Database] PostgreSQL schema migration failed, falling back to SQLite:', err.message);
+      dbType = 'sqlite';
+      initSqlite();
+    }
+  }
+
+  if (!postgresSucceeded) {
+    initSqlite();
+    if (sqliteDb) {
+      const sqliteSchema = `
       CREATE TABLE IF NOT EXISTS admins (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR(255) NOT NULL,
@@ -276,6 +304,7 @@ export async function initializeDatabase() {
       CREATE INDEX IF NOT EXISTS idx_specialist_requests_status ON specialist_requests(status);
     `;
     sqliteDb.exec(sqliteSchema);
+    }
   }
 
   // Seed default admin and demo user if none exists
@@ -291,7 +320,7 @@ async function seedInitialAdmin() {
   try {
     const adminEmail = (process.env.ADMIN_EMAIL || 'techtonikadigital@gmail.com').toLowerCase().trim();
     const adminPassword = process.env.ADMIN_PASSWORD || 'techtonica@123';
-    const adminName = process.env.ADMIN_NAME || 'MEX System Administrator';
+    const adminName = process.env.ADMIN_NAME || 'Techtonika Autolink Administrator';
 
     const check = await query('SELECT id, email FROM admins WHERE email = $1', [adminEmail]);
 
@@ -319,8 +348,8 @@ async function seedInitialAdmin() {
  */
 async function seedInitialUser() {
   try {
-    const demoEmail = 'demo@mex.com.au';
-    const demoPassword = 'mex12345';
+    const demoEmail = 'demo@techtonika.com.au';
+    const demoPassword = 'techtonika123';
     const demoName = 'David Richardson';
     const demoCompany = 'Apex Industrial Processing';
     const demoPhone = '+61 400 987 654';

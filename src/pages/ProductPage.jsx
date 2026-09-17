@@ -32,7 +32,7 @@ export default function ProductPage() {
       badge: 'Automotive Repair SaaS',
       badgeStyle: 'bg-red-50 text-red-600 border-red-200',
       accentColor: 'red',
-      path: '/products/mex',
+      path: '/products/techtonika-autolink',
       image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80',
       description:
         'Australia’s modern, all-in-one workshop repair management software. Streamline work orders, digital job cards, technician labor clocking, parts inventory control, and customer invoicing.',
@@ -60,7 +60,7 @@ export default function ProductPage() {
         'Live fleet status & depot utilisation',
         'Automated toll notice billing (Linkt & EastLink)',
         'Pre-auth deposit hold & damage photo check-in',
-        'Direct maintenance sync into MEX CMMS',
+        'Direct maintenance sync into Techtonika Autolink',
       ],
       primaryCta: 'Launch CHM Console',
       stats: '100% Toll Recovery',
@@ -114,14 +114,14 @@ export default function ProductPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
           <span className="text-xs font-bold uppercase tracking-wider text-red-500 bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20 inline-flex items-center gap-1.5">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>MEX Unified Connected Suite</span>
+            <span>Techtonika Autolink Connected Suite</span>
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mt-4 mb-6">
             Four Powerful Platforms.{' '}
             <span className="text-red-500 block sm:inline">One Connected Ecosystem.</span>
           </h1>
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            From industrial plant maintenance to car rental reservations, automated toll recovery, and real-time 4G GPS fleet telematics, MEX powers mission-critical operations across Australia.
+            From industrial plant maintenance to car rental reservations, automated toll recovery, and real-time 4G GPS fleet telematics, Techtonika Autolink powers mission-critical operations across Australia.
           </p>
         </div>
       </section>

@@ -18,7 +18,7 @@ export default function BenefitsAccordion() {
             Streamline your maintenance with ease
           </h2>
           <p className="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
-            With 30+ years of operational experience, MEX combines high-powered asset management with a modern, human-centric interface built for engineers in the field.
+            With 30+ years of operational experience, Techtonika Autolink combines high-powered asset management with a modern, human-centric interface built for engineers in the field.
           </p>
         </div>
 

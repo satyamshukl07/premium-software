@@ -73,7 +73,7 @@ export default function ContactPage() {
             Australian Head Office
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mt-4 mb-4 font-sans">
-            Get in touch with the MEX team
+            Get in touch with the Techtonika Autolink team
           </h1>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Have questions about system capabilities, cloud hosting, training, or requesting a customized quote? Our Brisbane-based team is here to assist.
@@ -171,7 +171,7 @@ export default function ContactPage() {
                       >
                         <option>General Sales & Demonstration Inquiry</option>
                         <option>Pricing & Formal Quotation Request</option>
-                        <option>MEX v16 Upgrade Consultation</option>
+                        <option>Techtonika Autolink Upgrade Consultation</option>
                         <option>Certified Training Courses Inquiry</option>
                         <option>Technical Support Assistance</option>
                         <option>ERP / API Integration Discussion</option>
@@ -235,10 +235,10 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <span className="text-xs text-slate-500 block">Email Us</span>
-                      <a href="mailto:sales@mex.com.au" className="font-bold text-slate-900 hover:text-red-600">
-                        sales@mex.com.au
+                      <a href="mailto:sales@techtonika.com.au" className="font-bold text-slate-900 hover:text-red-600">
+                        sales@techtonika.com.au
                       </a>
-                      <span className="text-[11px] text-slate-400 block">or support@mex.com.au</span>
+                      <span className="text-[11px] text-slate-400 block">or support@techtonika.com.au</span>
                     </div>
                   </div>
 

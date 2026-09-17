@@ -23,10 +23,10 @@ export default function CaseStudySlider() {
           {/* Left Column: Headline & CTA (Col 5) */}
           <div className="lg:col-span-5 space-y-6">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-              See what's possible with MEX
+              See what's possible with Techtonika Autolink
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              MEX helps organisations—from schools to national manufacturers—lay strong foundations for reliability and long-term performance.
+              Techtonika Autolink helps organisations—from schools to national manufacturers—lay strong foundations for reliability and long-term performance.
             </p>
             <div>
               <Link

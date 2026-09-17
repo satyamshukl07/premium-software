@@ -80,7 +80,7 @@ export default function SettingsPage() {
             System Settings
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            Configure depot details, user roles, notification channels, and MEX CMMS API integrations.
+            Configure depot details, user roles, notification channels, and Techtonika Autolink API integrations.
           </p>
         </div>
       </div>
@@ -338,21 +338,21 @@ export default function SettingsPage() {
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs max-w-2xl space-y-6">
           <div>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-1">API Integrations & CMMS Sync</h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">Live connectors with MEX Maintenance software and GPS tracking providers</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Live connectors with Techtonika Autolink software and GPS tracking providers</p>
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 space-y-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Cpu className="w-4 h-4 text-blue-600" />
-                <span className="text-xs font-bold text-slate-900 dark:text-white">MEX CMMS API Connector</span>
+                <span className="text-xs font-bold text-slate-900 dark:text-white">Techtonika Autolink API Connector</span>
               </div>
               <span className="text-[10px] font-bold font-mono text-emerald-500 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded">
                 CONNECTED
               </span>
             </div>
             <p className="text-[11px] text-slate-500">
-              Synchronizing work orders, asset IDs, and preventative maintenance schedules with MEX CMMS Enterprise.
+              Synchronizing work orders, asset IDs, and preventative maintenance schedules with Techtonika Autolink Enterprise.
             </p>
           </div>
 

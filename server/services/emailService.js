@@ -1,15 +1,15 @@
 /**
- * Email Notification Service for MEX / Techtonika Operations
+ * Email Notification Service for Techtonika Autolink Operations
  * Sends notifications to administrators when forms are submitted.
  * Designed to gracefully log if SMTP/Email provider is not configured.
  */
 
-const ADMIN_NOTIFICATION_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL || 'admin@mex.com.au';
+const ADMIN_NOTIFICATION_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL || 'admin@techtonika.com.au';
 
 export async function sendAdminNotification({ type, data }) {
   try {
     const timestamp = new Date().toLocaleString('en-AU', { timeZone: 'Australia/Brisbane' });
-    const subject = `[MEX Notification] New ${type} from ${data.name || data.email || 'Visitor'}`;
+    const subject = `[Techtonika Autolink Notification] New ${type} from ${data.name || data.email || 'Visitor'}`;
 
     console.log('====================================================');
     console.log(`[Email Service Notification] - ${timestamp}`);

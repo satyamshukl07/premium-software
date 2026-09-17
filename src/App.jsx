@@ -236,6 +236,9 @@ function MainLayout() {
           <Route path="/product/wrms-pro" element={<CmmsPage />} />
           <Route path="/products/wrms" element={<CmmsPage />} />
           <Route path="/product/wrms" element={<CmmsPage />} />
+          <Route path="/products/techtonika-autolink" element={<CmmsPage />} />
+          <Route path="/product/techtonika-autolink" element={<CmmsPage />} />
+          <Route path="/products/autolink" element={<CmmsPage />} />
           <Route path="/products/mex" element={<CmmsPage />} />
           <Route path="/product/mex-cmms" element={<CmmsPage />} />
           <Route path="/products/chm" element={<ChmProductPage />} />

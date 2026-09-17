@@ -65,7 +65,7 @@ export default function BlogDetailPage() {
               1. Institutional Knowledge Capture
             </h3>
             <p>
-              By formalizing standard maintenance procedures inside MEX CMMS, teams can attach step-by-step checklists, hydraulic schematic diagrams, and video walkthroughs directly to repeatable work orders. Every repair performed becomes a learning asset for apprentices and new hires.
+              By formalizing standard maintenance procedures inside Techtonika Autolink, teams can attach step-by-step checklists, hydraulic schematic diagrams, and video walkthroughs directly to repeatable work orders. Every repair performed becomes a learning asset for apprentices and new hires.
             </p>
 
             <div className="my-8 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
@@ -83,7 +83,7 @@ export default function BlogDetailPage() {
               2. Eliminating Tribal Knowledge Gaps
             </h3>
             <p>
-              When a critical pump fails at 2:00 AM on a Sunday shift, the responding technician shouldn't have to guess the torque settings or wonder which vendor stocks the proprietary mechanical seal. MEX provides immediate access to complete historical work logs and bill-of-materials right on the technician's phone or tablet.
+              When a critical pump fails at 2:00 AM on a Sunday shift, the responding technician shouldn't have to guess the torque settings or wonder which vendor stocks the proprietary mechanical seal. Techtonika Autolink provides immediate access to complete historical work logs and bill-of-materials right on the technician's phone or tablet.
             </p>
 
             <h3 className="text-xl font-bold text-slate-900 mt-8 mb-4">

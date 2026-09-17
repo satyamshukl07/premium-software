@@ -80,7 +80,7 @@ export default function FleetTrackingProductPage() {
     {
       title: 'API & Integrations',
       slug: 'api-integrations',
-      desc: 'High-speed REST APIs and webhooks pushing live odometers directly into MEX CMMS maintenance work orders.',
+      desc: 'High-speed REST APIs and webhooks pushing live odometers directly into Techtonika Autolink maintenance work orders.',
       icon: <Cpu className="w-6 h-6 text-[#00c875]" />,
       tag: 'API & Telematics',
     },
@@ -117,7 +117,7 @@ export default function FleetTrackingProductPage() {
       slug: 'maintenance-triggers',
       desc: 'Trigger scheduled mechanical services automatically when assets reach specific mileage or engine hour thresholds.',
       icon: <Wrench className="w-6 h-6 text-[#00c875]" />,
-      tag: 'MEX CMMS Sync',
+      tag: 'Autolink Sync',
     },
   ];
 
@@ -125,11 +125,11 @@ export default function FleetTrackingProductPage() {
   const ecosystemProducts = [
     {
       id: 'mex',
-      name: 'MEX CMMS',
+      name: 'Techtonika Autolink',
       subtitle: 'Maintenance Management Software',
       badge: 'Core Enterprise CMMS',
       badgeStyle: 'bg-red-50 text-red-600 border-red-200',
-      path: '/products/mex',
+      path: '/products/techtonika-autolink',
       image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80',
       description:
         'Australia’s premier Computerised Maintenance Management System for complete asset lifecycle management, work order scheduling, and inventory control.',
@@ -171,7 +171,7 @@ export default function FleetTrackingProductPage() {
       path: '/products/fleet-tracking',
       image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=600&q=80',
       description:
-        'Next-generation 4G LTE-M vehicle GPS tracking and AI dual-facing dash cams. Live 5-second updates, ATO-compliant logbooks, and direct MEX CMMS integration.',
+        'Next-generation 4G LTE-M vehicle GPS tracking and AI dual-facing dash cams. Live 5-second updates, ATO-compliant logbooks, and direct Techtonika Autolink integration.',
       stats: '48,500+ Active Trackers',
       isActive: true,
     },
@@ -229,7 +229,7 @@ export default function FleetTrackingProductPage() {
         'Heavy-duty telematics for commercial fleets, civil contractors, and transport companies. Directly reads engine run hours, true odometer, and diagnostic fault codes.',
       highlights: [
         'Quick OBD-II or concealed 3-wire hardwired installation options',
-        'Live odometer and engine hours automatically synced into MEX CMMS',
+        'Live odometer and engine hours automatically synced into Techtonika Autolink',
         'Driver behavior scoring: harsh braking, rapid acceleration, speeding',
         'Automatic service reminder triggers based on real odometer distance',
       ],
@@ -240,9 +240,9 @@ export default function FleetTrackingProductPage() {
       badge: 'Developer & ERP Ready',
       tagline: 'Open REST APIs and direct enterprise telemetry synchronisation',
       description:
-        'Connect fleet telemetry directly with your enterprise software, including MEX CMMS, SAP, transport management systems (TMS), and custom data warehouses.',
+        'Connect fleet telemetry directly with your enterprise software, including Techtonika Autolink, SAP, transport management systems (TMS), and custom data warehouses.',
       highlights: [
-        'Push real-time vehicle odometer and engine run hours into MEX work orders',
+        'Push real-time vehicle odometer and engine run hours into Techtonika Autolink work orders',
         'Webhooks for live geofence crossings, panic alerts, and DTC fault codes',
         'Full Swagger/OpenAPI documentation with ready-to-run sample payloads',
         'Export telemetry in standard JSON, GeoJSON, and CSV formats',
@@ -451,7 +451,7 @@ export default function FleetTrackingProductPage() {
               { label: 'INSTANT ALERTS', desc: 'SMS & push alerts', icon: AlertTriangle },
               { label: 'DRIVER SAFETY', desc: 'AI camera scoring', icon: Shield },
               { label: 'REDUCE FUEL COSTS', desc: 'Cut idle by 25%', icon: Fuel },
-              { label: 'EASY INTEGRATION', desc: 'MEX CMMS native sync', icon: Wrench },
+              { label: 'EASY INTEGRATION', desc: 'Techtonika Autolink sync', icon: Wrench },
             ].map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -531,7 +531,7 @@ export default function FleetTrackingProductPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-slate-100">
             <div>
               <span className="text-xs uppercase font-extrabold tracking-wider text-red-600 block mb-1">
-                MEX Connected Suite
+                Techtonika Connected Suite
               </span>
               <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
                 <span>Choose a Product Ecosystem</span>
@@ -541,7 +541,7 @@ export default function FleetTrackingProductPage() {
               </h2>
             </div>
             <p className="text-xs text-slate-500 mt-2 md:mt-0 max-w-md">
-              Each product functions independently or links natively into the central MEX asset and maintenance ledger.
+              Each product functions independently or links natively into the central Techtonika Autolink asset and maintenance ledger.
             </p>
           </div>
 
@@ -631,7 +631,7 @@ export default function FleetTrackingProductPage() {
                   'Real-time 5-second GPS updates across Telstra and Optus nationwide 4G LTE-M networks',
                   'ATO-compliant digital logbook with automated private versus business trip categorisation',
                   'Dual AI dash cams with real-time facial recognition detecting driver fatigue and phone distraction',
-                  'Seamless vehicle odometer and engine run hour synchronization directly into MEX CMMS work orders',
+                  'Seamless vehicle odometer and engine run hour synchronization directly into Techtonika Autolink work orders',
                 ].map((point, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="p-1 rounded-full bg-emerald-100 text-[#00c875] flex-shrink-0 mt-0.5">
@@ -869,7 +869,7 @@ export default function FleetTrackingProductPage() {
               </h2>
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Connect Australia Fleet Tracking directly to MEX CMMS. Eliminate manual meter logging, prevent roadside breakdowns, and automate servicing intervals through real-time vehicle telematics.
+                Connect Australia Fleet Tracking directly to Techtonika Autolink. Eliminate manual meter logging, prevent roadside breakdowns, and automate servicing intervals through real-time vehicle telematics.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -962,7 +962,7 @@ export default function FleetTrackingProductPage() {
                     3
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-white">MEX CMMS Work Order Raised</h4>
+                    <h4 className="text-xs font-bold text-white">Techtonika Autolink Work Order Raised</h4>
                     <p className="text-[11px] text-slate-400 mt-0.5">
                       Work Order #WO-89104 dispatched to mechanical fitter with parts reserved.
                     </p>

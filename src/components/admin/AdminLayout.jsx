@@ -63,10 +63,10 @@ export default function AdminLayout({ children, title = 'Administration' }) {
         <div className="h-16 px-6 flex items-center justify-between border-b border-slate-800 bg-slate-950">
           <Link to="/admin/dashboard" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white font-black text-sm shadow-md">
-              M
+              T
             </div>
             <div>
-              <div className="font-bold text-sm tracking-wide text-white leading-tight">MEX Operations</div>
+              <div className="font-bold text-sm tracking-wide text-white leading-tight">Techtonika Autolink</div>
               <div className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Management Console</div>
             </div>
           </Link>

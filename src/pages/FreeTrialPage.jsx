@@ -82,10 +82,10 @@ export default function FreeTrialPage() {
             <span>30-Day Full Access Evaluation</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight font-sans">
-            Start your 30-day free trial of MEX
+            Start your 30-day free trial of Techtonika Autolink
           </h1>
           <p className="text-slate-300 text-sm sm:text-base mt-4 leading-relaxed">
-            Experience why 4,000+ facilities trust MEX. Full features enabled, pre-loaded sample data or start fresh with your own asset register.
+            Experience why 4,000+ facilities trust Techtonika Autolink. Full features enabled, pre-loaded sample data or start fresh with your own asset register.
           </p>
         </div>
       </section>
@@ -103,7 +103,7 @@ export default function FreeTrialPage() {
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900">Your Trial Is Ready!</h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Welcome aboard, {formData.firstName}! We have provisioned your dedicated 30-day MEX v16 cloud sandbox. Login credentials and activation links have been sent to{' '}
+                    Welcome aboard, {formData.firstName}! We have provisioned your dedicated 30-day Techtonika Autolink cloud sandbox. Login credentials and activation links have been sent to{' '}
                     <span className="font-bold text-slate-900">{formData.email}</span>.
                   </p>
                   <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -231,7 +231,7 @@ export default function FreeTrialPage() {
                   </div>
 
                   <div className="text-[11px] text-slate-400 text-center pt-2">
-                    By submitting, you agree to MEX terms of service. No credit card required.
+                    By submitting, you agree to Techtonika Autolink terms of service. No credit card required.
                   </div>
                 </form>
               )}
@@ -244,7 +244,7 @@ export default function FreeTrialPage() {
 
                 <div className="space-y-3.5 text-xs sm:text-sm">
                   {[
-                    'Full access to all MEX v16 features including Mobile Apps',
+                    'Full access to all Techtonika Autolink features including Mobile Apps',
                     'Pre-populated with realistic industrial equipment data',
                     'Option to upload your actual asset register via Excel template',
                     'Complimentary 1-on-1 walkthrough with an Australian CMMS engineer',
@@ -268,7 +268,7 @@ export default function FreeTrialPage() {
               {/* Customer review quote */}
               <div className="p-6 rounded-3xl bg-[#0b1320] text-white space-y-3">
                 <p className="text-xs sm:text-sm italic text-slate-300">
-                  "Within 48 hours of starting our MEX trial, we had all 300 campus assets mapped and our first automated preventive schedule live."
+                  "Within 48 hours of starting our Techtonika Autolink trial, we had all 300 campus assets mapped and our first automated preventive schedule live."
                 </p>
                 <div className="text-xs">
                   <span className="font-bold text-white block">Robert V.</span>

@@ -37,10 +37,10 @@ export default function AdminLoginPage() {
         {/* Logo and Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-red-600 shadow-xl shadow-red-600/30 text-white font-black text-2xl mb-4">
-            M
+            T
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            MEX Admin Portal
+            Techtonika Autolink Admin Portal
           </h1>
           <p className="text-xs sm:text-sm text-slate-400 mt-1">
             Sign in to access platform management and customer enquiries
