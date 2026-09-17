@@ -17,6 +17,7 @@ import {
   Database,
   ChevronRight,
   Sliders,
+  UserCheck,
 } from 'lucide-react';
 import DatabaseSetupModal from './DatabaseSetupModal.jsx';
 
@@ -37,6 +38,7 @@ export default function AdminLayout({ children, title = 'Administration' }) {
     { label: 'Free Trial Requests', to: '/admin/free-trials', icon: FlaskConical },
     { label: 'Demo Requests', to: '/admin/demo-requests', icon: PlaySquare },
     { label: 'Specialist Requests', to: '/admin/specialist-requests', icon: Users },
+    { label: 'Customer Accounts', to: '/admin/users', icon: UserCheck },
     { label: 'Newsletter', to: '/admin/newsletter', icon: Mail },
     { label: 'System & Security', to: '/admin/settings', icon: Settings },
   ];

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, ShieldCheck, ArrowRight, Lock, Sparkles, Building, Phone, Mail, User } from 'lucide-react';
 import CallToActionBanner from '../components/CallToActionBanner.jsx';
+import { getApiUrl } from '../config/api';
 
 export default function FreeTrialPage() {
   const [formData, setFormData] = useState({
@@ -25,22 +26,28 @@ export default function FreeTrialPage() {
     setErrorMsg('');
 
     try {
-      const response = await fetch('/api/trial', {
+      const payload = {
+        name: `${formData.firstName || ''} ${formData.lastName || ''}`.trim(),
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        requirements: `Sector: ${formData.sector} | Fleet/Users: ${formData.usersRange} | Hosting: ${formData.hostingPreference}`,
+      };
+
+      const response = await fetch(getApiUrl('/api/free-trial'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
-      if (response.ok && data.success) {
+      const data = await response.json().catch(() => ({}));
+      if (response.ok && data.success !== false) {
         setSubmitted(true);
       } else {
-        // Fallback for mock simulation
-        setSubmitted(true);
+        setErrorMsg(data.message || 'Failed to activate trial. Please check your details.');
       }
     } catch (err) {
-      // In case server is starting up or in sandbox mode
-      setSubmitted(true);
+      setErrorMsg('Connection error. Please try again or contact support.');
     } finally {
       setLoading(false);
     }

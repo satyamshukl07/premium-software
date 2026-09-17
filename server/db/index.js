@@ -108,6 +108,18 @@ export async function initializeDatabase() {
         updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
       );
 
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL,
+        company VARCHAR(255),
+        phone VARCHAR(100),
+        role VARCHAR(50) DEFAULT 'customer',
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+
       CREATE TABLE IF NOT EXISTS enquiries (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
@@ -186,6 +198,18 @@ export async function initializeDatabase() {
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
 
+      CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL,
+        company VARCHAR(255),
+        phone VARCHAR(100),
+        role VARCHAR(50) DEFAULT 'customer',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+
       CREATE TABLE IF NOT EXISTS enquiries (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR(255) NOT NULL,
@@ -254,8 +278,9 @@ export async function initializeDatabase() {
     sqliteDb.exec(sqliteSchema);
   }
 
-  // Seed default admin if none exists
+  // Seed default admin and demo user if none exists
   await seedInitialAdmin();
+  await seedInitialUser();
   console.log('[Database] Migrations and seeding check completed.');
 }
 
@@ -264,8 +289,8 @@ export async function initializeDatabase() {
  */
 async function seedInitialAdmin() {
   try {
-    const adminEmail = (process.env.ADMIN_EMAIL || 'admin@mex.com.au').toLowerCase().trim();
-    const adminPassword = process.env.ADMIN_PASSWORD || 'AdminPass123!';
+    const adminEmail = (process.env.ADMIN_EMAIL || 'techtonikadigital@gmail.com').toLowerCase().trim();
+    const adminPassword = process.env.ADMIN_PASSWORD || 'techtonica@123';
     const adminName = process.env.ADMIN_NAME || 'MEX System Administrator';
 
     const check = await query('SELECT id, email FROM admins WHERE email = $1', [adminEmail]);
@@ -286,6 +311,36 @@ async function seedInitialAdmin() {
     }
   } catch (err) {
     console.error('[Database] Failed to seed initial admin:', err);
+  }
+}
+
+/**
+ * Seed Initial Demo Customer Account
+ */
+async function seedInitialUser() {
+  try {
+    const demoEmail = 'demo@mex.com.au';
+    const demoPassword = 'mex12345';
+    const demoName = 'David Richardson';
+    const demoCompany = 'Apex Industrial Processing';
+    const demoPhone = '+61 400 987 654';
+
+    const check = await query('SELECT id, email FROM users WHERE email = $1', [demoEmail]);
+
+    if (check.rows.length === 0) {
+      console.log(`[Database] No demo user found. Seeding initial user: ${demoEmail}`);
+      const salt = await bcrypt.genSalt(10);
+      const hash = await bcrypt.hash(demoPassword, salt);
+
+      await query(
+        `INSERT INTO users (name, email, password_hash, company, phone, role)
+         VALUES ($1, $2, $3, $4, $5, 'customer')`,
+        [demoName, demoEmail, hash, demoCompany, demoPhone]
+      );
+      console.log('[Database] Demo customer seeded successfully.');
+    }
+  } catch (err) {
+    console.error('[Database] Failed to seed demo user:', err);
   }
 }
 

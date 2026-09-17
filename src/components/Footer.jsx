@@ -25,19 +25,36 @@ import {
   Navigation,
   Sparkles,
 } from 'lucide-react';
+import { getApiUrl } from '../config/api';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setTimeout(() => {
-        setSubscribed(false);
-        setEmail('');
-      }, 4000);
+    if (!email.trim() || submitting) return;
+
+    setSubmitting(true);
+    try {
+      const response = await fetch(getApiUrl('/api/newsletter'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      if (response.ok) {
+        setSubscribed(true);
+        setTimeout(() => {
+          setSubscribed(false);
+          setEmail('');
+        }, 4000);
+      }
+    } catch {
+      // Fallback
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -702,6 +719,18 @@ export default function Footer() {
             <span className="text-slate-600">|</span>
             <Link to="/sitemap" className="hover:text-white transition-colors">
               Sitemap
+            </Link>
+            <span className="text-slate-600">|</span>
+            <Link to="/login" className="text-slate-300 hover:text-white transition-colors">
+              User Portal
+            </Link>
+            <span className="text-slate-600">|</span>
+            <Link to="/signup" className="text-slate-300 hover:text-white transition-colors">
+              Sign Up
+            </Link>
+            <span className="text-slate-600">|</span>
+            <Link to="/admin/login" className="text-red-400 hover:text-red-300 font-medium transition-colors">
+              Admin Portal
             </Link>
           </div>
 

@@ -72,8 +72,88 @@ export function generateAdminToken(admin) {
       id: admin.id,
       email: admin.email,
       role: admin.role,
+      type: 'admin',
     },
     JWT_SECRET,
     { expiresIn: '7d' }
   );
 }
+
+/**
+ * Generate JWT Token for Regular Customer User
+ */
+export function generateUserToken(user) {
+  return jwt.sign(
+    {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      role: user.role || 'customer',
+      type: 'customer',
+    },
+    JWT_SECRET,
+    { expiresIn: '14d' }
+  );
+}
+
+/**
+ * Authentication Middleware for Customer / User routes
+ */
+export async function authenticateUser(req, res, next) {
+  try {
+    let token = null;
+    const authHeader = req.headers.authorization;
+
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      token = authHeader.split(' ')[1];
+    } else if (req.cookies && req.cookies.user_token) {
+      token = req.cookies.user_token;
+    }
+
+    if (!token) {
+      return res.status(401).json({
+        success: false,
+        message: 'Authentication required. Please log in.',
+      });
+    }
+
+    let decoded;
+    try {
+      decoded = jwt.verify(token, JWT_SECRET);
+    } catch (err) {
+      if (err.name === 'TokenExpiredError') {
+        return res.status(401).json({
+          success: false,
+          message: 'Your session has expired. Please log in again.',
+          expired: true,
+        });
+      }
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid session token.',
+      });
+    }
+
+    const userCheck = await query(
+      'SELECT id, name, email, company, phone, role, created_at FROM users WHERE id = $1',
+      [decoded.id]
+    );
+
+    if (userCheck.rows.length === 0) {
+      return res.status(401).json({
+        success: false,
+        message: 'User account not found or deleted.',
+      });
+    }
+
+    req.user = userCheck.rows[0];
+    next();
+  } catch (error) {
+    console.error('[User Auth Middleware Error]:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Authentication processing failed.',
+    });
+  }
+}
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, CheckCircle2, Loader2, Sparkles, ShieldCheck } from "lucide-react";
 import { products } from "../data/products";
+import { getApiUrl } from "../config/api";
 
 export default function TrialModal({ isOpen, onClose, defaultProductName }) {
   const [formData, setFormData] = useState({
@@ -100,7 +101,7 @@ export default function TrialModal({ isOpen, onClose, defaultProductName }) {
     const lastName = nameParts.slice(1).join(" ") || "Customer";
 
     try {
-      const response = await fetch("/api/free-trial", {
+      const response = await fetch(getApiUrl("/api/free-trial"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -115,15 +116,15 @@ export default function TrialModal({ isOpen, onClose, defaultProductName }) {
         }),
       });
 
-      if (!response.ok) {
-        // Even if server returns non-200, don't leave user stranded
-        console.warn("Server trial submission fallback:", response.status);
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.success !== false) {
+        setIsSuccess(true);
+      } else {
+        setServerError(data.message || 'Failed to submit trial request. Please verify your details.');
       }
-      setIsSuccess(true);
     } catch (err) {
-      console.warn("Trial API call error, recording client-side lead:", err);
-      // Seamlessly fallback to successful confirmation
-      setIsSuccess(true);
+      setServerError('Connection error. Please check your internet connection.');
     } finally {
       setIsSubmitting(false);
     }
@@ -133,6 +134,14 @@ export default function TrialModal({ isOpen, onClose, defaultProductName }) {
     setIsSuccess(false);
     setErrors({});
     setServerError("");
+    setFormData({
+      fullName: "",
+      businessName: "",
+      email: "",
+      phone: "",
+      productName: defaultProductName || products[0].name,
+      message: "",
+    });
     onClose();
   };
 

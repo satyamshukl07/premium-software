@@ -2,10 +2,18 @@ import express from 'express';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import apiRoutes from './server/routes/api.js';
+import { initializeDatabase } from './server/db/index.js';
 
 async function startServer() {
   const app = express();
   const PORT = 3000;
+
+  // Initialize SQL database schema & initial seed if needed
+  try {
+    await initializeDatabase();
+  } catch (err) {
+    console.error('[Server] Database initialization failed:', err);
+  }
 
   app.use(express.json());
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, MessageSquare } from 'lucide-react';
 import CallToActionBanner from '../components/CallToActionBanner.jsx';
+import { getApiUrl } from '../config/api';
 
 export default function ContactPage() {
   const [searchParams] = useSearchParams();
@@ -18,25 +19,46 @@ export default function ContactPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMessage('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const isDemo = formData.subject.includes('Demonstration');
+      const endpoint = isDemo ? '/api/demo-requests' : '/api/enquiries';
+      const payload = isDemo
+        ? {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            preferred_contact_method: 'Email',
+            message: formData.message || formData.subject,
+          }
+        : {
+            ...formData,
+            enquiry_type: formData.subject,
+            source: 'Contact Page',
+          };
+
+      const response = await fetch(getApiUrl(endpoint), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
-      if (response.ok) {
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.success !== false) {
         setSubmitted(true);
       } else {
-        setSubmitted(true);
+        setErrorMessage(data.message || 'Failed to submit enquiry. Please check your inputs.');
       }
     } catch (err) {
-      setSubmitted(true);
+      setErrorMessage('Network connection error. Please try again or call our office.');
     } finally {
       setLoading(false);
     }
@@ -167,6 +189,12 @@ export default function ContactPage() {
                         className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-hidden"
                       ></textarea>
                     </div>
+
+                    {errorMessage && (
+                      <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl font-medium">
+                        {errorMessage}
+                      </div>
+                    )}
 
                     <div className="pt-2">
                       <button

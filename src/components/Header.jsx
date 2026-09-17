@@ -24,14 +24,20 @@ import {
   Headphones,
   Cpu,
   BookOpen,
+  ShieldCheck,
+  User,
+  UserPlus,
+  LogOut,
 } from 'lucide-react';
 import { navigationData } from '../data/contentData.js';
 import ProductMegaMenu from './ProductMegaMenu.jsx';
 import SolutionsMegaMenu from './SolutionsMegaMenu.jsx';
 import ResourcesMegaMenu from './ResourcesMegaMenu.jsx';
 import TechtonikaLogo from './TechtonikaLogo.jsx';
+import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 export default function Header() {
+  const { user, isAuthenticated, logout } = useUserAuth();
   const [activeMenu, setActiveMenu] = useState(null); // 'product' | 'solutions' | 'resources' | null
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
@@ -131,6 +137,15 @@ export default function Header() {
             className="hover:text-slate-900 transition-colors"
           >
             User Portal
+          </Link>
+          <span className="text-slate-300">|</span>
+          <Link
+            id="nav-admin-portal"
+            to="/admin/login"
+            className="hover:text-red-600 text-slate-700 font-semibold transition-colors flex items-center gap-1.5"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-red-600" />
+            <span>Admin Portal</span>
           </Link>
           <span className="text-slate-300">|</span>
           <Link
@@ -249,14 +264,49 @@ export default function Header() {
           </nav>
 
           {/* Right Action CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link
-              id="nav-btn-login"
-              to="/login"
-              className="text-slate-700 hover:text-slate-900 text-sm font-semibold px-4 py-2 rounded-full hover:bg-slate-100 transition-colors"
-            >
-              Login
-            </Link>
+          <div className="hidden lg:flex items-center gap-2.5">
+            {isAuthenticated && user ? (
+              <div className="flex items-center gap-2">
+                <Link
+                  id="nav-btn-user-portal"
+                  to="/login"
+                  className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3.5 py-2 rounded-full border border-slate-200 transition-colors"
+                  title="Open Customer Portal"
+                >
+                  <span className="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center text-[11px] font-black">
+                    {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
+                  </span>
+                  <span>{user.name ? user.name.split(' ')[0] : 'Account'}</span>
+                </Link>
+
+                <button
+                  onClick={logout}
+                  title="Sign Out"
+                  className="text-slate-500 hover:text-red-600 p-2 rounded-full hover:bg-slate-100 transition-colors"
+                >
+                  <LogOut className="w-4 h-4" />
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link
+                  id="nav-btn-login"
+                  to="/login"
+                  className="text-slate-700 hover:text-slate-900 text-sm font-semibold px-3.5 py-2 rounded-full hover:bg-slate-100 transition-colors"
+                >
+                  Login
+                </Link>
+
+                <Link
+                  id="nav-btn-signup"
+                  to="/signup"
+                  className="bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-sm font-bold px-4 py-2 rounded-full transition-all shadow-xs flex items-center gap-1.5"
+                >
+                  <UserPlus className="w-3.5 h-3.5" />
+                  <span>Sign Up</span>
+                </Link>
+              </>
+            )}
 
             <a
               id="nav-btn-free-trial"
@@ -468,16 +518,72 @@ export default function Header() {
 
             <Link
               to="/pricing"
+              onClick={() => setMobileOpen(false)}
               className="block px-3 py-2 text-base font-semibold text-slate-900 hover:bg-slate-50 rounded-lg mt-2"
             >
               Plans & Pricing
             </Link>
 
+            {/* Customer Auth in Mobile Menu */}
+            {isAuthenticated && user ? (
+              <div className="mt-2 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-xs">
+                      {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-slate-900 leading-tight">{user.name}</p>
+                      <p className="text-[11px] text-slate-500 leading-tight">{user.email}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 mt-2 pt-2 border-t border-slate-200">
+                  <Link
+                    to="/login"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex-1 py-1.5 text-center bg-slate-900 text-white rounded-lg text-xs font-semibold"
+                  >
+                    Portal Dashboard
+                  </Link>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setMobileOpen(false);
+                    }}
+                    className="px-3 py-1.5 bg-red-100 text-red-700 hover:bg-red-200 rounded-lg text-xs font-semibold"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-2 mt-2">
+                <Link
+                  to="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="px-3 py-2 text-center text-sm font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg"
+                >
+                  Sign In / Login
+                </Link>
+                <Link
+                  to="/signup"
+                  onClick={() => setMobileOpen(false)}
+                  className="px-3 py-2 text-center text-sm font-bold text-red-600 bg-red-50 hover:bg-red-100 border border-red-200 rounded-lg flex items-center justify-center gap-1.5"
+                >
+                  <UserPlus className="w-3.5 h-3.5" />
+                  <span>Sign Up</span>
+                </Link>
+              </div>
+            )}
+
             <Link
-              to="/login"
-              className="block px-3 py-2 text-base font-semibold text-slate-900 hover:bg-slate-50 rounded-lg mt-2"
+              to="/admin/login"
+              onClick={() => setMobileOpen(false)}
+              className="block px-3 py-2 text-base font-bold text-red-600 hover:bg-red-50 rounded-lg flex items-center gap-2"
             >
-              User Portal / Login
+              <ShieldCheck className="w-4 h-4 text-red-600" />
+              <span>Admin Portal</span>
             </Link>
 
             <Link

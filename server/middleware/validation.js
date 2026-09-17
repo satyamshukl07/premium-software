@@ -97,13 +97,13 @@ export function validateFreeTrial(req, res, next) {
  * Validate Demo Request
  */
 export function validateDemoRequest(req, res, next) {
-  const { name, email, phone, company, preferred_contact_method, message } = req.body || {};
+  const { name, fullName, email, phone, company, businessName, preferred_contact_method, preferredContactMethod, message } = req.body || {};
 
-  const cleanName = sanitizeString(name);
+  const cleanName = sanitizeString(name || fullName);
   const cleanEmail = sanitizeString(email).toLowerCase();
   const cleanPhone = sanitizeString(phone);
-  const cleanCompany = sanitizeString(company);
-  const cleanMethod = sanitizeString(preferred_contact_method) || 'Email';
+  const cleanCompany = sanitizeString(company || businessName);
+  const cleanMethod = sanitizeString(preferred_contact_method || preferredContactMethod) || 'Email';
   const cleanMessage = sanitizeString(message);
 
   if (!cleanName || cleanName.length < 2) {
@@ -136,12 +136,12 @@ export function validateDemoRequest(req, res, next) {
  * Validate Specialist Request
  */
 export function validateSpecialistRequest(req, res, next) {
-  const { name, email, phone, company, message, product } = req.body || {};
+  const { name, fullName, email, phone, company, businessName, message, product } = req.body || {};
 
-  const cleanName = sanitizeString(name);
+  const cleanName = sanitizeString(name || fullName);
   const cleanEmail = sanitizeString(email).toLowerCase();
   const cleanPhone = sanitizeString(phone);
-  const cleanCompany = sanitizeString(company);
+  const cleanCompany = sanitizeString(company || businessName);
   const cleanProduct = sanitizeString(product);
   const rawMsg = message || (cleanProduct ? `Consultation requested regarding ${cleanProduct}` : '');
   const cleanMessage = sanitizeString(rawMsg);

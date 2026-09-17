@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, CheckCircle2, Loader2, PlaySquare, ShieldCheck, Mail, Phone, Building, User } from "lucide-react";
 import { products } from "../data/products";
+import { getApiUrl } from "../config/api";
 
 export default function DemoModal({ isOpen, onClose, defaultProductName }) {
   const [formData, setFormData] = useState({
@@ -73,7 +74,7 @@ export default function DemoModal({ isOpen, onClose, defaultProductName }) {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch("/api/demo", {
+      const response = await fetch(getApiUrl("/api/demo"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -86,9 +87,9 @@ export default function DemoModal({ isOpen, onClose, defaultProductName }) {
         }),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
-      if (response.ok && data.success) {
+      if (response.ok && data.success !== false) {
         setIsSuccess(true);
       } else {
         setServerError(data.message || "Failed to submit demo request. Please try again.");
